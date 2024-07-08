@@ -12,7 +12,20 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        'custom-green': 'rgba(17, 140, 79, 1)',
+        'custom-black':'rgba(71, 71, 71, 1)',
+        'black-100':'rgba(0, 0, 0, 1)',
+       'custom-blue': 'rgba(0, 105, 217, 1)',
+       'custom-green':'rgba(248, 251, 255, 1)',
+       'custom-brown':'rgba(191, 191, 191, 1)',
+       'custom-red':' rgba(255, 62, 48, 1)',
+       'custom-blue-100':'rgba(60, 88, 152, 1)',
+      'custom-green-100':'rgba(96, 187, 71, 1)',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('daisyui'),
+  ],
 };

@@ -31,3 +31,52 @@ body {
     text-wrap: balance;
   }
 }
+.gradient-border {
+  height: 5px;
+  background-color: #007038;
+  width: 30%;
+  background-image: linear-gradient(to right, #007038, #fff );
+ 
+}
+
+.steps .step::after {
+  content: '';
+  height: 1rem;
+  width: 1rem;
+  
+}
+.steps .step:before {
+  top: 0px;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  height: 0.2rem;
+  width: 100%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b3, oklch(var(--b3) / var(--tw-bg-opacity)));
+  --tw-text-opacity: 1;
+  color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
+  content: "";
+  margin-inline-start: -100%;
+
+}
+
+.steps .step-primary + .step-primary:before {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b3, oklch(var(--b3) / var(--tw-bg-opacity)));
+  --tw-text-opacity: 1;
+  color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
+}
+.steps .step-primary +  .step-primary:after {
+  --tw-bg-opacity: 1;
+  background-color: rgba(0, 105, 217, 1);
+  --tw-text-opacity: 1;
+  color: var(--fallback-pc, oklch(var(--pc) / var(--tw-text-opacity)));
+}
+
+/* .steps .step-primary + .step-primary:before, .steps .step-primary:after {
+  --tw-bg-opacity: 1;
+  background-color: rgba(0, 105, 217, 1);
+  --tw-text-opacity: 1;
+  color: var(--fallback-pc, oklch(var(--pc) / var(--tw-text-opacity)));
+} */
