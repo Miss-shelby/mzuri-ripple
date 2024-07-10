@@ -1,8 +1,7 @@
 import Image from "next/image"
 
 export const ProjectCard = ({img,title,owner,description="",startPrice,endPrice,backers,days,height,width,location,longDescription })=>{
-  // const d ='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales.'
-  // console.log(d.length);
+
     return (
       <div className="card card-compact bg-base-100 shadow-xl rounded-[3px]">
       <div className={`relative w-full h-auto`} >

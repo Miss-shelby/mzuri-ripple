@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { MdOutlineNavigateNext } from "react-icons/md";
 import { ProjectCard } from "../ProjectCard";
+import Link from "next/link";
 const bika = "/Bikah.png";
 const scooter ="/ElectricScooter.png";
 const library ="/library.png"
@@ -65,7 +66,7 @@ const All = () => {
           </div>
       </div> 
       <div className="flex text-right items-center justify-end mt-10">
-      <p className=" text-black-100 font-medium ">See all projects </p>
+      <p className=" text-black-100 font-medium "><Link href='/explore'>See all projects</Link> </p>
         <p className=""><MdOutlineNavigateNext /></p>
       </div>
     </div>
