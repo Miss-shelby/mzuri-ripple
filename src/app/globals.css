@@ -80,3 +80,11 @@ body {
   --tw-text-opacity: 1;
   color: var(--fallback-pc, oklch(var(--pc) / var(--tw-text-opacity)));
 } */
+
+
+/* placeholder styles */
+.custom-placeholder::placeholder {
+  color: rgba(0, 0, 0, 1); 
+  opacity: 1; 
+  font-size: 14px;
+}
