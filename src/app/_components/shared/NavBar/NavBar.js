@@ -18,7 +18,16 @@ const NavBar = () => {
       <div className="flex items-center">
         <BsSearch className="h-4 w-4" />
         <p className="text-[18px] px-[2rem] cursor-pointer"><Link href="/login">Sign in</Link></p>
-       <Button>{pathname ==='/'? <Link href="/getstarted">How it works</Link>  : pathname.slice(1)}</Button>
+       {/* <Button>{ pathname ==='/'? <Link href="/getstarted">How it works</Link>  : pathname.slice(1)}</Button> */}
+       {
+        <Button>
+        {pathname === '/login' && <Link href="/register">Register</Link>}
+        {pathname === '/explore' && <Link href="/getstarted">Get Started</Link>}
+        {pathname == '/register' && <Link href="/login"> Login</Link>}
+        {pathname !== '/login' && pathname !== '/explore' && pathname !== '/register' && (<Link href="/getstarted">How it works</Link> )}
+      </Button>
+      
+       }
       </div>
     </div>
   );

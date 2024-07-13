@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${montserrat.className}min-h-screen w-full` } >
-        <div className="max-w-[1920px] mx-auto min-h-screen   px-[15rem] bg-white">
+        <div className="max-w-[1920px] mx-auto min-h-screen   px-[10rem] bg-white">
           <NavBar/>
           {children}
         </div>

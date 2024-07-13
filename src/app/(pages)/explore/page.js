@@ -135,7 +135,7 @@ const ExplorePage = () => {
             <ProjectCard key={project.title} title={project.title} 
             description={project.description} 
             startPrice={project.startPrice} endPrice={project.endPrice} location={project.location}
-             img={project.image} height={100} width={100}/>
+             img={project.image} height={186} width={389}/>
         )
       })}
       </div>

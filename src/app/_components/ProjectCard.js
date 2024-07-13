@@ -4,13 +4,13 @@ export const ProjectCard = ({img,title,owner,description="",startPrice,endPrice,
 
     return (
       <div className="card card-compact bg-base-100 shadow-xl rounded-[3px]">
-      <div className={`relative w-full h-auto`} >
+      <div className="relative" style={{ height: `${height}px`, width: `${width}px` }}>
         <Image
           src={img}
           quality={100}
          height={height}
          width={width}
-        layout="responsive"
+        
           alt="project_Image"
   
         />
