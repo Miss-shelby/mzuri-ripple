@@ -26,8 +26,8 @@ export const ProjectCard = ({img,title,owner,description="",startPrice,endPrice,
         {longDescription }</p> }
         
         <div className="flex w-full justify-between ">
-          <p className="text-custom-green text-xl font-medium flex-grow-0">{startPrice}</p>
-          <p className="text-custom-green text-xl font-medium flex-grow-0">{endPrice}</p>
+          <p className="text-custom-green-100 text-xl font-medium flex-grow-0">{startPrice}</p>
+          <p className="text-custom-green-100  text-xl font-medium flex-grow-0">{endPrice}</p>
         </div>
         <div className="gradient-border"></div>
         <div id="grad"></div>
@@ -60,8 +60,8 @@ export const RecommendedProjectCard = ({img,img2,title,owner,description,startPr
         <p className="text-black-100 font-[500] flex-grow-0">{owner}</p>
         <p className="text-[13px] font-normal flex-grow-0">{description}</p>
         <div className="flex w-full justify-between ">
-          <p className="text-custom-green text-xl font-medium flex-grow-0">{startPrice}</p>
-          <p className="text-custom-green text-xl font-medium flex-grow-0">{endPrice}</p>
+          <p className="text-custom-green-100 text-xl font-medium flex-grow-0">{startPrice}</p>
+          <p className="text-custom-green-100 text-xl font-medium flex-grow-0">{endPrice}</p>
         </div>
         <div className="gradient-border"></div>
         <div id="grad"></div>

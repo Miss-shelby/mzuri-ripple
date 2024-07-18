@@ -16,62 +16,65 @@ const headPhoneIcon="/headphone.png"
 
 const GetStarted = () => {
   return (
-    <section>
-      <div className="flex flex-col items-center justify-center pt-[6.4rem] text-black-100 ">
-        <p className="font-medium text-3xl">How KICKSTARTER Works</p>
-        <p className="pt-6 font-medium text-xl">
-          KickStarter is the best place to fundraise, whether you are an
-          individual, group,
-          <span className="block text-center "> or organization.</span>
-        </p>
-      </div>
-      <div className="w-full flex justify-center">
-        <Image
-          src={dollarImg}
-          alt="dollar image"
-          width={400}
-          height={400}
-          quality={100}
-        />
-      </div>
-      <div className="flex justify-between ">
-        <div>
-          <p className="font-medium text-lg text-black-100">Start a fundraiser</p>
-          <ul className="list-disc font-medium text-black-100 mt-5 leading-9 ml-6">
-            <li>Set your fundraiser goal</li>
-            <li>Tell your story</li>
-            <li>Add a picture or video</li>
-            <li className="text-custom-blue cursor-pointer">Watch a video tutorial</li>
-          </ul>
-        </div>
-        <div>
-          <p className="font-medium text-lg text-black-100">Share with friends</p>
-          <ul className="list-disc font-medium text-black-100 mt-5 leading-9 ml-6">
-            <li>Send emails</li>
-            <li>Send text messages</li>
-            <li>Share on social media</li>
-            <li className="text-custom-blue cursor-pointer">Watch a video tutorial</li>
-          </ul>
-        </div>
-        <div>
-          <p className="font-medium text-lg text-black-100">Manage Donation</p>
-          <ul className="list-disc font-medium text-black-100 mt-5 leading-9 ml-6">
-            <li>Accept donations</li>
-            <li>Thank donors</li>
-            <li>Withdraw funds</li>
-          </ul>
-        </div>
-      </div>
-     <div className="flex justify-center mb-10">
+    <section >
+      <div className=" max-w-[1920px] mx-auto  px-[10rem] bg-white ">
+
+          <div className="flex flex-col items-center justify-center pt-[6.4rem] text-black-100 ">
+            <p className="font-medium text-3xl">How RIPPLE Works</p>
+            <p className="pt-6 font-medium text-xl">
+              Ripple is the best place to fundraise, whether you are an
+              individual, group,
+              <span className="block text-center "> or organization.</span>
+            </p>
+          </div>
+          <div className="w-full flex justify-center">
+            <Image
+              src={dollarImg}
+              alt="dollar image"
+              width={400}
+              height={400}
+              quality={100}
+            />
+          </div>
+          <div className="flex justify-between ">
+            <div>
+              <p className="font-medium text-lg text-black-100">Start a fundraiser</p>
+              <ul className="list-disc font-medium text-black-100 mt-5 leading-9 ml-6">
+                <li>Set your fundraiser goal</li>
+                <li>Tell your story</li>
+                <li>Add a picture or video</li>
+                <li className="text-custom-blue cursor-pointer">Watch a video tutorial</li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-medium text-lg text-black-100">Share with friends</p>
+              <ul className="list-disc font-medium text-black-100 mt-5 leading-9 ml-6">
+                <li>Send emails</li>
+                <li>Send text messages</li>
+                <li>Share on social media</li>
+                <li className="text-custom-blue cursor-pointer">Watch a video tutorial</li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-medium text-lg text-black-100">Manage Donation</p>
+              <ul className="list-disc font-medium text-black-100 mt-5 leading-9 ml-6">
+                <li>Accept donations</li>
+                <li>Thank donors</li>
+                <li>Withdraw funds</li>
+              </ul>
+            </div>
+          </div>
+        <div className="flex justify-center mb-10">
          <button className="mt-10 btn h-10 min-h-10 bg-custom-blue-200 hover:bg-custom-blue-200  text-white px-6">
-         <Link href="/newproject">Start a Kickstarter</Link></button>
-     </div>
-     <div className="bg-[#fcfcff]">
-     <div className=" flex justify-between items-center py-10 w-full max-w-[1920px] mx-auto ">
+         <Link href="/newproject">Start a Ripple</Link></button>
+        </div>
+    </div> 
+     <div className="bg-[#fcfcff] max-w-[1920px] mx-auto px-[10rem]">
+     <div className=" flex justify-between items-center py-10 w-full ">
         <div className="flex items-center text-black-100  ">
             <Image className="mr-10" src={left} alt="left/back icon"width={20} height={20} quality={100}/>
             <div>
-            <p className="text-lg  font-medium">Kickstarter Stories</p>
+            <p className="text-lg  font-medium">Ripple Stories</p>
             <p className="text-2xl font-semibold ">Helping Kids Study</p>
             <p className=" mt-2 text-[14px] w-[350px] leading-5 italic">“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fermentum lacinia eu, neque egestas adipiscing cras. Nulla commodo elementum dolor amet, pellentesque
                  posuere aliquet nunc. Elit tellus praesent libero habitasse dignissim justo.
@@ -85,13 +88,13 @@ const GetStarted = () => {
         </div>
      </div>
      </div>
-     <div className="mt-10 flex flex-col items-center justify-center">
-        <p className="text-center text-black-100 font-semibold text-2xl">What KICKSTARTER Offers</p>
+     <div className="mt-10 flex flex-col items-center justify-center  max-w-[1920px] mx-auto px-[10rem]">
+        <p className="text-center text-black-100 font-semibold text-2xl">What Ripple Offers</p>
         <div className="flex justify-between w-full  mt-10">
             <div className="w-[250px]">
                 <p className="text-lg font-medium  mb-4 text-black-100 flex items-center">
                     <span className=" mr-4"><TbWorld /></span>Worlwide Leader</p>
-                <p className="text-sm">Kickstarter is trusted around the world for its simple, reliable fundraising platform.</p>
+                <p className="text-sm">Ripple is trusted around the world for its simple, reliable fundraising platform.</p>
             </div>
             <div className="w-[250px]">
                 <p  className="text-lg font-medium  mb-4 text-black-100 flex items-center">
@@ -108,7 +111,7 @@ const GetStarted = () => {
             <div className="w-[250px]">
                 <p className="text-lg font-medium  mb-4 text-black-100 flex items-center">
                 <span className=" mr-4"><CiMobile2 /></span>Mobile App</p>
-                <p className="text-sm">The Kickstarter app makes it simple to launch and manage your fundraiser on the go.</p>
+                <p className="text-sm">The Ripple app makes it simple to launch and manage your fundraiser on the go.</p>
             </div>
             <div className="w-[250px]">
                 <p  className="text-lg font-medium  mb-4 text-black-100 flex items-center">
@@ -124,7 +127,7 @@ const GetStarted = () => {
         </div>
         <div className="flex justify-center mb-10">
          <button className="mt-10 btn h-10 min-h-10 bg-custom-blue-200 hover:bg-custom-blue-200  text-white px-6">
-            <Link href="/newproject">Start a Kickstarter</Link></button>
+            <Link href="/newproject">Start a Ripple</Link></button>
      </div>
      </div>
     </section>

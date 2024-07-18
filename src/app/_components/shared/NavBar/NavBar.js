@@ -8,13 +8,13 @@ const NavBar = () => {
   const pathname = usePathname()
 
   return (
-    <div className="flex justify-between items-center w-full py-[2rem]">
+    <div className="flex justify-between sticky z-40 top-0 items-center w-full  py-[2rem]  max-w-[1920px] mx-auto  px-[10rem] bg-white">
       <div className="flex items-center">
         <p className="text-[18px]">Discover <span className="text-[#BFBFBF] px-[12px] ">|</span> </p>
         <p className="flex items-center">
             <span className="inline-flex items-center"> <IoIosAdd className="h-5 w-5" /></span> <Link href="/newproject"> Start a New Project </Link></p>
       </div>
-      <h2 className="text-[25px] font-bold cursor-pointer"><Link href="/">KICKSTARTER</Link></h2>
+      <h2 className="text-[25px] font-bold cursor-pointer uppercase"><Link href="/">Ripple</Link></h2>
       <div className="flex items-center">
         <BsSearch className="h-4 w-4" />
         <p className="text-[18px] px-[2rem] cursor-pointer"><Link href="/login">Sign in</Link></p>

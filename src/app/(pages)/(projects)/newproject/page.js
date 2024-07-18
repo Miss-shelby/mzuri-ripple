@@ -35,7 +35,7 @@ const NewProjectPage = () => {
     }
   return (
     
-    <div className='flex  items-center  '>
+    <div className='flex  items-center  max-w-[1920px] mx-auto px-[10rem]'>
         <div>
       <Image src="/newproject.png" alt='cowry image' height={600} width={540} />
         </div>
@@ -129,14 +129,14 @@ export const ProjectSetUp = ({handlePrevious})=>{
   return (
     <>
      <div>
-        <h2 className='pt-4 text-2xl font-medium text-center'>Setup your  <span className='uppercase font-bold '>Kickstarter </span></h2>
+        <h2 className='pt-4 text-2xl font-medium text-center'>Setup your  <span className='uppercase font-bold '>RIPPLE </span></h2>
         <label className='text-black-100 font-medium mt-6 w-full block'>
-        What’s Your Kickstarter Title?
+        What’s Your Ripple Title?
             <input type='text'
              className='custom-placeholder input h-9 input-bordered input-custom-brown w-full mt-3' />
          </label>
          <label className='text-black-100 font-medium mt-6 w-full block'>
-         What’s Your Kickstarter About?
+         What’s Your Ripple About?
          <textarea  className='custom-placeholder input h-20 input-bordered input-custom-brown w-full mt-3'></textarea>
          </label>
          <div>

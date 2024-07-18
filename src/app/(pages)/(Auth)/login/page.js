@@ -28,7 +28,7 @@ const LoginPage = () => {
             <button className='btn bg-custom-blue-100 hover:bg-custom-blue-100 text-white w-full text-lg font-medium text-center mx-auto mt-6 h-10 min-h-10'>
             Continue with Facebook</button>
             <hr className='border border-1 border-custom-brown w-full mt-6'/>
-            <p className='mt-6 mb-12 text-center font-medium text-black-100'>New to Kickstarter?<span className='font-bold cursor-pointer'>
+            <p className='mt-6 mb-12 text-center font-medium text-black-100'>New to Ripple?<span className='font-bold cursor-pointer'>
               <Link href='/register'> Register</Link></span></p>
         </form>
     </div>

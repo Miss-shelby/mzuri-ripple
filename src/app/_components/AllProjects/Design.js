@@ -15,7 +15,7 @@ const Design = () => {
       <h4 className="font-bold text-xl my-8">Featured Projects</h4>
       <div className="flex ">
         <div className=" mr-[24px] w-full ">
-        <ProjectCard img={printer} height={474} width={746} title='3D Printer' owner='By Someone'
+        <ProjectCard img={printer} height={450} width={746} title='3D Printer' owner='By Someone'
          longDescription='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, 
          lobortis ac nunc ut malesuada aliquet nulla sodales. Turpis nec integer malesuada iaculis.
           Venenatis, ut nulla nibh convallis. Sapien luctus in nullam nisi, mi vulputate ultrices convallis diam.'

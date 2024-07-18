@@ -127,8 +127,8 @@ const ExplorePage = () => {
             },
       ];
   return (
-    <div>
-      <h4 className='text-black-100 font-bold text-2xl mt-20 ' >Explore</h4>
+    <div className='w-full max-w-[1920px] mx-auto min-h-screen  px-[10rem] bg-white'>
+      <h4 className='text-black-100 font-bold text-2xl mt-10 ' >Explore</h4>
       <div className='grid grid-cols-3 gap-4 mt-6  w-full'>
       {allProjects.map((project)=>{
         return (

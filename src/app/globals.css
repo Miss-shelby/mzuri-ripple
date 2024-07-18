@@ -74,13 +74,13 @@ body {
   color: var(--fallback-pc, oklch(var(--pc) / var(--tw-text-opacity)));
 }
 
-/* .steps .step-primary + .step-primary:before, .steps .step-primary:after {
+
+.steps .step-primary + .step-primary:before, .steps .step-primary:after {
   --tw-bg-opacity: 1;
   background-color: rgba(0, 105, 217, 1);
   --tw-text-opacity: 1;
-  color: var(--fallback-pc, oklch(var(--pc) / var(--tw-text-opacity)));
-} */
-
+  color: red;
+}
 
 /* placeholder styles */
 .custom-placeholder::placeholder {

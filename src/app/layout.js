@@ -16,14 +16,16 @@ const montserrat = Montserrat({
   subsets: ['latin'],
   display:'swap', 
 });
-console.log(montserrat);
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className}min-h-screen w-full` } >
-        <div className="max-w-[1920px] mx-auto min-h-screen   px-[10rem] bg-white">
+      <body className={`${montserrat.className} min-h-screen w-full bg-white` } >
+        <div className="min-h-screen bg-white">
           <NavBar/>
-          {children}
+        <div className="">
+        {children}
+        </div>
         </div>
         <Footer/>
         </body>
