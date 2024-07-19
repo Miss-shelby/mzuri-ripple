@@ -3,7 +3,8 @@ import "./globals.css";
 import NavBar from "./_components/shared/NavBar/NavBar";
 import Footer from "./_components/shared/Footer/Footer";
 import AllProjects from "./_components/AllProjects/page";
-
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 // const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -28,6 +29,17 @@ export default function RootLayout({ children }) {
         </div>
         </div>
         <Footer/>
+        <ToastContainer position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+            />
         </body>
     </html>
   );

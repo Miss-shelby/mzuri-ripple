@@ -66,7 +66,7 @@ const GetStarted = () => {
           </div>
         <div className="flex justify-center mb-10">
          <button className="mt-10 btn h-10 min-h-10 bg-custom-blue-200 hover:bg-custom-blue-200  text-white px-6">
-         <Link href="/newproject">Start a Ripple</Link></button>
+         <Link href="/project">Start a Ripple</Link></button>
         </div>
     </div> 
      <div className="bg-[#fcfcff] max-w-[1920px] mx-auto px-[10rem]">
@@ -127,7 +127,7 @@ const GetStarted = () => {
         </div>
         <div className="flex justify-center mb-10">
          <button className="mt-10 btn h-10 min-h-10 bg-custom-blue-200 hover:bg-custom-blue-200  text-white px-6">
-            <Link href="/newproject">Start a Ripple</Link></button>
+            <Link href="/project">Start a Ripple</Link></button>
      </div>
      </div>
     </section>
