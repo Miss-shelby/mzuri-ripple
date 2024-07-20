@@ -4,20 +4,39 @@ import Link from 'next/link'
 import React from 'react'
 import { Formik,Form } from 'formik'
 import { toast } from 'react-toastify'
-const LoginPage = () => {
+import { LoginApi } from '@/app/_components/Apis/api'
+import axios from 'axios'
+const LoginPage =  () => {
 
-const onSubmitHandler=(values)=>{
-console.log(values);
-toast.success('🦄Login sucesful!', {
-  position: "top-right",
-  autoClose: 5000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-  theme: "light",
-  })
+
+  const formData = new FormData();
+
+  const onSubmitHandler= async (values)=>{
+  formData.append("username", values.email);
+  formData.append("password", values.password);
+
+
+  await axios
+      .post(`${LoginApi}`, formData, { headers: {'Content-Type': 'multipart/form-data' }})
+      .then(function (response) {
+        console.log(response, "response from db");
+        const token = response.data.access_token;
+        console.log(token);
+        localStorage.setItem("token", token);
+        toast.success('Login succesfull')
+        
+      })
+      .catch(function (error) {
+       
+       console.log(error.response.data.detail);
+       const errorMsg = error.response.data.detail;
+       toast.error(errorMsg)
+       
+      })
+      .finally(function(){
+        
+      })
+
 } 
 
   const defaultValues ={

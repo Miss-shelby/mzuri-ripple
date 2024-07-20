@@ -7,6 +7,10 @@ import * as yup from 'yup'
 import Register from './components/Register'
 import PersonalInfo from './components/PersonalInfo'
 import PaymentGateway from './components/Payment'
+import axios from 'axios'
+import { useRouter } from 'next/navigation'
+import { registerApi } from '@/app/_components/Apis/api'
+import { toast } from 'react-toastify'
 
 const tabs =[
   'register',
@@ -16,6 +20,11 @@ const tabs =[
 const RegisterPage = () => {
   const [step,setStep] = useState(1)
   const [activeTab, setActiveTab] = useState(tabs[0])
+  const [user,setUser] = useState('')
+  const [loading, setLoading] = useState(false);
+  const [message,setMessage] = useState('')
+
+  const router = useRouter(); 
 
     const handlePrevious = ()=>{
         if ( step > 1){
@@ -33,7 +42,38 @@ const RegisterPage = () => {
 
 
 const onSubmitHandler=(values)=>{
-  console.log(values);
+  setLoading(true);
+    axios.post(`${registerApi}`, {
+      email: values.email,
+      password: values.password,
+      full_name:values.fullname,
+      date_of_birth:values.dob,
+      phone:values.phoneNumber,
+      address:values.address,
+    })
+    .then(function (response) {
+      const sucessMessage =  response.data?.message
+      toast.success(sucessMessage);
+      router?.push('/login')
+    })
+    .catch(function (error) {
+      // console.log(error,'error from db');
+      console.log(error.response.status,'error status');
+      let errorMessage = error.response?.data?.message 
+      if (errorMessage.includes(':')) {
+        errorMessage = errorMessage.split(':')[1].trim();
+      }
+
+
+       if (error.response?.status === 400) {
+        toast.error(errorMessage);
+      } 
+
+    })
+    .finally(function(){
+      setLoading(false)
+    })
+
 }
 
 
@@ -50,18 +90,38 @@ const defaultValues={
 //validation schema 
 
 const formSchema = yup.object({
-  email: yup.string().email('Invalid email address').required('Email is required'),
-  fullname: yup.string().required('name is required'),
+  email: yup.string().email('Invalid email address').required('Email is required')
+  .test(
+    'is-valid-email',
+    'Email must contain "@" and end with ".com"',
+    (value) => value && value.includes('@') && value.endsWith('.com')
+  ),
+  fullname: yup.string().required('Name is required').min(8, 'Name must be at least 8 characters long'),
   password: yup.string()
     .required('Password is required')
-    .min(6, 'Password must be at least 6 characters long'),
-  dob: yup.date()
+    .min(8, 'Password must be at least 8 characters long')
+    .matches(
+      /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+      'Password must contain at least one uppercase letter, one number, and one special character'
+    ),
+    dob: yup.string()
     .required('Date of birth is required')
-    .max(new Date(), 'Date of birth cannot be in the future'),
-  phoneNumber: yup.string()
+    .matches(
+      /^\d{4}-\d{2}-\d{2}$/,
+      'Date of birth must be in the format YYYY-MM-DD'
+    )
+    .test(
+      'is-valid-date',
+      'Date of birth cannot be in the future',
+      (value) => !value || new Date(value) <= new Date()
+    ),
+    phoneNumber: yup.string()
     .required('Phone number is required')
-    .matches(/^[\d\s+()-]{10,}$/, 'Invalid phone number format'),
-  address: yup.string().required('Address is required'),
+    .matches(
+      /^\+\d{7,64}$/,
+      'Phone number must be in the form +2348103567322 and between 7 to 64 characters long'
+    ),
+  address: yup.string().required('Address is required').min(8, 'Address must be at least 8 characters long'),
 });
 
   return (
@@ -78,7 +138,7 @@ const formSchema = yup.object({
             errors
           }) =>{
             return (
-              <Form className='bg-custom-green flex flex-col px-[30px] w-[26rem]'>
+              <Form className='bg-custom-green flex flex-col px-[30px] w-[26rem] h-[650px]'>
                     <ul className="steps pt-14">
                     {tabs.map((tab,index)=>{
                     return ( <li key={tab} className={`step ${step-1 >= index ?' step-primary':'' }`}></li>)
@@ -86,7 +146,7 @@ const formSchema = yup.object({
                     </ul>
                   {activeTab === 'register'&& <Register errors={errors} values={values} handleChange={handleChange} handleNext={handleNext} handlePrevious={handlePrevious} />}
                   {activeTab === 'personal-info'&& <PersonalInfo errors={errors} values={values} handleChange={handleChange}  handleNext={handleNext} handlePrevious={handlePrevious} />}
-                  {activeTab === 'payment-gateway'&& <PaymentGateway  handleNext={handleNext} submitForm={submitForm} handlePrevious={handlePrevious} />}
+                  {activeTab === 'payment-gateway'&& <PaymentGateway  handleNext={handleNext} submitForm={submitForm} loading={loading} handlePrevious={handlePrevious} />}
                  
               </Form>
             )

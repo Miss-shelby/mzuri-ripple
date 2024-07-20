@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 
-const PaymentGateway = ({handlePrevious,submitForm})=>{
+const PaymentGateway = ({handlePrevious,submitForm,loading})=>{
     return (
       <>
        <div>
@@ -23,8 +23,9 @@ const PaymentGateway = ({handlePrevious,submitForm})=>{
                  text-black-100 w-full mx-auto  font-medium text-center mt-6 h-10 min-h-10'>Connect Your Paypal Account</button>
               </div>
               <div className='flex mb-[3.7rem]'>
-              <button type='submit' className='btn bg-custom-blue hover:bg-custom-blue text-white w-[10.5rem] text-lg font-medium 
-              text-center mx-auto mt-6 h-10 min-h-10'> <Link href='/login' onClick={submitForm}>Finish</Link></button>
+              <button type='submit'  isdisabled={loading} className='btn bg-custom-blue hover:bg-custom-blue text-white w-[10.5rem] text-lg font-medium 
+              text-center mx-auto mt-6 h-10 min-h-10' onClick={submitForm}>
+                  {loading? 'loading...' :'Finish'}</button>
                 <button  className='btn bg-custom-red hover:bg-custom-red text-white w-[10.5rem] text-lg font-medium 
               text-center mx-auto mt-6 h-10 min-h-10'onClick={handlePrevious}>Back</button>
               </div>
