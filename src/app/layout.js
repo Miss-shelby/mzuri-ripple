@@ -5,6 +5,7 @@ import Footer from "./_components/shared/Footer/Footer";
 import AllProjects from "./_components/AllProjects/page";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthProvider } from "./_components/Providers/Providers";
 // const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -24,9 +25,10 @@ export default function RootLayout({ children }) {
       <body className={`${montserrat.className} min-h-screen w-full bg-white` } >
         <div className="min-h-screen bg-white">
           <NavBar/>
-        <div className="">
+       <AuthProvider>
         {children}
-        </div>
+       </AuthProvider>
+       
         </div>
         <Footer/>
         <ToastContainer position="top-right"

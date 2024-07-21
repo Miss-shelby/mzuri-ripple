@@ -1,21 +1,22 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 import { Formik,Form } from 'formik'
 import { toast } from 'react-toastify'
 import { LoginApi } from '@/app/_components/Apis/api'
+import { useRouter } from 'next/navigation'
 import axios from 'axios'
 const LoginPage =  () => {
-
-
+  const [loading, setLoading] = useState(false);
+  const router = useRouter(); 
   const formData = new FormData();
 
   const onSubmitHandler= async (values)=>{
-  formData.append("username", values.email);
-  formData.append("password", values.password);
-
-
+    formData.append("username", values.email);
+    formData.append("password", values.password);
+    if (loading ) return;
+    setLoading(true)
   await axios
       .post(`${LoginApi}`, formData, { headers: {'Content-Type': 'multipart/form-data' }})
       .then(function (response) {
@@ -24,6 +25,7 @@ const LoginPage =  () => {
         console.log(token);
         localStorage.setItem("token", token);
         toast.success('Login succesfull')
+        router?.push('/project')
         
       })
       .catch(function (error) {
@@ -34,7 +36,7 @@ const LoginPage =  () => {
        
       })
       .finally(function(){
-        
+        setLoading(false)
       })
 
 } 
@@ -68,7 +70,8 @@ const LoginPage =  () => {
               <p className='text-[12px]'>Forgot Password?</p>
               </div>
               <input type='password' name='password' value={values.password} onChange={handleChange}  className='input h-9 input-bordered input-custom-brown w-full mt-3' />
-              <button type='submit' className='btn bg-custom-blue hover:bg-custom-blue text-white w-[10.5rem] text-lg font-medium text-center mx-auto mt-6 h-10 min-h-10'>Login</button>
+              <button type='submit' className='btn bg-custom-blue hover:bg-custom-blue text-white w-[10.5rem] text-lg font-medium text-center mx-auto mt-6 h-10 min-h-10'>
+                {loading?'Loading..' :'Login'}</button>
               <div className='flex items-center justify-between mt-8'>
                 <hr className='border border-1 border-custom-brown w-[10rem]'/> 
                 <p className='text-black-100 mx-3 text-sm'>OR</p>

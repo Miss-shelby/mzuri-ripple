@@ -42,6 +42,7 @@ const RegisterPage = () => {
 
 
 const onSubmitHandler=(values)=>{
+  if (loading) return;
   setLoading(true);
     axios.post(`${registerApi}`, {
       email: values.email,
@@ -57,7 +58,6 @@ const onSubmitHandler=(values)=>{
       router?.push('/login')
     })
     .catch(function (error) {
-      // console.log(error,'error from db');
       console.log(error.response.status,'error status');
       let errorMessage = error.response?.data?.message 
       if (errorMessage.includes(':')) {
@@ -67,7 +67,9 @@ const onSubmitHandler=(values)=>{
 
        if (error.response?.status === 400) {
         toast.error(errorMessage);
-      } 
+      } else {
+        toast.error('An unexpected error occurred.');
+      };
 
     })
     .finally(function(){

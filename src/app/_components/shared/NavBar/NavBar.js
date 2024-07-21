@@ -12,7 +12,7 @@ const NavBar = () => {
       <div className="flex items-center">
         <p className="text-[18px]">Discover <span className="text-[#BFBFBF] px-[12px] ">|</span> </p>
         <p className="flex items-center">
-            <span className="inline-flex items-center"> <IoIosAdd className="h-5 w-5" /></span> <Link href="/newproject"> Start a New Project </Link></p>
+            <span className="inline-flex items-center"> <IoIosAdd className="h-5 w-5" /></span> <Link href="/project"> Start a New Project </Link></p>
       </div>
       <h2 className="text-[25px] font-bold cursor-pointer uppercase"><Link href="/">Ripple</Link></h2>
       <div className="flex items-center">
