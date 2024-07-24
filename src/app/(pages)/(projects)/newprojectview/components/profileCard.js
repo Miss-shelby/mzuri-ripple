@@ -3,7 +3,7 @@ import React from 'react'
 import { PiChartLineUp } from 'react-icons/pi'
 import { LuDollarSign } from "react-icons/lu";
 
-const ProfileCard = () => {
+const ProfileCard = ({projectOwner}) => {
   return (
     <div>
          <div className="card w-[400px] mt-20 h-fit p-6 shadow-2xl ml-6">
@@ -11,22 +11,22 @@ const ProfileCard = () => {
                   <div className='absolute z-10 -top-10 h-fit w-fit'>
                     <Image src='/profileAvatar.png' height={75} width={75} alt='profile image'/>
                   </div>
-                  <h4 className='font-semibold text-black-100 text-2xl pt-6'>Monik Shrestha</h4>
+                  <h4 className='font-semibold text-black-100 text-2xl pt-6'>{projectOwner}</h4>
                     <p className='font-medium text-black-100 pt-4'>Project Founder</p>
                 </div>
                 <div className="card-body  w-full flex flex-col mt-6 pl-6 gap-0 border-custom-brown border ">
                   <p  className="text-lg font-medium  mb-4 text-black-100 flex items-center ">
                   <span className=" mr-6"><PiChartLineUp />
-                  </span>150 people just donated</p>
+                  </span>0 people just donated</p>
                   <div className='border-black-100 border-b'></div>
                  <div className='flex items-center pt-6'>
                   <span className='mr-6'><LuDollarSign /></span>
-                  <p className="text-lg font-medium  mb-4 text-black-100 ">Rs.100<span className='block text-sm font-normal'>-Prajwal pun</span></p>
+                  <p className="text-lg font-medium  mb-4 text-black-100 "># 0.00<span className='block text-sm font-normal'>-</span></p>
                  </div>
                   <div className='border-black-100 border-b'></div>
                  <div className='flex items-center pt-6'>
                   <span className='mr-6'><LuDollarSign /></span>
-                  <p className="text-lg font-medium  mb-4 text-black-100 ">Rs.100<span className='block text-sm font-normal'>-Prajwal pun</span></p>
+                  <p className="text-lg font-medium  mb-4 text-black-100 "># 0.00<span className='block text-sm font-normal'>-</span></p>
                  </div>
                   <div className='border-black-100 border-b'></div>
                  <div className='flex mt-6'>

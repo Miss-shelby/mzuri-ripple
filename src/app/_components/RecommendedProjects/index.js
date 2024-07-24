@@ -9,8 +9,8 @@ const RecommendedProjects = () => {
           owner: "By Province No. 1",
           description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales. ",
-          startPrice: "Rs. 1,00,000",
-          endPrice: "Rs. 1,00,00,000",
+          startPrice: " 1,00,000",
+          endPrice: " 1,00,00,000",
           backers: "250 backers ",
           days: "36 days left",
           profileName:"Shan chi",
@@ -23,8 +23,8 @@ const RecommendedProjects = () => {
           owner: "By Kismat Shah",
           description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales.  ",
-          startPrice: "Rs. 1,00,000",
-          endPrice: "Rs. 10,00,000",
+          startPrice: " 1,00,000",
+          endPrice: " 10,00,000",
           backers: "250 backers ",
           days: "36 days left",
           profileName:"Minister of Kathmandu",
@@ -37,8 +37,8 @@ const RecommendedProjects = () => {
           owner: "By Humla’s Resident",
           description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales. ",
-          startPrice: "Rs. 10,000",
-          endPrice: "Rs. 1,00,000",
+          startPrice: " 10,000",
+          endPrice: " 1,00,000",
           backers: "250 backers ",
           days: "36 days left",
           profileName:"Sharshlov Amatya",

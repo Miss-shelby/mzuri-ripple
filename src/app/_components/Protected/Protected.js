@@ -1,20 +1,23 @@
-import { Navigate } from "react-router-dom";
-// import { Outlet } from "react-router-dom";
+"use client"
+import { useRouter } from "next/navigation";
 import { useEffect,useState } from "react";
 
 import axios from 'axios'
 import { useAuth } from "../Providers/Providers";
 import { ProfileApi } from "../Apis/api";
+import Cookies from "js-cookie";
+import Spinner from "../spinner";
 const ProtectedRoute = ({ children }) => {
-  const { authUser,setAuthUser} = useAuth()
+  
+  const { authUser,setAuthUser,userProject} = useAuth()
   let [loading,setLoading] = useState(true)
 
-
-  const token = localStorage.getItem('token')
-// console.log(token);
+  const router = useRouter(); 
+  const token = Cookies.get("token")
+// console.log(token,'token protected');
 
   useEffect(()=>{
-    // console.log(authUser,'authuser from profile')
+    setLoading(true)
     if(token){
         axios.get(`${ProfileApi}`,{
           headers:{
@@ -23,30 +26,36 @@ const ProtectedRoute = ({ children }) => {
           }
         })
        .then(function (response) {
-      // handle success
-      console.log(response, 'response from user profile ');
-      setAuthUser(response.data)
+      setAuthUser(response.data.data)
       setLoading(false)
-      // console.log(authUser)
+      console.log(authUser)
       })
      .catch(function (error) {
       // handle error
-      console.log(error);
+      if(error.response.status === 403){
+        setLoading(false)
+        Cookies.remove("token")
+        router.push('/login')
+        return;
+      }
+      setLoading(false)
+      console.log(error.response.status,'error from protected route');
+      setAuthUser({})
        });
        return
     }
-     setAuthUser('')
+     setAuthUser({})
     setLoading(false)
   },[])
  
   return (
     <>
     {
-      loading? <span className="loader2"></span>
+      loading? <Spinner/>
       : authUser?
      <> {children}</>
       :
-      <Navigate to='/login'/>
+      router?.push('/login')
     }
     </>
   )

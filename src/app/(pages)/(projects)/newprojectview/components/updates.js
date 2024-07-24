@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-const Updates = ()=>{
+const Updates = ({projectOwner})=>{
     return (
         <div className=" mt-12 ">
             <div className="flex justify-between w-full mb-6 items-center">
@@ -8,32 +8,51 @@ const Updates = ()=>{
                 <button className=" btn rounded-[6px] text-lg 
                 font-medium h-10 min-h-10 bg-custom-blue mt-4 text-white px-8 hover:bg-transparent hover:text-custom-blue">Add Update</button>
             </div>
-            <div className="card w-[800px] mt-4 h-fit p-6 shadow-2xl ">
-                <div className="card-body relative mt-10 flex flex-col  gap-0 border-custom-brown border ">
-                 <p className="font-semibold">Update 2 :<span>Buying New RTX 3080 Ti</span></p>
+            <div className="card w-[760px] mt-4 h-fit  shadow-2xl ">
+                <div className="card-body relative p-0 mt-4 flex flex-col px-6  gap-0  ">
+                 <p className="font-semibold text-lg">Update 2 :<span className="font-medium">Buying New RTX 3080 Ti</span></p>
                 </div>
-                <div className="card-body  w-full flex flex-col mt-6 pl-6 gap-0 border-custom-brown border ">
-                  <p  className="text-lg font-medium  mb-4 text-black-100 flex items-center ">
-                  <span className=" mr-6">
-                  </span>150 people just donated</p>
-                  <div className='border-black-100 border-b'></div>
-                 <div className='flex items-center pt-6'>
-                  <span className='mr-6'></span>
-                  <p className="text-lg font-medium  mb-4 text-black-100 ">Rs.100<span className='block text-sm font-normal'>-Prajwal pun</span></p>
-                 </div>
-                  <div className='border-black-100 border-b'></div>
-                 <div className='flex items-center pt-6'>
-                  <span className='mr-6'></span>
-                  <p className="text-lg font-medium  mb-4 text-black-100 ">Rs.100<span className='block text-sm font-normal'>-Prajwal pun</span></p>
-                 </div>
-                  <div className='border-black-100 border-b'></div>
-                 <div className='flex mt-6'>
-                  <button className='btn mr-6 bg-transparent h-10 min-h-10 text-lg  text-black-100 border border-custom-green-200'>See all</button>
-                  <button className='btn bg-transparent h-10 min-h-10 text-lg  text-black-100 border border-custom-green-200'>See top donation</button>
-                 </div>
+               <div className="flex border-b border-black-100 pb-6 px-6 pt-4">
+               <div className=' h-fit w-fit mr-4 '>
+                    <Image src='/profileAvatar.png' height={45} width={45} alt='profile image'/>
+                  </div>
+                <div>
+                    <h4 className="text-lg font-medium">{projectOwner}</h4>
+                    <p>Project Founder</p>
+                </div>
+               </div>
+                <div className="pt-6 px-6">
+                    <p className="font-medium pb-6">Thank you for your contribution and helping me buy RTX 3080 Ti.</p>
+                    <p> Here are the things i will buy next:</p>
+                    <ul className="list-disc pl-5">
+                        <li>New PCIE Expansion Slot</li>
+                        <li>New Motherboard</li>
+                        <li>New Mouse</li>
+                        <li>New Keyboard</li>
+                    </ul>
+                </div>
+                <button class="bg-gradient-to-b from-transparent to-gray-700 text-black-100 py-2 px-4 rounded">See More</button>
+            </div>
+
+            <div className="card w-[760px] mt-8 h-fit  shadow-2xl ">
+                <div className="card-body relative p-0 mt-4 flex flex-col px-6  gap-0  ">
+                 <p className="font-semibold text-lg">Update 1 :<span className="font-medium"> Buying New 32GB RAM</span></p>
+                </div>
+               <div className="flex border-b border-black-100 pb-6 px-6 pt-4">
+               <div className=' h-fit w-fit mr-4 '>
+                    <Image src='/profileAvatar.png' height={45} width={45} alt='profile image'/>
+                  </div>
+                <div>
+                    <h4 className="text-lg font-medium">{projectOwner}</h4>
+                    <p>Project Founder</p>
+                </div>
+               </div>
+                <div className="pt-6 px-6">
+                    <p className="font-medium pb-6">Thank you for your contribution and helping me buy RTX 3080 Ti.</p>
                 </div>
             </div>
         </div>
+        
     )
 }
 export default Updates

@@ -7,6 +7,7 @@ import { toast } from 'react-toastify'
 import { LoginApi } from '@/app/_components/Apis/api'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
+import Cookies from 'js-cookie'
 const LoginPage =  () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter(); 
@@ -22,8 +23,8 @@ const LoginPage =  () => {
       .then(function (response) {
         console.log(response, "response from db");
         const token = response.data.access_token;
-        console.log(token);
-        localStorage.setItem("token", token);
+        Cookies.set("token",token)
+        
         toast.success('Login succesfull')
         router?.push('/project')
         

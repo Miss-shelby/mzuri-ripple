@@ -4,7 +4,7 @@ import Comments from "./comment";
 import ProfileCard from "./profileCard";
 import Updates from "./updates";
 import { useState } from "react";
-const DashboardNavigation = ({ links}) => {
+const DashboardNavigation = ({ links,imageUrl,projectOwner,projectStory}) => {
     const [section,setSection] = useState("campaign")
     return (
       <>
@@ -24,11 +24,11 @@ const DashboardNavigation = ({ links}) => {
       </div>
       <div className="flex justify-between  w-full  max-w-[1920px] mx-auto px-[10rem]">
       <div>
-            {section === "campaign" && <Campaign/>}
-            {section === "updates" && <Updates/>}
-            {section === "comments" && <Comments/>}
+            {section === "campaign" && <Campaign projectOwner={projectOwner} imageUrl ={imageUrl } projectStory={projectStory}/>}
+            {section === "updates" && <Updates projectOwner={projectOwner} />}
+            {section === "comments" && <Comments projectOwner={projectOwner} imageUrl ={imageUrl } projectStory={projectStory}/>}
        </div>
-       <ProfileCard/>
+       <ProfileCard projectOwner={projectOwner}  projectStory={projectStory}/>
       </div>
       </>
     )

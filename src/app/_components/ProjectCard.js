@@ -1,6 +1,6 @@
 import Image from "next/image"
-
-export const ProjectCard = ({img,title,owner,description="",startPrice,endPrice,backers,days,height,width,location,longDescription })=>{
+import { TbCurrencyNaira } from "react-icons/tb";
+export const ProjectCard = ({img,title,owner,description="",expander,startPrice,endPrice,backers,days,height,width,location,longDescription })=>{
 
     return (
       <div className="card card-compact bg-base-100 shadow-xl rounded-[3px]">
@@ -10,7 +10,7 @@ export const ProjectCard = ({img,title,owner,description="",startPrice,endPrice,
           quality={100}
          height={height}
          width={width}
-        
+        layout="responsive"
           alt="project_Image"
   
         />
@@ -20,14 +20,14 @@ export const ProjectCard = ({img,title,owner,description="",startPrice,endPrice,
         <h2 className="card-title font-bold text-lg flex-grow-0">{title} </h2>
            <p className="text-sm font-medium flex-grow-0">{location}</p>
         </div>
-        <p className="text-black-100 font-[500] flex-grow-0">{owner}</p>
+        <p className="text-black-100 font-[500] flex-grow-0">By: {owner}</p>
         {description && description.length < 200? <p className="text-[13px] leading-[17.07px] font-normal flex-grow-0">{description}
         </p> : <p className="text-sm font-normal flex-grow-0 py-[8px]">
         {longDescription }</p> }
-        
+        {expander}
         <div className="flex w-full justify-between ">
-          <p className="text-custom-green-100 text-xl font-medium flex-grow-0">{startPrice}</p>
-          <p className="text-custom-green-100  text-xl font-medium flex-grow-0">{endPrice}</p>
+          <p className="text-custom-green-100 text-xl font-medium flex-grow-0 flex items-center"><span className="inline-flex items-center"><TbCurrencyNaira /></span>{startPrice}</p>
+          <p className="text-custom-green-100  text-xl font-medium flex-grow-0 flex items-center"><span className="inline-flex items-center"><TbCurrencyNaira /></span >{endPrice}</p>
         </div>
         <div className="gradient-border"></div>
         <div id="grad"></div>
@@ -60,8 +60,8 @@ export const RecommendedProjectCard = ({img,img2,title,owner,description,startPr
         <p className="text-black-100 font-[500] flex-grow-0">{owner}</p>
         <p className="text-[13px] font-normal flex-grow-0">{description}</p>
         <div className="flex w-full justify-between ">
-          <p className="text-custom-green-100 text-xl font-medium flex-grow-0">{startPrice}</p>
-          <p className="text-custom-green-100 text-xl font-medium flex-grow-0">{endPrice}</p>
+          <p className="text-custom-green-100 text-xl font-medium flex-grow-0 flex items-center"><span className="inline-flex items-center"><TbCurrencyNaira /></span>{startPrice}</p>
+          <p className="text-custom-green-100 text-xl font-medium flex-grow-0 flex items-center"><span className="inline-flex items-center"><TbCurrencyNaira /></span>{endPrice}</p>
         </div>
         <div className="gradient-border"></div>
         <div id="grad"></div>

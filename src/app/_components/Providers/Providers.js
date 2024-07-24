@@ -5,10 +5,12 @@ const authContext = createContext()
 
 const AuthProvider =({children})=>{
     const [authUser, setAuthUser] = useState({});
-
+    const [userProject, setUserProject] = useState({});
     const shared = {
         authUser,
-        setAuthUser
+        setAuthUser,
+        userProject, 
+        setUserProject
     }
    
 return(
