@@ -37,7 +37,7 @@ const NewProjectPage = () => {
   const[projectDuration,setProjectDuration] = useState("")
   const[projectAbout,setProjectAbout] = useState("")
   const[address,setAddress] = useState("")
-
+console.log(authUser);
 
   const tabBgColors = {
     getStarted: 'bg-custom-green',

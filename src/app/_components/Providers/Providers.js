@@ -4,7 +4,7 @@ import { createContext, useContext, useState }  from "react"
 const authContext = createContext()
 
 const AuthProvider =({children})=>{
-    const [authUser, setAuthUser] = useState({});
+    const [authUser, setAuthUser] = useState(null);
     const [userProject, setUserProject] = useState({});
     const shared = {
         authUser,

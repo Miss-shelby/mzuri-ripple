@@ -28,23 +28,22 @@ const ProtectedRoute = ({ children }) => {
        .then(function (response) {
       setAuthUser(response.data.data)
       setLoading(false)
-      console.log(authUser)
+      console.log(authUser,'auth user')
       })
      .catch(function (error) {
       // handle error
-      if(error.response.status === 403){
+      if(error.response && error.response.status === 403){
         setLoading(false)
         Cookies.remove("token")
-        router.push('/login')
+        router?.push('/login')
         return;
       }
-      setLoading(false)
       console.log(error.response.status,'error from protected route');
-      setAuthUser({})
+      setAuthUser(null)
        });
        return
     }
-     setAuthUser({})
+     setAuthUser(null)
     setLoading(false)
   },[])
  

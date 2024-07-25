@@ -20,7 +20,7 @@ export const ProjectCard = ({img,title,owner,description="",expander,startPrice,
         <h2 className="card-title font-bold text-lg flex-grow-0">{title} </h2>
            <p className="text-sm font-medium flex-grow-0">{location}</p>
         </div>
-        <p className="text-black-100 font-[500] flex-grow-0">By: {owner}</p>
+        <p className="text-black-100 font-[500] flex-grow-0">{owner}</p>
         {description && description.length < 200? <p className="text-[13px] leading-[17.07px] font-normal flex-grow-0">{description}
         </p> : <p className="text-sm font-normal flex-grow-0 py-[8px]">
         {longDescription }</p> }

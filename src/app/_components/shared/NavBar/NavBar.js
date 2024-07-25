@@ -17,7 +17,7 @@ const NavBar = () => {
       <h2 className="text-[25px] font-bold cursor-pointer uppercase"><Link href="/">Ripple</Link></h2>
       <div className="flex items-center">
         <BsSearch className="h-4 w-4" />
-        <p className="text-[18px] px-[2rem] cursor-pointer"><Link href="/newprojectview">Dashboard</Link></p>
+        {/* <p className="text-[18px] px-[2rem] cursor-pointer"><Link href="/newprojectview">Dashboard</Link></p> */}
         <p className="text-[18px] px-[2rem] cursor-pointer"><Link href="/login">Sign in</Link></p>
        {/* <Button>{ pathname ==='/'? <Link href="/getstarted">How it works</Link>  : pathname.slice(1)}</Button> */}
        {
