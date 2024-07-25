@@ -1,5 +1,4 @@
-
-import ProjectNavigation from '@/app/_components/AllProjects/Navigation';
+"use client"
 import Image from 'next/image';
 import React from 'react'
 import { GoTag } from "react-icons/go";
@@ -8,10 +7,10 @@ import DashboardNavigation from './components/dashboardLinks';
 import { GetProjectsApi } from '@/app/_components/Apis/api';
 
 
-const NewProject = async ({params}) => {
+const NewProject =  ({params}) => {
  console.log(params.artId);
-  const response  = await fetch(`${GetProjectsApi}/${params.artId}`)
-  const data = await response.json()
+  const response  =  fetch(`${GetProjectsApi}/${params.artId}`)
+  const data =  response.json()
   console.log(data);
 const {name,title,address,location} = data.data;
   return (
