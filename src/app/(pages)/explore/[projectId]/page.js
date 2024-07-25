@@ -1,16 +1,12 @@
 
 import ProjectNavigation from '@/app/_components/AllProjects/Navigation';
 import Image from 'next/image';
-import React, { useEffect } from 'react'
-import { useState } from 'react';
+import React from 'react'
 import { GoTag } from "react-icons/go";
 import { BsFillGeoFill } from "react-icons/bs";
 import DashboardNavigation from './components/dashboardLinks';
-import { useAuth } from '@/app/_components/Providers/Providers';
-import {  useRouter } from 'next/navigation';
-import Cookies from 'js-cookie';
 import { GetProjectsApi } from '@/app/_components/Apis/api';
-import axios from 'axios';
+
 
 const NewProject = async ({params}) => {
  console.log(params.artId);
