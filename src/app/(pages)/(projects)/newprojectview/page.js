@@ -16,14 +16,13 @@ const NewPojectView = () => {
   const router = useRouter();
   const {authUser,userProject,setUserProject } = useAuth()
 
- console.log(userProject,'user project');
-
+ console.log(userProject,'from project view');
  const projectId = Cookies.get("projectId")
+ const token = Cookies.get("token")
  console.log(projectId,'from project view');
  
  const url =`https://ripple-project-1.onrender.com/api/v1/projects/image_or_video/${projectId}`
-const token = Cookies.get("token")
-console.log(token);
+
  useEffect(()=>{
   if(projectId){
       axios.get(`${GetProjectsApi}/${projectId}`,{
@@ -35,6 +34,7 @@ console.log(token);
      .then(function (response) {
     
     console.log(response, 'response from project page ');
+    
     if (response?.status === 403){
       router.push('/login')
     }
@@ -55,8 +55,43 @@ console.log(token);
     const projectStory = userProject?.about;
 
     const imageUrl = projectImage ? `${url}` : '';
-   
 
+    //getting created date
+    const dateCreated = userProject?.created?.slice(0, 10); // "YYYY-MM-DD"
+    const duration = userProject?.duration?.slice(0, 10); // "YYYY-MM-DD"
+    
+    // Get today's date
+    const today = new Date();
+    const formattedDate = today.toISOString().slice(0, 10); // "YYYY-MM-DD"
+    
+    let dayCreated = '';
+    
+    if (dateCreated === formattedDate) {
+      dayCreated = 'Today';
+    } else {
+      // Create Date objects from date strings
+      const createdDate = new Date(dateCreated);
+      const currentDate = new Date(formattedDate);
+    
+      // Calculate the difference in time
+      const timeDiff = currentDate.getTime() - createdDate.getTime();
+      
+      // Calculate the number of days difference
+      const dayDiff = Math.floor(timeDiff / (1000 * 3600 * 24));
+    
+      // Determine the day created
+      if (dayDiff === 1) {
+        dayCreated = 'Yesterday';
+      } else if (dayDiff > 1) {
+        dayCreated = `${dayDiff} days ago`;
+      } else {
+        dayCreated = 'Future date'; // Just in case the date is in the future
+      }
+    }
+    
+    console.log(dayCreated);
+    
+  //  if (userProject)
     const logOut=()=>{
       
       alert('logging out')
@@ -69,11 +104,11 @@ console.log(token);
         <div className='flex w-full max-w-[1920px] mx-auto px-[10rem]'>
             <div>
                <div className='relative w-[800px] h-[500px]'>
-                <Image src={imageUrl} alt='Project picture' className='w-full h-full' fill priority/>
+                <Image src={imageUrl} alt='Project picture' className='w-full h-full object-cover' fill priority/>
                </div>
                 <p className='text-black-100 mt-6 font-medium text-lg'>{projectOwner} is organizing this fundraiser to benefit himself</p>
                 <div className='flex mt-6 items-center text-black-100 text-lg font-medium'>
-                    <p className='border-black-100 h-8 pr-4 border-r-2'>Created 1 day ago </p>
+                    <p className='border-black-100 h-8 pr-4 border-r-2'>Created {dayCreated} </p>
                     <p className='flex items-center px-4 border-black-100 h-8   border-r-2 '><GoTag /><span className='inline-flex  pl-4'>Personal Use </span></p>
                     <p className='flex items-center pl-4 '><BsFillGeoFill />  <span className='px-5 inline-flex '>{location}</span></p>
                     <button className='btn btn-warning text-white ml-10 cursor-pointer' onClick={()=>logOut()}>Log out</button>

@@ -4,7 +4,7 @@ import Spinner from './_components/spinner'
 
 const Loading = () => {
     return (
-        <div className='grid items-center justify-center'>
+        <div className='flex w-full h-full items-center justify-center'>
     
             <Spinner/>
            

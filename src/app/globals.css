@@ -103,3 +103,55 @@ body {
 @keyframes l13{ 
   100%{transform: rotate(1turn)}
 }
+
+.Btnloader {
+  width: 28px;
+  height: 28px;
+  border: 5px solid rgba(0, 105, 217, 1);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 
+
+
+  .tox-tinymce-aux,
+.tox-toolbar,
+.tox-toolbar__primary {
+  background-color: rgba(198, 198, 198, 1) !important; 
+}
+
+.tox .tox-toolbar__group .tox-button {
+  background-color:transparent !important; /* Remove the default white background */
+  border: none !important; /* Remove border */
+  padding: 5px 15px !important; /* Reduce button padding */
+  font-size: 12px !important; /* Reduce font size */
+}
+.tox .tox-tbtn {
+  background: transparent !important;
+}
+/* Optional: Add hover effects for better user experience */
+.tox .tox-toolbar__group .tox-button:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important; /* Light background on hover */
+}
+.tox:not(.tox-tinymce-inline) .tox-editor-header {
+  background-color: #fff;
+  border-bottom: none;
+  box-shadow: 0 2px 2px -2px rgba(34, 47, 62, .1), 0 8px 8px -4px rgba(34, 47, 62, .07);
+  padding:0px !important;
+}
+/* Optional: Adjust the size of toolbar icons */
+.tox .tox-icon svg {
+  width: 20px !important;
+  height: 20px !important;
+}

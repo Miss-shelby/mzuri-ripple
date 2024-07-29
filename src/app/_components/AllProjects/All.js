@@ -1,5 +1,5 @@
 'use-client'
-import Image from "next/image";
+
 import React, { useEffect, useState } from "react";
 import { MdOutlineNavigateNext } from "react-icons/md";
 import axios from "axios";
@@ -32,9 +32,6 @@ const [isLoading,setIsLoading] = useState(true)
     axios.get(`${GetProjectsApi}`,{
     })
    .then(function (response) {
-  // handle success
-  console.log(response, 'response from home page ');
-  console.log(response.status);
   if(response.status === 200){
   setFeaturedProject(response.data.data)
   setIsLoading(false)

@@ -2,6 +2,7 @@ import Image from "next/image";
 import AllProjects from "./_components/AllProjects/page";
 import RecommendedProjects from "./_components/RecommendedProjects";
 import ProjectNearMe from "./_components/ProjectNearMe";
+import { TbCurrencyNaira } from "react-icons/tb";
 const line = "/Line 3.png";
 const search = "/bi_search.png";
 export default function Home() {
@@ -45,7 +46,7 @@ export default function Home() {
           {" "}
         </div>
         <div className="flex flex-col items-center justify-center text-black-100">
-          <p className="text-[28px] font-[600]">Rs. 1,00,00,000</p>
+          <p className="text-[28px] font-[600] flex items center"><span className="inline-flex items-center"><TbCurrencyNaira /></span> 1,00,00,000</p>
           <p className="font-medium  text-lg">Towards Creative Work</p>
         </div>
         <div className="inline-block border-l border-1 h-15 border-[#525252] ml-2">

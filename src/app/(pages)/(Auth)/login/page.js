@@ -6,10 +6,17 @@ import { Formik,Form } from 'formik'
 import { toast } from 'react-toastify'
 import { LoginApi } from '@/app/_components/Apis/api'
 import { useRouter } from 'next/navigation'
+import { FiEye } from "react-icons/fi";
+import { FiEyeOff } from "react-icons/fi";
 import axios from 'axios'
 import Cookies from 'js-cookie'
 const LoginPage =  () => {
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   const router = useRouter(); 
   const formData = new FormData();
 
@@ -65,14 +72,23 @@ const LoginPage =  () => {
           <Form className='bg-custom-green flex flex-col px-[30px] w-[26rem]'>
               <h2 className='pt-12 font-bold text-2xl'>Hello! <span className='font-medium'>Welcome Back</span></h2>
               <p className='text-black-100 font-medium mt-7'>E-mail</p>
-              <input type='text' name='email' onChange={handleChange} value={values.email} className='input h-9 input-bordered input-custom-brown w-full mt-3' />
-              <div className='flex justify-between mt-7 items-center'>
+              <input type='text' name='email' required onChange={handleChange} value={values.email} className='input h-9 input-bordered input-custom-brown w-full mt-3' />
+              <div className='flex justify-between mt-7 items-center relative'>
               <p className='text-black-100 font-medium '>Password   </p>
               <p className='text-[12px]'>Forgot Password?</p>
               </div>
-              <input type='password' name='password' value={values.password} onChange={handleChange}  className='input h-9 input-bordered input-custom-brown w-full mt-3' />
-              <button type='submit' className='btn bg-custom-blue hover:bg-custom-blue text-white w-[10.5rem] text-lg font-medium text-center mx-auto mt-6 h-10 min-h-10'>
-                {loading?'Loading..' :'Login'}</button>
+              <input  type={showPassword ? 'text' : 'password'} name='password'
+               required value={values.password} onChange={handleChange}
+                 className='input h-9 input-bordered input-custom-brown w-full mt-3' />
+                 <button type='button' onClick={togglePasswordVisibility} 
+                 className='absolute right-[25%] top-[61%] transform -translate-y-1/2 text-gray-600'>
+                 {showPassword ?  <FiEye /> : <FiEyeOff /> }
+                </button>
+
+              <button type='submit' 
+                disabled={loading} 
+              className={`btn ${loading ? 'bg-gray-400' : 'bg-custom-blue'} hover:bg-custom-blue text-white w-[10.5rem] text-lg font-medium text-center mx-auto mt-6 h-10 min-h-10`}>
+                {loading?<span className="Btnloader"></span> :'Login'}</button>
               <div className='flex items-center justify-between mt-8'>
                 <hr className='border border-1 border-custom-brown w-[10rem]'/> 
                 <p className='text-black-100 mx-3 text-sm'>OR</p>
