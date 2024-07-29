@@ -4,6 +4,7 @@ import React from 'react'
 import { GoTag } from "react-icons/go";
 import { BsFillGeoFill } from "react-icons/bs";
 import { UserDashboard } from '../../(projects)/newprojectview/page';
+import Link from 'next/link';
 const ProjectDetailPage =async ({params})=>{
     const response =await fetch(`${GetProjectsApi}/projects/${params.projectId}`)
     const data = await response.json()
@@ -75,7 +76,8 @@ const ProjectDetailPage =async ({params})=>{
                     <p className='text-custom-green-200 text-2xl font-bold pt-6'>10</p>
                     <p className='font-medium text-sm text-black-100 '>days to go</p>
                     <div className="card-actions justify-center mt-6">
-                        <button className="btn text-lg font-medium hover:bg-custom-green-100 h-10 min-h-10 bg-custom-green-200 text-white Back this project w-full">Back this project</button>
+                        <button className="btn text-lg font-medium hover:bg-custom-green-100 h-10 min-h-10 bg-custom-green-200 text-white Back this project w-full">
+                         <Link href="/payment"> Back this project</Link></button>
                         <button className="btn text-lg font-medium h-10 min-h-10 bg-custom-blue mt-4 text-white Back this project w-full">Share</button>
                     </div>
                 </div>

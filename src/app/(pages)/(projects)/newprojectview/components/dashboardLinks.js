@@ -1,4 +1,5 @@
 'use client'
+import Link from "next/link";
 import Campaign from "./campaign";
 import Comments from "./comment";
 import ProfileCard from "./profileCard";
@@ -18,7 +19,8 @@ const DashboardNavigation = ({ links,imageUrl,projectOwner,projectStory}) => {
               })}
             </div>
             <div className="py-4 ml-[30rem]">
-            <button className="btn text-lg font-medium h-10 min-h-10 bg-custom-green-200 text-white hover:bg-custom-green-100 w-full">Back this project</button>
+            <button className="btn text-lg font-medium h-10 min-h-10 bg-custom-green-200 text-white hover:bg-custom-green-100 w-full">
+              <Link href="/payment">Back this project</Link> </button>
             </div>
         </div>
       </div>
