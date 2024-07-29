@@ -1,6 +1,6 @@
 
 
-const PersonalInfo = ({handleNext,handlePrevious,values,handleChange,errors})=>{
+const PersonalInfo = ({submitForm,handlePrevious,loading,values,handleChange,errors})=>{
     return (
       <>
        <div>
@@ -26,8 +26,11 @@ const PersonalInfo = ({handleNext,handlePrevious,values,handleChange,errors})=>{
               <p className="text-red-500">{errors.address}</p>
               </label>
               <div className='flex mb-12'>
-              <button className='btn bg-custom-blue hover:bg-custom-blue text-white w-[10.5rem] text-lg font-medium 
-              text-center mx-auto mt-6 h-10 min-h-10'onClick={handleNext}>Next</button>
+              <button type='submit'
+                disabled={loading} 
+                className={`btn ${loading ? 'bg-gray-400' : 'bg-custom-blue'} hover:bg-custom-blue text-white w-[10.5rem] text-lg font-medium text-center mx-auto mt-6 h-10 min-h-10`}
+           onClick={submitForm}>
+                  {loading? <span className="Btnloader"></span> :'Finish'}</button>
                 <button className='btn bg-custom-red hover:bg-custom-blue text-white w-[10.5rem] text-lg font-medium 
               text-center mx-auto mt-6 h-10 min-h-10'onClick={handlePrevious}>Back</button>
               </div>

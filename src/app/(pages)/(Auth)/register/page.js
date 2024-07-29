@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 import { registerApi } from "@/app/_components/Apis/api";
 import { toast } from "react-toastify";
 
-const tabs = ["register", "personal-info", "payment-gateway"];
+const tabs = ["register", "personal-info"];
 const RegisterPage = () => {
   const [step, setStep] = useState(1);
   const [activeTab, setActiveTab] = useState(tabs[0]);
@@ -186,16 +186,19 @@ const RegisterPage = () => {
                   handleChange={handleChange}
                   handleNext={handleNext}
                   handlePrevious={handlePrevious}
+                  submitForm={submitForm}
+                  loading={loading}
+                 
                 />
               )}
-              {activeTab === "payment-gateway" && (
+              {/* {activeTab === "payment-gateway" && (
                 <PaymentGateway
                   handleNext={handleNext}
                   submitForm={submitForm}
                   loading={loading}
                   handlePrevious={handlePrevious}
                 />
-              )}
+              )} */}
             </Form>
           );
         }}

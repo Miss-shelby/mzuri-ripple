@@ -10,7 +10,7 @@ import TextExpander from '@/app/_components/shared/TextExpander';
 const ExplorePage = () => {
   const initialProjectsList = 12;
   const incrementProjectsList = 6
-  const [displayProjects,setDisplayProjetcs] = useState(initialProjectsList)
+  const [displayProjects,setDisplayProjects] = useState(initialProjectsList)
   const [allProject,setAllProject] = useState([])
   const [isLoading,setIsLoading] = useState(true)
 
@@ -138,10 +138,10 @@ const ExplorePage = () => {
     //   ];
 
     const loadMore =()=>{
-      setDisplayProjetcs(initialProjectsList + incrementProjectsList)
+      setDisplayProjects(prev => prev + incrementProjectsList);
     }
     const loadLess =()=>{
-      setDisplayProjetcs(initialProjectsList )
+      setDisplayProjects(initialProjectsList);
     }
       useEffect(()=>{
         handleFetch()
@@ -174,6 +174,7 @@ const ExplorePage = () => {
       <h4 className='text-black-100 font-bold text-2xl mt-10 ' >Explore</h4>
       
      {isLoading?<Spinner/> : (
+      <div>
        <div className='grid grid-cols-3 gap-4 mt-6  w-full'>
        {allProject.slice(0,displayProjects).map((project)=>{
          return (
@@ -186,13 +187,16 @@ const ExplorePage = () => {
          )
        })}
        </div>
-     )}
-      <div className='flex justify-center mt-[53px]'>
+       <div className='flex justify-center mt-[53px]'>
         {displayProjects < allProject.length ?(<button onClick={loadMore} className='font-medium mb-16 px-[30px] rounded-[6px] py-2 text-lg bg-custom-blue text-center text-white'>
           Load More</button>) :<button onClick={loadLess} className='font-medium mb-16 px-[30px] rounded-[6px] py-2 text-lg bg-custom-blue text-center text-white'>
           Load less</button>}
     
       </div>
+       </div>
+       
+     )}
+     
     </div>
   )
 }
