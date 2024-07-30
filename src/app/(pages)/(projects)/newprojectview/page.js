@@ -21,7 +21,7 @@ const NewPojectView = () => {
  console.log(userProject,'from project view');
  const projectId = Cookies.get("projectId")
  const token = Cookies.get("token")
- console.log(projectId,'from project view');
+ 
  
  const url =`https://ripple-project-1.onrender.com/api/v1/projects/image_or_video/${projectId}`
 

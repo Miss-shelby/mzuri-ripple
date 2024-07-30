@@ -10,9 +10,11 @@ import { FiEye } from "react-icons/fi";
 import { FiEyeOff } from "react-icons/fi";
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import { useAuth } from '@/app/_components/Providers/Providers'
 const LoginPage =  () => {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const {userProject } = useAuth()
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -34,6 +36,11 @@ const LoginPage =  () => {
         
         toast.success('Login succesfull')
         router?.push('/project')
+        // if(userProject){
+        //   router.push('/newprojectview')
+        // }else{
+        //   router?.push('/project')
+        // }
         
       })
       .catch(function (error) {
