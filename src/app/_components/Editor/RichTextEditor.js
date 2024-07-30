@@ -1,20 +1,30 @@
 'use client'
 import { Editor } from "@tinymce/tinymce-react";
-import { useState } from "react";
+import { useState,useRef } from "react";
 
 const RichTextEditor = () => {
-  const [showEditor,setShowEditor] = useState(false)
-  const handleEditorChange = (content, editor) => {
-    console.log('Content was updated:', content);
+  const editorRef = useRef()
+  const [editorInstance, setEditorInstance] = useState(null);
+ 
+
+  const handleDoneClick = () => {
+    if (editorInstance) {
+      const content = editorInstance.getContent();
+      console.log('Content was updated:', content);
+      const strippedContent = content.replace(/<\/?p>/g, '');
+      
+      editorInstance.setContent('');
+      
+      console.log('Content was updated:', strippedContent);
+      
+    }
   };
-  const toggleEditor=()=>{
-      setShowEditor(false)
-  }
+  
   return (
     <>
     <div className="flex justify-between">
       <h2 className="editor-header">Edit Your Story </h2>
-      <h2 onClick={handleEditorChange} className="text-custom-green-200 ml-16 cursor-pointer ">Done</h2> 
+      <h2 onClick={handleDoneClick} className="text-custom-green-200 ml-16 cursor-pointer ">Done</h2> 
     </div>
       <Editor
         apiKey="6gvxjieb4cp1ekx8va3rtte90zqqyzwex5d3h76m5w8tbuq5"
@@ -22,7 +32,7 @@ const RichTextEditor = () => {
         init={{
           height: 400,
           menubar: false,
-          branding: false, // Disable TinyMCE branding
+          branding: false,
           plugins: [
             'advlist', 'autolink', 'lists', 'link', 'image', 'media', 'charmap', 'print', 'preview', 'anchor',
             'searchreplace', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'table', 'paste', 'code', 'help', 'wordcount'
@@ -52,7 +62,7 @@ const RichTextEditor = () => {
             }
           }
         }}
-        onEditorChange={handleEditorChange}
+        onInit={(evt, editor) => setEditorInstance(editor)}
       />
     </>
   );
