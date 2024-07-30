@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@paystack/inline-js": "^2.19.2",
     "@tinymce/tinymce-react": "^5.1.1",
     "axios": "^1.7.2",
     "daisyui": "^4.12.10",

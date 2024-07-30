@@ -22,7 +22,7 @@ const ProjectDetailPage =async ({params})=>{
     const formattedDate = today.toISOString().slice(0, 10); 
 
     const createdDate = DateCreated(dateCreated,formattedDate)
-    const daysLeft = calculateDaysLeft(dateCreated,projectduration)
+    const daysLeft = calculateDaysLeft(projectduration,formattedDate)
     
 
 

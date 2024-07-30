@@ -8,10 +8,10 @@ const search = "/bi_search.png";
 export default function Home() {
   return (
     <main className="pt-[4rem] w-full max-w-[1920px] mx-auto   px-[10rem] bg-white">
-      <div className="flex justify-between w-full items-center">
+      <div className="flex flex-col lg:flex-row  justify-between w-full items-center">
           <div>
             <div>
-              <p className="text-6xl text-black-100 leading-[4rem] font-medium">
+              <p className="text-4xl xl:text-6xl lg:text-4xl text-black-100 leading-[4rem] font-medium">
                 Discover The Best and brightest Projects</p>
               <p className=" font-normal  pt-[32px]">
                 Support creative worker and see the buildup of the project with each
@@ -37,24 +37,24 @@ export default function Home() {
       <p className="text-center font-medium text-lg  pt-10 pb-7">
         Within The Last Day
       </p>
-      <div className="bg-[#F5F5F5] flex justify-between px-[3rem] w-full py-4 mb-[4rem]">
+      <div className="bg-[#F5F5F5] flex flex-col md:flex-row justify-between px-4 md:px-[3rem] w-full py-4 mb-[4rem]">
         <div className="flex flex-col items-center justify-center text-black-100">
-          <p className="text-[28px] font-[600] ">50</p>
-          <p className="font-medium text-lg">Projects Funded</p>
+          <p className="text-sm md:text-[20px] lg:text-[28px] md:font-[600] ">50</p>
+          <p className="md:font-medium text-xs md:text-sm lg:text-lg">Projects Funded</p>
         </div>
         <div className="inline-block border-l border-1 h-15 border-[#525252] ml-2">
           {" "}
         </div>
         <div className="flex flex-col items-center justify-center text-black-100">
-          <p className="text-[28px] font-[600] flex items center"><span className="inline-flex items-center"><TbCurrencyNaira /></span> 1,00,00,000</p>
-          <p className="font-medium  text-lg">Towards Creative Work</p>
+          <p className="text-sm md:text-[20px] lg:text-[28px] md:font-[600]  flex items center"><span className="inline-flex items-center"><TbCurrencyNaira /></span> 1,00,00,000</p>
+          <p className="md:font-medium text-xs md:text-sm lg:text-lg">Towards Creative Work</p>
         </div>
         <div className="inline-block border-l border-1 h-15 border-[#525252] ml-2">
           {" "}
         </div>
         <div className="flex flex-col items-center justify-center">
-          <p className="text-[28px] font-[600]">15,000</p>
-          <p className="font-medium text-lg">Project Backing</p>
+          <p className="text-sm md:text-[20px] lg:text-[28px] md:font-[600] ">15,000</p>
+          <p className="md:font-medium text-xs md:text-sm lg:text-lg">Project Backing</p>
         </div>
       </div>
       <AllProjects />

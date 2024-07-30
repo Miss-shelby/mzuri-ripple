@@ -18,10 +18,9 @@ const NewPojectView = () => {
   const router = useRouter();
   const {authUser,userProject,setUserProject } = useAuth()
 
- console.log(userProject,'from project view');
  const projectId = Cookies.get("projectId")
  const token = Cookies.get("token")
- 
+
  
  const url =`https://ripple-project-1.onrender.com/api/v1/projects/image_or_video/${projectId}`
 
@@ -59,8 +58,8 @@ const NewPojectView = () => {
     const imageUrl = projectImage ? `${url}` : '';
 
     //getting created date
-    const dateCreated = userProject?.created?.slice(0, 10); // "YYYY-MM-DD"
-    const duration = userProject?.duration?.slice(0, 10); // "YYYY-MM-DD"
+    const dateCreated = userProject?.created?.slice(0, 10); 
+    const duration = userProject?.duration?.slice(0, 10); 
     
     // Get today's date
     const today = new Date();
@@ -69,7 +68,7 @@ const NewPojectView = () => {
   const day =  DateCreated(dateCreated,formattedDate)
 
   //days left
-const daysLeft = calculateDaysLeft(dateCreated,duration)
+const daysLeft = calculateDaysLeft(duration,formattedDate)
     
     console.log(daysLeft); 
     

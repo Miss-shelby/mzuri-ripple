@@ -23,12 +23,12 @@ import NigeriaStatesDropDown from "@/app/_components/NigeriaStateDropdown/Nigeri
                 What are you fundraising for?
                 <select required onChange={handleInputChange} name="category" value={formValues.category} className="select select-bordered text-[13px] w-full h-10 min-h-10 mt-3">
                   <option >Choose a category</option>
-                  <option value="Design and Tech">Design and Tech</option>
-                  <option value="Arts&Illustration">Arts&Illustration</option>
-                  <option value="Film">Film</option>
-                  <option value="Music">Music</option>
-                  <option value="Food &Craft">Food & Craft</option>
-                  <option value="Game">Game</option>
+                  <option value="669d9bc7ea1a4f4b5f0296ec">Design and Tech</option>
+                  <option value="669d9ff40eb0c5acbe1ee8f0">Arts&Illustration</option>
+                  <option value="669da01f0eb0c5acbe1ee8f2">Film</option>
+                  <option value="669da0360eb0c5acbe1ee8f4">Music</option>
+                  <option value="669da0530eb0c5acbe1ee8f6">Food & Craft</option>
+                  <option value="669da05f0eb0c5acbe1ee8f8">Game</option>
                 </select>
               </label>
               <div className='flex justify-end text-right w-full mb-9'>

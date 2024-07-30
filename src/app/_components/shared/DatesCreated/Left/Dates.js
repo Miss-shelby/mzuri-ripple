@@ -27,15 +27,15 @@ export const DateCreated = (dateCreated,formattedDate) => {
     return dayCreated;
 }
 
-export const calculateDaysLeft=(dateCreated, duration) =>{
-    const createdDate = new Date(dateCreated);
+export const calculateDaysLeft=(duration,formattedDate) =>{
+    const currentDate = new Date(formattedDate);
     const targetDate = new Date(duration);
   
-    if (createdDate > targetDate) {
+    if (currentDate === targetDate || currentDate > targetDate) {
       return '0 ';
     }
   
-    const differenceInTime = targetDate - createdDate;
+    const differenceInTime = targetDate - currentDate;
     const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24)); 
   
     return `${differenceInDays}`;

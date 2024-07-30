@@ -31,6 +31,9 @@ body {
     text-wrap: balance;
   }
 }
+/* *{
+  border: 1px solid greenyellow;
+} */
 .gradient-border {
   height: 5px;
   background-color: #007038;

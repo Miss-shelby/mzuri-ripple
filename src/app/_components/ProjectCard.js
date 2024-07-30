@@ -10,7 +10,7 @@ export const ProjectCard = ({img,title,owner,description="",expander,startPrice,
           quality={100}
          height={height}
          width={width}
-        layout="responsive"
+        responsive 
           alt="project_Image"
   
         />

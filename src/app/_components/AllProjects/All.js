@@ -13,16 +13,14 @@ import { calculateDaysLeft } from "../shared/DatesCreated/Left/Dates";
 const bika = "/Bikah.png";
 const scooter ="/ElectricScooter.png";
 const library ="/library.png"
+const social = '/social media.jpg'
 
 
 const All = () => {
  
 const [featuredProduct,setFeaturedProject] = useState([])
 const [isLoading,setIsLoading] = useState(true)
-// const projectId = Cookies.get("projectId")
-//  console.log(projectId,'from project view');
- 
- const baseurl =`https://ripple-project-1.onrender.com/api/v1/projects/image_or_video/`
+
 
   useEffect(()=>{
    handleFetch()
@@ -46,17 +44,23 @@ const [isLoading,setIsLoading] = useState(true)
    });
   }
 
-  //getting created date
-  const dateCreatedOne = featuredProduct[0]?.created?.slice(0, 10); 
-  const dateCreatedTwo = featuredProduct[1]?.created?.slice(0, 10);
-  const dateCreatedThree = featuredProduct[24]?.created?.slice(0, 10);
-  console.log(featuredProduct);
+  //getting days left 
+  const durationOne =  featuredProduct[27]?.duration?.slice(0,10);
+  const durationTwo =  featuredProduct[1]?.duration?.slice(0,10);
+  const durationThree =  featuredProduct[24]?.duration?.slice(0,10);
+
+  const projectIdOne = featuredProduct[27]?.id
+  const projectIdThree = featuredProduct[24]?.id
+
+ 
   // Get today's date
   const today = new Date();
   const formattedDate = today.toISOString().slice(0, 10); 
-const daysLeftOne = calculateDaysLeft(dateCreatedOne,formattedDate)
-const daysLeftTwo = calculateDaysLeft(dateCreatedTwo,formattedDate)
-const daysLeftThree = calculateDaysLeft(dateCreatedThree,formattedDate)
+const daysLeftOne = calculateDaysLeft(durationOne,formattedDate )
+const daysLeftTwo = calculateDaysLeft( durationTwo,formattedDate)
+const daysLeftThree = calculateDaysLeft(durationThree,formattedDate)
+ 
+ const baseurl =`https://ripple-project-1.onrender.com/api/v1/projects/image_or_video`
   return (
     <div className="w-full">
       <h4 className="font-bold text-xl my-8">Featured Projects</h4>
@@ -64,10 +68,10 @@ const daysLeftThree = calculateDaysLeft(dateCreatedThree,formattedDate)
       (
         <div className="flex w-full ">
         <div className=" mr-[20px] w-fit h-fit ">
-        <ProjectCard img={bika} height={470} width={680} title={featuredProduct[0]?.title} owner={featuredProduct[0]?.name}
+        <ProjectCard img={bika} height={470} width={680} title={featuredProduct[27]?.title} owner={featuredProduct[27]?.name}
         
-        expander={<TextExpander collapsedNumber={134}>{featuredProduct[10]?.about}</TextExpander>}
-          startPrice={`${featuredProduct[0]?.amount}`} endPrice={`${featuredProduct[0]?.amount}`} backers="0 backers" days={`${daysLeftOne} days left`}/>
+        expander={<TextExpander collapsedNumber={134}>{featuredProduct[27]?.about}</TextExpander>}
+          startPrice={`${featuredProduct[27]?.amount}`} endPrice={`${featuredProduct[27]?.amount}`} backers="0 backers" days={`${daysLeftOne} days left`}/>
         </div>
           <div className="flex flex-col text-[sm]">
             <ProjectCard  height={130} width={500}  title={featuredProduct[1]?.title} owner={featuredProduct[1]?.name}
