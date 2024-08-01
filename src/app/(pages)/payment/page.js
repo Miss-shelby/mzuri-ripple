@@ -1,7 +1,7 @@
 // 'use client'
 // import Image from 'next/image'
 // import Link from 'next/link'
-// import React, { useState } from 'react'
+import React from 'react'
 // import { useAuth } from '@/app/_components/Providers/Providers';
 // import { useRouter } from 'next/navigation'
 // import PaystackPop from "@paystack/inline-js";
@@ -94,3 +94,12 @@
 // }
 
 // export default PaymentPage
+const PaymentPage=()=>{
+    return( 
+        <div>
+
+            <p>Hello payment</p>
+        </div>
+    )
+}
+export default PaymentPage
