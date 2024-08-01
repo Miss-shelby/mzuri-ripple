@@ -55,7 +55,7 @@ const NewPojectView = () => {
     const location = userProject?.address;
     const projectStory = userProject?.about;
 
-    const imageUrl = projectImage ? `${url}` : '';
+    const imageUrl = projectImage ? `${url}` : '/social media.jpg';
 
     //getting created date
     const dateCreated = userProject?.created?.slice(0, 10); 
@@ -63,7 +63,7 @@ const NewPojectView = () => {
     
     // Get today's date
     const today = new Date();
-    const formattedDate = today.toISOString().slice(0, 10); // "YYYY-MM-DD"
+    const formattedDate = today.toISOString().slice(0, 10); 
 
   const day =  DateCreated(dateCreated,formattedDate)
 
@@ -78,7 +78,11 @@ const daysLeft = calculateDaysLeft(duration,formattedDate)
      Cookies.remove("token")
       router.push('/')
     }
+
+  
   return (
+  <>
+  {userProject? (
     <section className=' mt-[68px] mb-5'>
               <p className='font-bold text-2xl mb-8 pl-[10rem]'>{projectName}</p>
         <div className='flex w-full max-w-[1920px] mx-auto px-[10rem]'>
@@ -115,6 +119,12 @@ const daysLeft = calculateDaysLeft(duration,formattedDate)
         </div>
         <UserDashboard projectOwner={projectOwner} imageUrl ={imageUrl } projectStory={projectStory} />
     </section>
+  ):(
+    <div className='flex flex-col items-center justify-center h-screen'><h3>You havent created a project yet,click on the link below to get you started</h3>
+    <button><Link href="/project">Start a Ripple</Link></button>
+    </div>
+  )}
+  </>
   )
 }
 

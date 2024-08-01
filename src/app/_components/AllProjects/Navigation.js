@@ -3,6 +3,10 @@ import React, { useState } from 'react'
 import Arts from './Arts'
 import All from './All'
 import Design from './Design'
+import Film from './Film'
+import Music from './Music'
+import Food$Craft from './Food'
+import Games from './Game'
 
 const ProjectNavigation = ({ links}) => {
   const [section,setSection] = useState("All")
@@ -19,6 +23,10 @@ const ProjectNavigation = ({ links}) => {
       {section === "All" && <All/>}
       {section === "Art &Illustration" && <Arts/>}
       {section === "Design &Tech" && <Design/>}
+      {section === "Flim" && <Film/>}
+      {section === "Music" && <Music/>}
+      {section === "Food & Craft" && <Food$Craft/>}
+      {section === "Game" && <Games/>}
     </div>
     </>
   )

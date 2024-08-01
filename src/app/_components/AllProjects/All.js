@@ -45,9 +45,9 @@ const [isLoading,setIsLoading] = useState(true)
   }
 
   //getting days left 
-  const durationOne =  featuredProduct[27]?.duration?.slice(0,10);
+  const durationOne =  featuredProduct[21]?.duration?.slice(0,10);
   const durationTwo =  featuredProduct[1]?.duration?.slice(0,10);
-  const durationThree =  featuredProduct[24]?.duration?.slice(0,10);
+  const durationThree =  featuredProduct[17]?.duration?.slice(0,10);
 
   const projectIdOne = featuredProduct[27]?.id
   const projectIdThree = featuredProduct[24]?.id
@@ -59,7 +59,7 @@ const [isLoading,setIsLoading] = useState(true)
 const daysLeftOne = calculateDaysLeft(durationOne,formattedDate )
 const daysLeftTwo = calculateDaysLeft( durationTwo,formattedDate)
 const daysLeftThree = calculateDaysLeft(durationThree,formattedDate)
- 
+
  const baseurl =`https://ripple-project-1.onrender.com/api/v1/projects/image_or_video`
   return (
     <div className="w-full">
@@ -68,20 +68,20 @@ const daysLeftThree = calculateDaysLeft(durationThree,formattedDate)
       (
         <div className="flex w-full ">
         <div className=" mr-[20px] w-fit h-fit ">
-        <ProjectCard img={bika} height={470} width={680} title={featuredProduct[27]?.title} owner={featuredProduct[27]?.name}
+        <ProjectCard img={bika} height={470} width={680} title={featuredProduct[21]?.title} owner={featuredProduct[21]?.name}
         
-        expander={<TextExpander collapsedNumber={134}>{featuredProduct[27]?.about}</TextExpander>}
-          startPrice={`${featuredProduct[27]?.amount}`} endPrice={`${featuredProduct[27]?.amount}`} backers="0 backers" days={`${daysLeftOne} days left`}/>
+        expander={<TextExpander collapsedNumber={114}>{featuredProduct[21]?.about}</TextExpander>}
+          startPrice={`${featuredProduct[21]?.amount}`} endPrice={`${featuredProduct[21]?.amount}`} backers="0 backers" days={`${daysLeftOne} days left`}/>
         </div>
           <div className="flex flex-col text-[sm]">
             <ProjectCard  height={130} width={500}  title={featuredProduct[1]?.title} owner={featuredProduct[1]?.name}
-              expander={<TextExpander>{featuredProduct[6]?.about}</TextExpander>}
+              expander={<TextExpander>{featuredProduct[1]?.about}</TextExpander>}
               startPrice= {`${featuredProduct[1]?.amount}`} endPrice={`${featuredProduct[1]?.amount}`}
                backers="0 backers" days={`${daysLeftTwo} days left`} img={scooter}/>
-              <div className="mt-3">
-                 <ProjectCard height={130} width={500} title={featuredProduct[24]?.title} owner={featuredProduct[24]?.name}
-                expander={<TextExpander>{featuredProduct[24]?.about}</TextExpander>}
-              startPrice={`${featuredProduct[24]?.amount}`}  endPrice={`${featuredProduct[24]?.amount}`} 
+              <div className="mt-5">
+                 <ProjectCard height={130} width={500} title={featuredProduct[17]?.title} owner={featuredProduct[17]?.name}
+                expander={<TextExpander>{featuredProduct[17]?.about}</TextExpander>}
+              startPrice={`${featuredProduct[17]?.amount}`}  endPrice={`${featuredProduct[17]?.amount}`} 
                backers="0 backers" days={`${daysLeftThree} day left`} img={library}/>
             
               </div>

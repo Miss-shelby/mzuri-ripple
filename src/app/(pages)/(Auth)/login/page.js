@@ -35,7 +35,7 @@ const LoginPage =  () => {
         Cookies.set("token",token)
         
         toast.success('Login succesfull')
-        router?.push('/project')
+        router?.push('/newprojectview')
         // if(userProject){
         //   router.push('/newprojectview')
         // }else{

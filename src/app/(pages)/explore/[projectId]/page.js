@@ -10,7 +10,7 @@ const ProjectDetailPage =async ({params})=>{
 
     const response =await fetch(`${GetProjectsApi}/projects/${params.projectId}`)
     const data = await response.json()
-    const {name,address,state,amount,title,about, picture_or_video,categories,created,duration} = data.data;
+    const {name,address,state,amount,title,about, picture_or_video,categories,created,duration} = data?.data;
     const url =`https://ripple-project-1.onrender.com/api/v1/projects/image_or_video/${params.projectId}`
     const imageUrl = picture_or_video ? `${url}` : '/newproject.png';
 

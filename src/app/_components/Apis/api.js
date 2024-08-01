@@ -4,3 +4,5 @@ export const ProfileApi =`https://ripple-project-1.onrender.com/api/v1/users/`;
 export const NigeriaStatesApi=`https://nga-states-lga.onrender.com/fetch`;
 export const ProjectsApi= `https://ripple-project-1.onrender.com/api/v1/projects/`;
 export const GetProjectsApi= `https://ripple-project-1.onrender.com/api/v1/projects`;
+export const updateProjectAbout = `https://ripple-project-1.onrender.com/api/v1/projects/project`
+export const getCategory ='https://ripple-project-1.onrender.com/api/v1/projects/filter'
