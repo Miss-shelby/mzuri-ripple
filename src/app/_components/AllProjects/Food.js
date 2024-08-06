@@ -45,7 +45,7 @@ const Food$Craft =() => {
             return (
               <ProjectCard key={food?.id} img={ss} height={186} width={389} title={food?.title} owner={`By ${food?.name}`}
                expander={<TextExpander collapsedNumber={34}>{food?.about}</TextExpander>}
-                startPrice={food?.amount} endPrice={food?.amount} backers="0 backers" days={`${calculateDaysLeft(food?.duration,formattedDate)} days left`}/>
+                startPrice={food?.amount.toLocaleString('en-US')} endPrice={food?.amount.toLocaleString('en-US')} backers="0 backers" days={`${calculateDaysLeft(food?.duration,formattedDate)} days left`}/>
             )
           })}
         </div>

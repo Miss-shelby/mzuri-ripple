@@ -32,22 +32,19 @@ const LoginPage =  () => {
       .then(function (response) {
         console.log(response, "response from db");
         const token = response.data.access_token;
-        Cookies.set("token",token)
-        
+        Cookies.set("token",token, { path: "/" })
+        console.log(token,'token from login page');
         toast.success('Login succesfull')
-        router?.push('/newprojectview')
-        // if(userProject){
-        //   router.push('/newprojectview')
-        // }else{
-        //   router?.push('/project')
-        // }
+        router?.push('/dashboard')
         
       })
       .catch(function (error) {
-       
-       console.log(error.response.data.detail);
-       const errorMsg = error.response.data.detail;
-       toast.error(errorMsg)
+       if (error?.status === 400 || error?.status === 401 ||  error?.status === 403 ||error?.status === 404)
+       console.log(error);
+      //  const errorMsg = error.response.data.detail;
+      //  toast.error(errorMsg)
+      toast.error(error?.message ||  error?.detail || error?.error || error?.data ||        response?.statusText ||
+        "An error occured")
        
       })
       .finally(function(){

@@ -51,16 +51,16 @@ const daysLeftThree = calculateDaysLeft(durationThree,formattedDate)
         <div className=" mr-[24px] w-full ">
         <ProjectCard img={printer} height={450} width={746} title={design[0]?.title} owner={`By ${design[0]?.name}`}
          expander={<TextExpander collapsedNumber={134}>{design[0]?.about}</TextExpander>}
-          startPrice={design[0]?.amount} endPrice={design[0]?.amount} backers="0 backers"days={`${daysLeftOne} days left`}/>
+          startPrice={design[0]?.amount.toLocaleString('en-US')} endPrice={design[0]?.amount.toLocaleString('en-US')} backers="0 backers"days={`${daysLeftOne} days left`}/>
         </div>
           <div className="flex flex-col">
             <ProjectCard  height={130} width={500}  title={design[1]?.title} owner={`By ${design[1]?.name}`}
              expander={<TextExpander collapsedNumber={25}>{design[1]?.about}</TextExpander>}
-              startPrice={design[1]?.amount} endPrice={design[1]?.amount} backers="0 backers" days={`${daysLeftTwo} days left`}img={scooter}/>
+              startPrice={design[1]?.amount.toLocaleString('en-US')} endPrice={design[1]?.amount.toLocaleString('en-US')} backers="0 backers" days={`${daysLeftTwo} days left`}img={scooter}/>
               <div className="mt-5"> 
                  <ProjectCard height={130} width={500} title={design[2]?.title} owner={`By ${design[2]?.name}`}
                expander={<TextExpander collapsedNumber={25}>{design[2]?.about}</TextExpander>}
-              startPrice={design[2]?.amount} endPrice={design[2]?.amount} backers="0 backers" days={`${daysLeftThree} days left`}img={architect}/>
+              startPrice={design[2]?.amount.toLocaleString('en-US')} endPrice={design[2]?.amount.toLocaleString('en-US')} backers="0 backers" days={`${daysLeftThree} days left`}img={architect}/>
               </div>
           </div>
       </div> 

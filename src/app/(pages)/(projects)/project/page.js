@@ -113,7 +113,7 @@ const validateForm = () => {
     }
 
   const token = Cookies.get("token")
-  // console.log(token);
+  console.log(token,'tpken from creating project');
   const router = useRouter()
 const submitForm = async (e)=>{
   e.preventDefault()
@@ -149,9 +149,9 @@ const submitForm = async (e)=>{
       Cookies.set("projectId",projectId)
       setUserProject(json?.data)
       const sucessMessage = json?.message;
-      toast.success(sucessMessage || "Registration successful");
+      toast.success(sucessMessage || "project created successful");
       setLoading(false);
-      router?.push('/newprojectview')
+      router?.push('/dashboard')
       return;
     } else if (response?.status === 400 || response?.status === 401 ||  response?.status === 403 ||response?.status === 404 ) {
       toast.error(json?.message ||  json?.detail || json?.error || json?.data ||        response?.statusText ||

@@ -43,6 +43,7 @@ const [isLoading,setIsLoading] = useState(true)
   // setIsLoading(false)
    });
   }
+console.log(featuredProduct[21],'first project here');
 
   //getting days left 
   const durationOne =  featuredProduct[21]?.duration?.slice(0,10);
@@ -70,18 +71,18 @@ const daysLeftThree = calculateDaysLeft(durationThree,formattedDate)
         <div className=" mr-[20px] w-fit h-fit ">
         <ProjectCard img={bika} height={470} width={680} title={featuredProduct[21]?.title} owner={featuredProduct[21]?.name}
         
-        expander={<TextExpander collapsedNumber={114}>{featuredProduct[21]?.about}</TextExpander>}
-          startPrice={`${featuredProduct[21]?.amount}`} endPrice={`${featuredProduct[21]?.amount}`} backers="0 backers" days={`${daysLeftOne} days left`}/>
+        expander={<TextExpander collapsedNumber={134}>{featuredProduct[21]?.about}</TextExpander>}
+          startPrice={`${featuredProduct[21]?.amount.toLocaleString('en-US')}`} endPrice={`${featuredProduct[21]?.amount.toLocaleString('en-US')}`} backers="0 backers" days={`${daysLeftOne} days left`}/>
         </div>
           <div className="flex flex-col text-[sm]">
             <ProjectCard  height={130} width={500}  title={featuredProduct[1]?.title} owner={featuredProduct[1]?.name}
               expander={<TextExpander>{featuredProduct[1]?.about}</TextExpander>}
-              startPrice= {`${featuredProduct[1]?.amount}`} endPrice={`${featuredProduct[1]?.amount}`}
+              startPrice= {`${featuredProduct[1]?.amount.toLocaleString('en-US')}`} endPrice={`${featuredProduct[1]?.amount.toLocaleString('en-US')}`}
                backers="0 backers" days={`${daysLeftTwo} days left`} img={scooter}/>
               <div className="mt-5">
                  <ProjectCard height={130} width={500} title={featuredProduct[17]?.title} owner={featuredProduct[17]?.name}
                 expander={<TextExpander>{featuredProduct[17]?.about}</TextExpander>}
-              startPrice={`${featuredProduct[17]?.amount}`}  endPrice={`${featuredProduct[17]?.amount}`} 
+              startPrice={`${featuredProduct[17]?.amount.toLocaleString('en-US')}`}  endPrice={`${featuredProduct[17]?.amount.toLocaleString('en-US')}`} 
                backers="0 backers" days={`${daysLeftThree} day left`} img={library}/>
             
               </div>

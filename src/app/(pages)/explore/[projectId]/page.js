@@ -3,13 +3,22 @@ import Image from 'next/image';
 import React from 'react'
 import { GoTag } from "react-icons/go";
 import { BsFillGeoFill } from "react-icons/bs";
-import { UserDashboard } from '../../(projects)/newprojectview/page';
+
 import Link from 'next/link';
 import { calculateDaysLeft, DateCreated } from '@/app/_components/shared/DatesCreated/Left/Dates';
+import DashboardNavigation from '@/app/_components/projectsComponent/dashboardLinks';
+import ProjectIdSetter from '@/app/_components/shared/ProjectIdSetter';
+
 const ProjectDetailPage =async ({params})=>{
 
-    const response =await fetch(`${GetProjectsApi}/projects/${params.projectId}`)
+    const response =await fetch(`${GetProjectsApi}/project/${params.projectId}`,{cache:'no-store'})
     const data = await response.json()
+    console.log(data?.data,'user details');
+    // console.log(data?.data?.backers);
+    
+    const backers = data?.data?.backers;
+    console.log(backers,'backers here');
+    
     const {name,address,state,amount,title,about, picture_or_video,categories,created,duration} = data?.data;
     const url =`https://ripple-project-1.onrender.com/api/v1/projects/image_or_video/${params.projectId}`
     const imageUrl = picture_or_video ? `${url}` : '/newproject.png';
@@ -23,12 +32,10 @@ const ProjectDetailPage =async ({params})=>{
 
     const createdDate = DateCreated(dateCreated,formattedDate)
     const daysLeft = calculateDaysLeft(projectduration,formattedDate)
-    
-
-
-
+    //add loading here 
     return (
         <section className=' mt-[68px] mb-5'>
+          <ProjectIdSetter projectId={params.projectId}/>
               <p className='font-bold text-2xl mb-8 pl-[10rem]'>{title}</p>
         <div className='flex w-full max-w-[1920px] mx-auto px-[10rem]'>
             <div>
@@ -49,7 +56,10 @@ const ProjectDetailPage =async ({params})=>{
                 <div id="grad"></div>
                     <h2 className="text-custom-green-200 text-2xl font-bold pt-6">{amount}</h2>
                     <p className='font-medium text-sm text-black-100 mt-2'>pledged of 0 goal</p>
-                    <p className='text-custom-green-200 text-2xl font-bold pt-6 '>0</p>
+                    
+                    <p className='text-custom-green-200 text-2xl font-bold pt-6 '>
+                      {backers?.length > 0? backers?.length : '0'}
+                    </p>
                     <p className='font-medium text-sm text-black-100 mt-2'>backers</p>
                     <p className='text-custom-green-200 text-2xl font-bold pt-6'>{daysLeft}</p>
                     <p className='font-medium text-sm text-black-100 '>days to go</p>
@@ -61,8 +71,24 @@ const ProjectDetailPage =async ({params})=>{
                 </div>
             </div>
         </div>
-        <UserDashboard projectOwner={name} imageUrl ='/newproject.png' projectStory={about} />
+        <UserDashboard backers={backers} projectOwner={name} imageUrl ='/newproject.png' projectStory={about} />
     </section>
     )
 }
+
+const projectLinks = [
+    { name:  "campaign" },
+    { name: 'updates' },
+    { name: 'comments' },
+  ];
+  
+  const UserDashboard = ({ imageUrl, projectOwner, projectStory,backers }) => (
+    <div className='mt-9 mb-6'>
+      <nav>
+        <DashboardNavigation links={projectLinks} backers={backers} projectOwner={projectOwner} imageUrl={imageUrl} projectStory={projectStory} />
+      </nav>
+    </div>
+  );
+  
+
 export default ProjectDetailPage

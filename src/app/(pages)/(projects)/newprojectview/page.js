@@ -5,7 +5,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { GoTag } from "react-icons/go";
 import { BsFillGeoFill } from "react-icons/bs";
-import DashboardNavigation from './components/dashboardLinks';
+
 import { useAuth } from '@/app/_components/Providers/Providers';
 import {  useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
@@ -14,18 +14,20 @@ import axios from 'axios';
 import ProtectedRoute from '@/app/_components/Protected/Protected';
 import Link from 'next/link';
 import { calculateDaysLeft, DateCreated } from '@/app/_components/shared/DatesCreated/Left/Dates';
+import DashboardNavigation from '@/app/_components/projectsComponent/dashboardLinks';
 const NewPojectView = () => {
   const router = useRouter();
+
   const {authUser,userProject,setUserProject } = useAuth()
 
  const projectId = Cookies.get("projectId")
  const token = Cookies.get("token")
 
- 
+ console.log(token,'from project view');
  const url =`https://ripple-project-1.onrender.com/api/v1/projects/image_or_video/${projectId}`
 
  useEffect(()=>{
-  if(projectId){
+  if( projectId){
       axios.get(`${GetProjectsApi}/${projectId}`,{
         headers:{
           accept:'application/json',

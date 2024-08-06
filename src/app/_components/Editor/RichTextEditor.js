@@ -3,10 +3,10 @@ import { Editor } from "@tinymce/tinymce-react";
 import { useRef } from "react";
 
 const RichTextEditor = ({ initialContent, onDone }) => {
-  const editorRef = useRef();
+  const editorRef = useRef(); // Create a ref to access the editor instance
 
   const handleDoneClick = () => {
-    if (editorRef.current) {
+    if (editorRef.current) { // Check if the editor is initialized and get the content
       const content = editorRef.current.getContent();
       // const strippedContent = content.replace(/<\/?p>/g, ''); // Optional: Strip <p> tags if needed
       onDone( content);

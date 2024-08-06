@@ -17,7 +17,7 @@ const Games =() => {
     const fetchCategory   = async ()=>{
       setLoading(true)
       try{
-        const response = await fetch(`${getCategory}/category?category=669d9ff40eb0c5acbe1ee8f0`)
+        const response = await fetch(`${getCategory}/category?category=669da05f0eb0c5acbe1ee8f8`)
         const data = await response.json()
         if(response.status=== 200){
           console.log(data);
@@ -46,7 +46,7 @@ const Games =() => {
             return (
               <ProjectCard key={game?.id} img={ss} height={186} width={389} title={game?.title} owner={`By ${game?.name}`}
                expander={<TextExpander collapsedNumber={34}>{game?.about}</TextExpander>}
-                startPrice={game?.amount} endPrice={game?.amount} backers="0 backers" days={`${calculateDaysLeft(game?.duration,formattedDate)} days left`}/>
+                startPrice={game?.amount.toLocaleString('en-US')} endPrice={game?.amount.toLocaleString('en-US')} backers="0 backers" days={`${calculateDaysLeft(game?.duration,formattedDate)} days left`}/>
             )
           })}
         </div>

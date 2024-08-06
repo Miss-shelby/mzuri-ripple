@@ -38,7 +38,7 @@ const ProtectedRoute = ({ children }) => {
         router?.push('/login')
         return;
       }
-      console.log(error.response.status,'error from protected route');
+      console.log(error?.response?.status,'error from protected route');
       setAuthUser(null)
        });
        return

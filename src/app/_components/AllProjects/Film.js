@@ -44,7 +44,7 @@ const Film =() => {
             return (
               <ProjectCard key={film?.id} img={ss} height={186} width={389} title={film?.title} owner={`By ${film?.name}`}
                expander={<TextExpander collapsedNumber={34}>{film?.about}</TextExpander>}
-                startPrice={film?.amount} endPrice={film?.amount} backers="0 backers" days={`${calculateDaysLeft(film?.duration,formattedDate)} days left`}/>
+                startPrice={film?.amount.toLocaleString('en-US')} endPrice={film?.amount.toLocaleString('en-US')} backers="0 backers" days={`${calculateDaysLeft(film?.duration,formattedDate)} days left`}/>
             )
           })}
         </div>

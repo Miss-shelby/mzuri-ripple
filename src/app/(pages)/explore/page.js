@@ -14,129 +14,6 @@ const ExplorePage = () => {
   const [allProject,setAllProject] = useState([])
   const [isLoading,setIsLoading] = useState(true)
 
-    // const allProjects = [
-    //     {
-    //       image: "/clean2.png",
-    //       title: "Clean Bagmati",
-    //       location: "Kathmandu",
-    //       description:
-    //         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales. ",
-    //       startPrice: "Rs. 1,00,000",
-    //       endPrice: "Rs. 1,00,00,000",
-         
-    //     },
-    //     {
-    //         image: "/accident.png",
-    //       title: "Accident Victim",
-    //       location: "Kathmandu",
-    //       description:
-    //         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales.  ",
-    //       startPrice: "Rs. 1,00,000",
-    //       endPrice: "Rs. 10,00,000",
-         
-    //     },
-    //     {
-    //       title: "Build a Shelter",
-    //       image: "/shelter.png",
-    //       location: "Kathmandu",
-    //       description:
-    //         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales. ",
-    //       startPrice: "Rs. 10,000",
-    //       endPrice: "Rs. 1,00,000",
-          
-    //     },
-    //     {
-    //         title: "Eathquake Victim",
-    //         image: "/EarthQuake.png",
-    //         location: "Gorkha",
-    //         description:
-    //           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales. ",
-    //         startPrice: "Rs. 10,000",
-    //         endPrice: "Rs. 1,00,000",
-           
-    //       },
-    //       {
-    //         title: "Help Kids Study",
-    //         image: "/kids.png",
-    //         location: "Pokhara",
-    //         description:
-    //           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales. ",
-    //         startPrice: "Rs. 10,000",
-    //         endPrice: "Rs. 1,00,000",
-           
-    //       },
-    //       {
-    //         title: "Save Rhino",
-    //         image: "/rhino.png",
-    //         location: "Chitwan",
-    //         description:
-    //           "Lorem ipsum dolor sit amet,consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales.  ",
-    //         startPrice: "Rs. 10,000",
-    //         endPrice: "Rs. 1,00,000",
-           
-    //       },
-    //       {
-    //         image: "/clean2.png",
-    //         title: "Clean Bagmati",
-    //         location: "Kathmandu",
-    //         description:
-    //           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales. ",
-    //         startPrice: "Rs. 1,00,000",
-    //         endPrice: "Rs. 1,00,00,000",
-           
-    //       },
-    //       {
-    //           image: "/accident.png",
-    //         title: "Accident Victim",
-    //         location: "Kathmandu",
-    //         description:
-    //           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales.  ",
-    //         startPrice: "Rs. 1,00,000",
-    //         endPrice: "Rs. 10,00,000",
-           
-    //       },
-    //       {
-    //         title: "Build a Shelter",
-    //         image: "/shelter.png",
-    //         location: "Kathmandu",
-    //         description:
-    //           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales. ",
-    //         startPrice: "Rs. 10,000",
-    //         endPrice: "Rs. 1,00,000",
-            
-    //       },
-    //       {
-    //           title: "Eathquake Victim",
-    //           image: "/EarthQuake.png",
-    //           location: "Gorkha",
-    //           description:
-    //             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales. ",
-    //           startPrice: "Rs. 10,000",
-    //           endPrice: "Rs. 1,00,000",
-             
-    //         },
-    //         {
-    //           title: "Help Kids Study",
-    //           image: "/kids.png",
-    //           location: "Pokhara",
-    //           description:
-    //             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales. ",
-    //           startPrice: "Rs. 10,000",
-    //           endPrice: "Rs. 1,00,000",
-             
-    //         },
-    //         {
-    //           title: "Save Rhino",
-    //           image: "/rhino.png",
-    //           location: "Chitwan",
-    //           description:
-    //             "Lorem ipsum dolor sit amet,consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales.  ",
-    //           startPrice: "Rs. 10,000",
-    //           endPrice: "Rs. 1,00,000",
-             
-    //         },
-    //   ];
-
     const loadMore =()=>{
       setDisplayProjects(prev => prev + incrementProjectsList);
     }
@@ -170,6 +47,7 @@ const ExplorePage = () => {
    
       
   return (
+    
     <div className='w-full max-w-[1920px] mx-auto min-h-screen  px-[10rem] bg-white'>
       <h4 className='text-black-100 font-bold text-2xl mt-10 ' >Explore</h4>
       

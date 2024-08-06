@@ -13,6 +13,9 @@ module.exports = {
         "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         'gradient-to-b': 'linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(196, 196, 196, 1))',
       },
+      boxShadow: {
+        'custom': '0px 0px 25px rgba(0, 0, 0, 0.5)',
+      },
       colors: {
         'custom-green-200': 'rgba(17, 140, 79, 1)',
         'custom-black':'rgba(71, 71, 71, 1)',

@@ -44,7 +44,7 @@ const Music =() => {
             return (
               <ProjectCard key={music?.id} img={ss} height={186} width={389} title={music?.title} owner={`By ${music?.name}`}
                expander={<TextExpander collapsedNumber={34}>{music?.about}</TextExpander>}
-                startPrice={music?.amount} endPrice={music?.amount} backers="0 backers" days={`${calculateDaysLeft(music?.duration,formattedDate)} days left`}/>
+                startPrice={music?.amount.toLocaleString('en-US')} endPrice={music?.amount.toLocaleString('en-US')} backers="0 backers" days={`${calculateDaysLeft(music?.duration,formattedDate)} days left`}/>
             )
           })}
         </div>

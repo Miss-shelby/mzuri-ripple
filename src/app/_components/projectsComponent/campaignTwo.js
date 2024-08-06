@@ -1,18 +1,41 @@
 'use client'
-import { updateProjectAbout } from "@/app/_components/Apis/api"
+import { GetProjectsApi, updateProjectAbout } from "@/app/_components/Apis/api"
 import RichTextEditor from "@/app/_components/Editor/RichTextEditor"
 import { useAuth } from "@/app/_components/Providers/Providers"
 import Cookies from "js-cookie"
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
 
-const Campaign = ({ imageUrl, projectOwner, projectStory }) => {
+const CampaignAuth = ({ imageUrl, projectOwner, projectStory}) => {
   const { authUser } = useAuth()
+  const [updatedProjectStory,setUpdatedProjectStory] = useState(projectStory)
   console.log(authUser);
   const [showEditor, setShowEditor] = useState(false)
-const projectId = Cookies.get("projectId")
-const token = Cookies.get("token")
+  const projectId = Cookies.get("projectId")
+  const token = Cookies.get("token")
+
+  const fetchProjectStory = async () => {
+    try {
+      const response = await fetch(`${GetProjectsApi}/project/${projectId}`, {
+        method: "GET",
+        headers: {
+          "accept": "application/json",
+          Authorization: `Bearer ${token}`
+        }
+      })
+      const json = await response.json()
+      if (response.ok) {
+        setUpdatedProjectStory(json?.data?.about)
+      } else {
+        toast.error(json.message || "Failed to fetch project story")
+      }
+    } catch (error) {
+      toast.error("A server error occurred while fetching project story")
+      console.log(error)
+    }
+  }
+
   const handleUpdateStory = async (newStory) => {
     // Function to handle updated story
     const encodedStory = encodeURIComponent(newStory);
@@ -32,12 +55,15 @@ const token = Cookies.get("token")
             "accept":"application/json",
             Authorization: `Bearer ${token}`
           },
-        //  body: JSON.stringify(data),
+         body: JSON.stringify(data),
         
         })
             const json = await response.json();
             if (response?.status === 200 || response?.status === 202  || response?.status === 201 ||  response.ok) {
                 const sucessMessage = json?.message;
+                setUpdatedProjectStory(json?.data?.about)
+                
+                
                toast.success(sucessMessage)
                setShowEditor(false);
                return;
@@ -58,16 +84,19 @@ const token = Cookies.get("token")
         }
   }
 
+  useEffect(()=>{
+    fetchProjectStory ()
+  },[])
   const toggleEditor = () => {
     setShowEditor(!showEditor)
   }
 
   return (
     <div className="mt-12">
-      <div className="flex justify-between w-full mb-6 items-center">
-        <p className="text-2xl text-black-100 font-semibold">Story</p>
+      <div className="flex  w-full mb-6 items-center">
+        <p className="text-2xl text-black-100 font-semibold">Story </p>
         {authUser && (
-          <button onClick={toggleEditor} className="btn rounded-[6px] text-lg font-medium h-10 min-h-10 bg-custom-blue mt-4 text-white px-16 hover:bg-transparent hover:text-custom-blue">
+          <button onClick={toggleEditor} className="ml-[20rem] btn rounded-[6px] text-lg font-medium h-10 min-h-10 bg-custom-blue mt-4 text-white px-16 hover:bg-transparent hover:text-custom-blue">
             {showEditor ? 'Exit' : 'Edit'}
           </button>
         )}
@@ -75,15 +104,15 @@ const token = Cookies.get("token")
       <div>
         {showEditor && <RichTextEditor initialContent={projectStory} onDone={handleUpdateStory} />}
       </div>
-      <div className="relative h-[272px] w-[800px]">
+      <div className="relative h-[272px] w-[550px]">
         <Image src={imageUrl} className="h-full w-full object-cover" fill alt="story image" />
       </div>
       <div className="text-black-100 font-normal pt-8 leading-[19.5px] text-[15px]">
         {/* <p>{projectStory}</p> */}
-        <p dangerouslySetInnerHTML={{ __html: projectStory }}></p>
+        <p dangerouslySetInnerHTML={{ __html: updatedProjectStory }}></p>
       </div>
     </div>
   )
 }
 
-export default Campaign
+export default CampaignAuth
