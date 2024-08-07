@@ -39,14 +39,30 @@ const LoginPage =  () => {
         
       })
       .catch(function (error) {
-       if (error?.status === 400 || error?.status === 401 ||  error?.status === 403 ||error?.status === 404)
-       console.log(error);
-      //  const errorMsg = error.response.data.detail;
-      //  toast.error(errorMsg)
-      toast.error(error?.message ||  error?.detail || error?.error || error?.data ||        response?.statusText ||
-        "An error occured")
-       
+        if (error?.response) {
+          const { status, data } = error.response;
+  
+          if (status === 400) {
+            toast.error(data.detail);
+            console.log(error,'400 error');
+          } else if (status === 500) {
+            toast.error('Server error. Please try again later.');
+            console.log(error,'500');
+          } else if (status === 401 || status === 403 || status === 404) {
+            toast.error(`Error: ${status}`);
+            console.log(error,'status ');
+          } else {
+            toast.error('An unexpected error occurred');
+            console.log(error,'unexpected error');
+          }
+        } else {
+          toast.error('Network error. Please check your connection.');
+          console.log(error,'netwok errror');
+        }
       })
+   
+       
+      
       .finally(function(){
         setLoading(false)
       })

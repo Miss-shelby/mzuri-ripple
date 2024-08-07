@@ -9,6 +9,7 @@ import { calculateDaysLeft, DateCreated } from '@/app/_components/shared/DatesCr
 import DashboardNavigation from '@/app/_components/projectsComponent/dashboardLinks';
 import { IoIosArrowBack } from "react-icons/io";
 import ProjectIdSetter from '@/app/_components/shared/ProjectIdSetter';
+import { notFound } from 'next/navigation';
 
 
 const ProjectDetailPage = async ({ params }) => {
@@ -16,7 +17,9 @@ const ProjectDetailPage = async ({ params }) => {
 console.log(params.newprojectId,'id here');
 
   const response = await fetch(`${GetProjectsApi}/project/${params.newprojectId}`,{cache:'no-store'});
-
+  if(!response.ok){
+    notFound()
+  }
   const data = await response.json();
   const backers = data?.data?.backers;
   console.log(backers,'backers here');
@@ -38,7 +41,9 @@ console.log(params.newprojectId,'id here');
   return (
     <section className=' mb-5 '>
       <ProjectIdSetter projectId={params.newprojectId}/>
-      <p className='flex items-center cursor-pointer'><span><Link href="/dashboard/projects "><IoIosArrowBack /></Link></span>Back</p>
+      <Link href="/dashboard/projects ">
+      <p className='flex items-center cursor-pointer'><span><IoIosArrowBack /></span>Back</p>
+      </Link>
       <p className='font-bold text-2xl mb-8 pl-[3rem] mt-[20px]'>{title}</p>
       <div className='flex w-full max-w-[1920px] mx-auto px-[2rem]'>
         <div>
@@ -57,7 +62,12 @@ console.log(params.newprojectId,'id here');
             <div className="gradient-border"></div>
             <div id="grad"></div>
             <h2 className="text-custom-green-200 text-2xl font-bold pt-6">{amount.toLocaleString('en-US')}</h2>
-            <p className='font-medium text-sm text-black-100 mt-2'>pledged of 0 goal</p>
+            <p className='font-medium text-sm text-black-100 mt-2'>
+              {backers?.length > 0
+                ? backers.reduce((total, backer) => total + backer.amount, 0).toLocaleString('en-US') + " pledged" 
+                : "0 pledged"}
+            </p>
+
             <p className='text-custom-green-200 text-2xl font-bold pt-6 '>
                       {backers?.length > 0? backers?.length : '0'}
                     </p>

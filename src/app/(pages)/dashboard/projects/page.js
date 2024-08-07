@@ -53,14 +53,14 @@ console.log(projects);
       ) : (
         <div>
           {projects.length > 0? (
-          <div className="grid grid-cols-3 items-center justify-center gap-4 mt-6  w-full">
+          <div className="grid grid-cols-3 items-center justify-center gap-x-10 gap-y-6 mt-6mt-6  w-full">
             {projects.map((project) => {
               return (
                 <Link
                   href={`/dashboard/projects/${project.id}`}
                   key={project.id}
                 >
-                  <div className="card bg-base-100 image-full w-96 shadow-xl">
+                  <div className="card bg-base-100 image-full  shadow-xl ">
                     <figure>
                       <Image fill
                         src="/story.png"
@@ -71,7 +71,8 @@ console.log(projects);
                       <h2 className="card-title">{project.title}</h2>
                       <p>Created {DateCreated(project.created.slice(0,10),formattedDate)}</p>
                       <div className="card-actions justify-end">
-                        <button className="btn border-0 text-lg hover:bg-custom-blue font-medium h-10 min-h-10 bg-custom-blue mt-4 text-white">View</button>
+                        <button className="btn border-0 text-lg hover:bg-custom-blue font-medium h-10 min-h-10 bg-custom-blue mt-4 text-white">
+                          <Link href={`/dashboard/projects/${project.id}`}>View</Link></button>
                       </div>
                     </div>
                   </div>

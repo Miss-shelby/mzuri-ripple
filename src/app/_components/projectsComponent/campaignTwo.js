@@ -8,31 +8,41 @@ import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
 
 const CampaignAuth = ({ imageUrl, projectOwner, projectStory}) => {
-  const { authUser } = useAuth()
+  const { authUser,projectId } = useAuth()
   const [updatedProjectStory,setUpdatedProjectStory] = useState(projectStory)
   console.log(authUser);
   const [showEditor, setShowEditor] = useState(false)
-  const projectId = Cookies.get("projectId")
+ 
   const token = Cookies.get("token")
+console.log(projectId,'global project id');
 
   const fetchProjectStory = async () => {
-    try {
-      const response = await fetch(`${GetProjectsApi}/project/${projectId}`, {
-        method: "GET",
-        headers: {
-          "accept": "application/json",
-          Authorization: `Bearer ${token}`
+    if(projectId){
+      try {
+        const response = await fetch(`${GetProjectsApi}/project/${projectId}`, {
+          method: "GET",
+          headers: {
+            "accept": "application/json",
+            Authorization: `Bearer ${token}`
+          }
+        })
+        const json = await response.json()
+        if (response?.status === 200 || response?.status === 202  || response?.status === 201 ||  response.ok) {
+          setUpdatedProjectStory(json?.data?.about)
+          return;
+        } else if(response?.status === 400 || response?.status === 401 ||  response?.status === 403 ||response?.status === 404 ){
+          toast.error(json?.message ||  json?.detail || json?.error || json?.data ||        response?.statusText ||
+            "An error occured"
+        );
+        return;
+        }else{
+          toast.error(json?.message || json?.detail || json?.error || json?.data ||  response?.statusText || "An error occured" );
+          return;
         }
-      })
-      const json = await response.json()
-      if (response.ok) {
-        setUpdatedProjectStory(json?.data?.about)
-      } else {
-        toast.error(json.message || "Failed to fetch project story")
+      } catch (error) {
+        toast.error("A server error occurred while fetching project story")
+        console.log(error)
       }
-    } catch (error) {
-      toast.error("A server error occurred while fetching project story")
-      console.log(error)
     }
   }
 
@@ -43,50 +53,45 @@ const CampaignAuth = ({ imageUrl, projectOwner, projectStory}) => {
         project_i: projectId,
         about: encodedStory,
       };
-  
-    console.log("Updated story:", newStory);
-    console.log("Payload to be sent:", JSON.stringify(data, null, 2));
-    console.log(encodedStory);
-
-    try {
-        const response = await fetch(`${updateProjectAbout}/update_about?project_id=${projectId}&about=${encodedStory}`, {
-          method: "PUT",
-          headers: {
-            "accept":"application/json",
-            Authorization: `Bearer ${token}`
-          },
-         body: JSON.stringify(data),
-        
-        })
-            const json = await response.json();
-            if (response?.status === 200 || response?.status === 202  || response?.status === 201 ||  response.ok) {
-                const sucessMessage = json?.message;
-                setUpdatedProjectStory(json?.data?.about)
-                
-                
-               toast.success(sucessMessage)
-               setShowEditor(false);
-               return;
-             
+      if(projectId){
+        try {
+            const response = await fetch(`${updateProjectAbout}/update_about?project_id=${projectId}&about=${encodedStory}`, {
+              method: "PUT",
+              headers: {
+                "accept":"application/json",
+                Authorization: `Bearer ${token}`
+              },
+             body: JSON.stringify(data),
+            
+            })
+                const json = await response.json();
+                if (response?.status === 200 || response?.status === 202  || response?.status === 201 ||  response.ok) {
+                    const sucessMessage = json?.message;
+                    setUpdatedProjectStory(json?.data?.about)
+                   toast.success(sucessMessage)
+                   setShowEditor(false);
+                   return;
+                 
+                }
+                else if(response?.status === 400 || response?.status === 401 ||  response?.status === 403 ||response?.status === 404 ){
+                    toast.error(json?.message ||  json?.detail || json?.error || json?.data ||        response?.statusText ||
+                        "An error occured"
+                    );
+                    return;
+                }
+                 else {
+                    toast.error(json?.message || "Failed to fetch project story");
+                }
+            } catch (error) {
+                toast.error("A server error occurred while fetching project story");
+                console.log(error);
             }
-            else if(response?.status === 400 || response?.status === 401 ||  response?.status === 403 ||response?.status === 404 ){
-                toast.error(json?.message ||  json?.detail || json?.error || json?.data ||        response?.statusText ||
-                    "An error occured"
-                );
-                return;
-            }
-             else {
-                toast.error(json?.message || "Failed to fetch project story");
-            }
-        } catch (error) {
-            toast.error("A server error occurred while fetching project story");
-            console.log(error);
-        }
+      }
   }
 
   useEffect(()=>{
     fetchProjectStory ()
-  },[])
+  },[projectId])
   const toggleEditor = () => {
     setShowEditor(!showEditor)
   }

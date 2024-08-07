@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import { PiChartLineUp } from 'react-icons/pi'
 import { LuDollarSign } from "react-icons/lu";
-
+import { TbCurrencyNaira } from "react-icons/tb";
 const ProfileCard = ({projectOwner,backers}) => {
   return (
     <div>
@@ -21,15 +21,15 @@ const ProfileCard = ({projectOwner,backers}) => {
                   <div className='border-black-100 border-b'></div>
                   {backers?.length > 0? backers.map((backer)=>{
                     return ( <div key={backer.id} className='flex items-center pt-6'>
-                    <span className='mr-6'><LuDollarSign /></span>
-                    <p className="text-lg font-medium  mb-4 text-black-100 ">{backer?.backer_name}<span className='block text-sm font-normal'>-
-                      {backer.amount}</span></p>
+                    <span className='mr-6'><TbCurrencyNaira /></span>
+                    <p className="text-lg font-medium  mb-4 text-black-100 ">{backer?.backer_name}<span className='block text-sm font-normal'>
+                      {backer.amount.toLocaleString('en-US')}</span></p>
                     <div className='border-black-100 border-b'></div>
                    </div>)
                   }) : (
                     <div className='flex items-center pt-6'>
-                  <span className='mr-6'><LuDollarSign /></span>
-                  <p className="text-lg font-medium  mb-4 text-black-100 "># 0.00<span className='block text-sm font-normal'>-</span></p>
+                  <span className='mr-6'><TbCurrencyNaira /></span>
+                  <p className="text-lg font-medium  mb-4 text-black-100 "> 0.00<span className='block text-sm font-normal'>-</span></p>
                  </div>
                   )}
                 

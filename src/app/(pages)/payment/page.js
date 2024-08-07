@@ -10,10 +10,11 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import ProtectedRoute from '@/app/_components/Protected/Protected';
+import Spinner from '@/app/_components/spinner';
 
 
 const PaymentPage =  () => {
-  const TestPublicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY;
+
   const {authUser,userProject,projectId}= useAuth()
   const [loading, setLoading] = useState(false);
   const router = useRouter(); 
@@ -73,6 +74,7 @@ console.log(formFields);
   // };
   const makepayment = () => {
     if (token){
+      setLoading(true)
       axios.post(
         `https://ripple-project-1.onrender.com/api/v1/payment/initialize-payment/`,
         {
@@ -91,11 +93,14 @@ console.log(formFields);
       )
       .then(function (response) {
         console.log(response, 'success response');
+        setLoading(false)
         router.push(response.data?.data?.authorization_url);
         // toast.success(message);
         console.log(response.data?.data?.authorization_url);
       })
       .catch(function (error) {
+        setLoading(false)
+        toast.error(error.response.data.detail || error.response.message || error.status )
         console.log(error, 'error response');
       });
     }
@@ -121,7 +126,11 @@ console.log(formFields);
               <label className='text-[#e0eafc] text-[10px] uppercase tracking-wide font-medium mt-3'>Amount:</label>
               <input value={formFields.amount} onChange={handleFormValue} type='number' name='amount' required className='rounded-[5px] 
               text-[#e0eafc] bg-transparent h-9 border border-[#cecece] focus:outline-none focus:bg-transparent  w-full mt-3' />
-             <button  className='hover:bg-[#dadada] bg-[#bfbfbf] text-custom-blue focus:outline-none rounded-sm w-full uppercase border-0 tracking-wide  text-[10px] font-semibold text-center mx-auto my-8 h-10 min-h-10'  onClick={makepayment}>Pay</button>
+             <button disabled={loading} className={` ${loading ? "bg-[#7e7c7c]" : "bg-[#bfbfbf] hover:bg-[#dadada]"} text-custom-blue focus:outline-none rounded-sm w-full 
+              uppercase border-0 tracking-wide text-[10px] font-semibold text-center mx-auto my-8 h-10 min-h-10`}
+          onClick={makepayment}>
+          {loading ? <span className="Btnloader"></span> : 'Pay'}
+        </button>
 {/* 
             <PaystackButton text='pay'
              className='hover:bg-[#dadada] bg-[#bfbfbf] text-custom-blue focus:outline-none rounded-sm w-full 
