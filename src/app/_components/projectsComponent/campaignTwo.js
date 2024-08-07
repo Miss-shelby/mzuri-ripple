@@ -91,7 +91,7 @@ console.log(projectId,'global project id');
 
   useEffect(()=>{
     fetchProjectStory ()
-  },[projectId])
+  },[])
   const toggleEditor = () => {
     setShowEditor(!showEditor)
   }
