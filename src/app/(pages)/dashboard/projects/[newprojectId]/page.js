@@ -15,7 +15,6 @@ import { notFound } from 'next/navigation';
 const ProjectDetailPage = async ({ params }) => {
   
 console.log(params.newprojectId,'id here');
-
   const response = await fetch(`${GetProjectsApi}/project/${params.newprojectId}`,{cache:'no-store'});
   if(!response.ok){
     notFound()
@@ -83,7 +82,7 @@ console.log(params.newprojectId,'id here');
           </div>
         </div>
       </div>
-      <UserDashboard backers={backers}  projectOwner={name} imageUrl="/newproject.png" projectStory={about} />
+      <UserDashboard backers={backers} projectId={params.newprojectId}  projectOwner={name} imageUrl="/newproject.png" projectStory={about} />
     </section>
   );
 };
@@ -94,10 +93,10 @@ const projectLinks = [
   { name: 'comments' },
 ];
 
-const UserDashboard = ({ imageUrl, projectOwner, projectStory,backers }) => (
+const UserDashboard = ({ imageUrl, projectOwner,projectId, projectStory,backers }) => (
   <div className='mt-9 mb-6'>
     <nav>
-      <DashboardNavigation backers={backers} links={projectLinks} projectOwner={projectOwner} imageUrl="/newproject.png" projectStory={projectStory} />
+      <DashboardNavigation projectId={projectId} backers={backers} links={projectLinks} projectOwner={projectOwner} imageUrl="/newproject.png" projectStory={projectStory} />
     </nav>
   </div>
 );

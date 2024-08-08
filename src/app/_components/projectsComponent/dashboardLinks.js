@@ -6,7 +6,7 @@ import ProfileCard from "./profileCard";
 import Updates from "./updates";
 import { useState } from "react";
 import CampaignAuth from "./campaignTwo";
-const DashboardNavigation = ({ links,imageUrl,projectOwner,projectStory,backers}) => {
+const DashboardNavigation = ({ links,imageUrl,projectOwner,projectStory,backers,projectId}) => {
     const [section,setSection] = useState(links[0].name)
     return (
       <>
@@ -29,7 +29,7 @@ const DashboardNavigation = ({ links,imageUrl,projectOwner,projectStory,backers}
          max-w-[1920px] mx-auto ${section === "Campaign"?" px-[2rem]": "px-[10rem]"}  `}>
       <div>
             {section === "campaign"&& <Campaign  projectOwner={projectOwner} imageUrl ={imageUrl } projectStory={projectStory} />}
-              {section === "Campaign" && <CampaignAuth projectOwner={projectOwner} imageUrl ={imageUrl } projectStory={projectStory} />}
+              {section === "Campaign" && <CampaignAuth projectOwner={projectOwner} projectId={projectId} imageUrl ={imageUrl } projectStory={projectStory} />}
             {section === "updates" && <Updates projectOwner={projectOwner} />}
             {section === "comments" && <Comments projectOwner={projectOwner} imageUrl ={imageUrl } projectStory={projectStory}/>}
        </div>

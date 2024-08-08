@@ -7,17 +7,15 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
 
-const CampaignAuth = ({ imageUrl, projectOwner, projectStory}) => {
-  const { authUser,projectId } = useAuth()
+const CampaignAuth = ({ imageUrl, projectOwner, projectStory,projectId}) => {
+  const { authUser } = useAuth()
   const [updatedProjectStory,setUpdatedProjectStory] = useState(projectStory)
-  console.log(authUser);
   const [showEditor, setShowEditor] = useState(false)
  
   const token = Cookies.get("token")
-console.log(projectId,'global project id');
+
 
   const fetchProjectStory = async () => {
-    if(projectId){
       try {
         const response = await fetch(`${GetProjectsApi}/project/${projectId}`, {
           method: "GET",
@@ -27,7 +25,10 @@ console.log(projectId,'global project id');
           }
         })
         const json = await response.json()
+
+
         if (response?.status === 200 || response?.status === 202  || response?.status === 201 ||  response.ok) {
+          console.log(json.data,'user story here');
           setUpdatedProjectStory(json?.data?.about)
           return;
         } else if(response?.status === 400 || response?.status === 401 ||  response?.status === 403 ||response?.status === 404 ){
@@ -43,8 +44,17 @@ console.log(projectId,'global project id');
         toast.error("A server error occurred while fetching project story")
         console.log(error)
       }
-    }
+    
   }
+
+  useEffect(() => {
+    fetchProjectStory()
+
+    return () => {
+      setUpdatedProjectStory("")
+      setShowEditor(false)
+    }
+  },[]) 
 
   const handleUpdateStory = async (newStory) => {
     // Function to handle updated story
@@ -89,9 +99,7 @@ console.log(projectId,'global project id');
       }
   }
 
-  useEffect(()=>{
-    fetchProjectStory ()
-  },[])
+
   const toggleEditor = () => {
     setShowEditor(!showEditor)
   }

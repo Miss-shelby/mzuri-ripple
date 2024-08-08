@@ -11,7 +11,15 @@ import { FiEyeOff } from "react-icons/fi";
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import { useAuth } from '@/app/_components/Providers/Providers'
+import { useSearchParams } from 'next/navigation'
+
+
 const LoginPage =  () => {
+
+  const searchParams = useSearchParams()
+
+  const pathname = searchParams.get('path')
+
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const {userProject } = useAuth()
@@ -35,8 +43,13 @@ const LoginPage =  () => {
         Cookies.set("token",token, { path: "/" })
         console.log(token,'token from login page');
         toast.success('Login succesfull')
-        router?.push('/dashboard')
-        
+
+        if(pathname === '/payment'){
+          router?.push('/payment')
+        } 
+        else {
+          router?.push('/dashboard')
+        }        
       })
       .catch(function (error) {
         if (error?.response) {

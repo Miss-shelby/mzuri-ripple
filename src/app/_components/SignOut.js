@@ -4,11 +4,13 @@ import LogoutModal from "./LogOutModal";
 import { useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
+import { useAuth } from "./Providers/Providers";
 
 function SignOutButton() {
     const token = Cookies.get("token")
     const router = useRouter()
     const [showModal, setShowModal] = useState(false);
+    const {logOut} = useAuth()
 
   const handleOpenModal = () => {
    
@@ -17,6 +19,7 @@ function SignOutButton() {
 
   const handleCloseModal = () => {
     Cookies.remove("token")
+    logOut()
     router.push("/")
     setShowModal(false);
   };

@@ -7,14 +7,19 @@ const AuthProvider =({children})=>{
     const [authUser, setAuthUser] = useState(null);
     const [userProject, setUserProject] = useState({});
     const [projectId, setProjectId] = useState('');
+    const logOut = ()=>{
+        setAuthUser(null)
+        setUserProject({})
+        setProjectId("")
+    }
     const shared = {
         authUser,
         setAuthUser,
         userProject, 
         setUserProject,
         projectId,
-        setProjectId
-
+        setProjectId,
+        logOut
         
     }
    
