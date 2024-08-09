@@ -3,7 +3,7 @@ import { TbCurrencyNaira } from "react-icons/tb";
 export const ProjectCard = ({img,title,owner,description="",expander,startPrice,endPrice,backers,days,height,width,location,longDescription })=>{
 
     return (
-      <div className="card card-compact bg-base-100 shadow-xl rounded-[3px]">
+      <div className="card card-compact  shadow-xl rounded-[3px]">
       <div className="relative w-full h-auto" >
         <Image
           src={img}
@@ -45,7 +45,7 @@ export const ProjectCard = ({img,title,owner,description="",expander,startPrice,
 
 export const RecommendedProjectCard = ({img,img2,title,owner,description,startPrice,endPrice,backers,days,height,width,profilename,location,height2,width2})=>{
     return (
-      <div className="card card-compact bg-base-100 shadow-xl rounded-[3px]">
+      <div className="card card-compact  shadow-xl rounded-[3px]">
       <figure className={`relative w-full h-auto`}>
         <Image
           src={img}
