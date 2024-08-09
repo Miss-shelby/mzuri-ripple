@@ -4,14 +4,16 @@ export const ProjectCard = ({img,title,owner,description="",expander,startPrice,
 
     return (
       <div className="card card-compact bg-base-100 shadow-xl rounded-[3px]">
-      <div className="relative" style={{ height: `${height}px`, width: `${width}px` }}>
+      <div className="relative w-full h-auto" >
         <Image
           src={img}
           quality={100}
          height={height}
          width={width}
-        responsive 
+        layout="responsive"
+        objectFit="cover"
           alt="project_Image"
+          className=" w-full h-auto"
   
         />
       </div>
@@ -22,7 +24,7 @@ export const ProjectCard = ({img,title,owner,description="",expander,startPrice,
         </div>
         <p className="text-black-100 font-[500] flex-grow-0">{owner}</p>
         {description && description.length < 200? <p className="text-[13px] leading-[17.07px] font-normal flex-grow-0">{description}
-        </p> : <p className="text-sm font-normal flex-grow-0 py-[8px]">
+        </p> : <p className="text-sm font-normal flex-grow-0 py-[2px]">
         {longDescription }</p> }
         {expander}
         <div className="flex w-full justify-between ">

@@ -1,14 +1,20 @@
+'use client'
 import Image from "next/image"
-
+import { usePathname } from "next/navigation"
 const Updates = ({projectOwner})=>{
+    const pathname = usePathname()
+   
+    
     return (
         <div className=" mt-12 ">
-            <div className="flex justify-between w-full mb-6 items-center">
+            <div className="flex items-center w-full mb-6 ">
                 <p className="text-2xl text-black-100 font-semibold">Updates on the Project</p>
-                <button className=" btn rounded-[6px] text-lg 
-                font-medium h-10 min-h-10 bg-custom-blue mt-4 text-white px-8 hover:bg-transparent hover:text-custom-blue">Add Update</button>
+                {
+              pathname.includes("dashboard/projects") && ( <button className=" btn ml-16 rounded-[6px] text-sm
+                font-medium h-10 min-h-10 bg-custom-blue mt-4 text-white px-4 hover:bg-transparent hover:text-custom-blue">Add Update</button>)
+            }
             </div>
-            <div className="card w-[760px] mt-4 h-fit  shadow-2xl ">
+            <div className={`card ${pathname.includes("dashboard/projects")? "w-[500px]" :"w-[760px]"} mt-4 h-fit  shadow-2xl` }>
                 <div className="card-body relative p-0 mt-4 flex flex-col px-6  gap-0  ">
                  <p className="font-semibold text-lg">Update 2 :<span className="font-medium">Buying New RTX 3080 Ti</span></p>
                 </div>
@@ -34,7 +40,7 @@ const Updates = ({projectOwner})=>{
                 <button class="bg-gradient-to-b from-transparent to-gray-700 text-black-100 py-2 px-4 rounded">See More</button>
             </div>
 
-            <div className="card w-[760px] mt-8 h-fit  shadow-2xl ">
+            <div className={`card ${pathname.includes("dashboard/projects")? "w-[500px]" :"w-[760px]"} mt-4 h-fit  shadow-2xl` }>
                 <div className="card-body relative p-0 mt-4 flex flex-col px-6  gap-0  ">
                  <p className="font-semibold text-lg">Update 1 :<span className="font-medium"> Buying New 32GB RAM</span></p>
                 </div>

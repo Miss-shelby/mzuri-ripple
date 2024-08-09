@@ -182,3 +182,77 @@ body {
 .paystack-button:focus {
   outline: none;
 }
+
+
+
+
+
+
+
+
+/* CongratulatoryPage.css */
+.congrats-container {
+ height: 300px;
+ width: 500px;
+ background: #f3f4f6;
+ text-align: center;
+ border-radius: 20px;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #4caf50;
+  padding-top: 60px;
+}
+
+p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.flowers-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Prevent overflow */
+  pointer-events: none; /* Ensure user interaction is not hindered */
+}
+
+.flower {
+  position: absolute;
+  top: -50px;
+  width: 15px;
+  height: 15px;
+  opacity: 0.8;
+  animation: fall 10s linear forwards;
+}
+
+.flower.circle {
+  border-radius: 50%;
+}
+
+.flower.square {
+  border-radius: 0;
+}
+
+.flower.triangle {
+  width: 0;
+  height: 0;
+  border-left: 7.5px solid transparent;
+  border-right: 7.5px solid transparent;
+  border-bottom: 15px solid;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+

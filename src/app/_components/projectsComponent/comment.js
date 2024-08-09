@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const Comments = () => {
+ 
   return (
     <div>
       <h4 className="font-semibold">Comments</h4>
@@ -22,8 +24,9 @@ const Comments = () => {
 };
 
 const Card = ({ title, location, children }) => {
+  const pathname = usePathname()
   return (
-    <div className="card w-[760px] mt-8 h-fit shadow-xl">
+    <div className={`card ${pathname.includes("dashboard/projects")?"w-[500px]":"w-[760px]"} mt-8 h-fit shadow-xl`}>
       <div className="flex border-b border-black-100 pb-6 px-6 pt-4">
         <div className="h-fit w-fit mr-4">
           <Image src='/profileAvatar.png' height={45} width={45} alt='profile image'/>

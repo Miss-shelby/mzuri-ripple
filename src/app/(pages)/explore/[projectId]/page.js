@@ -130,8 +130,8 @@ const ProjectDetailPage = async ({ params }) => {
 
 const projectLinks = [
   { name: "campaign" },
-  { name: "updates" },
-  { name: "comments" },
+  { name: "Updates" },
+  { name: "Comments" },
 ];
 
 const UserDashboard = ({ imageUrl, projectOwner, projectStory, backers }) => (

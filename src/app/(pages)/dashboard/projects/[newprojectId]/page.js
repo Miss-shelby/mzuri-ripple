@@ -1,4 +1,3 @@
-
 import { GetProjectsApi } from '@/app/_components/Apis/api';
 import Image from 'next/image';
 import React from 'react';
@@ -11,22 +10,32 @@ import { IoIosArrowBack } from "react-icons/io";
 import ProjectIdSetter from '@/app/_components/shared/ProjectIdSetter';
 import { notFound } from 'next/navigation';
 
-
 const ProjectDetailPage = async ({ params }) => {
-  
-console.log(params.newprojectId,'id here');
-  const response = await fetch(`${GetProjectsApi}/project/${params.newprojectId}`,{cache:'no-store'});
-  if(!response.ok){
-    notFound()
+  let data;
+  try {
+    const response = await fetch(`${GetProjectsApi}/project/${params.newprojectId}`, { cache: 'no-store' });
+    if (response.ok) {
+      data = await response.json();
+    } else {
+      notFound();
+      return;
+    }
+  } catch (error) {
+    console.error("Error fetching project data:", error);
+    notFound();
+    return;
   }
-  const data = await response.json();
-  const backers = data?.data?.backers;
-  console.log(backers,'backers here');
 
-  const { name, address, state, amount, title, about, picture_or_video, created, duration } = data?.data;
+  if (!data || !data.data) {
+    notFound();
+    return;
+  }
+
+  const backers = data.data.backers;
+  const { name, address, amount, title, about, picture_or_video, created, duration } = data.data;
 
   const url = `https://ripple-project-1.onrender.com/api/v1/projects/image_or_video/${params.newprojectId}`;
-  const imageUrl = picture_or_video ? `${url}` : '/newproject.png';
+  const imageUrl = picture_or_video ? url : '/newproject.png';
 
   const dateCreated = created?.slice(0, 10);
   const projectDuration = duration?.slice(0, 10);
@@ -38,16 +47,16 @@ console.log(params.newprojectId,'id here');
   const daysLeft = calculateDaysLeft(projectDuration, formattedDate);
 
   return (
-    <section className=' mb-5 '>
-      <ProjectIdSetter projectId={params.newprojectId}/>
-      <Link href="/dashboard/projects ">
-      <p className='flex items-center cursor-pointer'><span><IoIosArrowBack /></span>Back</p>
+    <section className='mb-5'>
+      <ProjectIdSetter projectId={params.newprojectId} />
+      <Link href="/dashboard/projects">
+        <p className='flex items-center cursor-pointer'><span><IoIosArrowBack /></span>Back</p>
       </Link>
-      <p className='font-bold text-2xl mb-8 pl-[3rem] mt-[20px]'>{title}</p>
+      <p className='font-bold text-2xl mb-8 pl-[3rem] mt-[20px] capitalize'>{title}</p>
       <div className='flex w-full max-w-[1920px] mx-auto px-[2rem]'>
         <div>
           <div className='relative w-[600px] h-[400px]'>
-            <Image src="/newproject.png" alt='Project picture' className='w-full h-full object-cover' fill priority />
+            <Image src='/newproject.png' alt='Project picture' className='w-full h-full object-cover' fill priority />
           </div>
           <p className='text-black-100 mt-6 font-medium text-lg'>{name} is organizing this fundraiser to benefit the society</p>
           <div className='flex mt-6 items-center text-black-100 text-lg font-medium'>
@@ -63,13 +72,12 @@ console.log(params.newprojectId,'id here');
             <h2 className="text-custom-green-200 text-2xl font-bold pt-6">{amount.toLocaleString('en-US')}</h2>
             <p className='font-medium text-sm text-black-100 mt-2'>
               {backers?.length > 0
-                ? backers.reduce((total, backer) => total + backer.amount, 0).toLocaleString('en-US') + " pledged" 
+                ? backers.reduce((total, backer) => total + backer.amount, 0).toLocaleString('en-US') + " pledged"
                 : "0 pledged"}
             </p>
-
             <p className='text-custom-green-200 text-2xl font-bold pt-6 '>
-                      {backers?.length > 0? backers?.length : '0'}
-                    </p>
+              {backers?.length > 0 ? backers.length : '0'}
+            </p>
             <p className='font-medium text-sm text-black-100 mt-2'>backers</p>
             <p className='text-custom-green-200 text-2xl font-bold pt-6'>{daysLeft}</p>
             <p className='font-medium text-sm text-black-100'>days to go</p>
@@ -82,18 +90,18 @@ console.log(params.newprojectId,'id here');
           </div>
         </div>
       </div>
-      <UserDashboard backers={backers} projectId={params.newprojectId}  projectOwner={name} imageUrl="/newproject.png" projectStory={about} />
+      <UserDashboard backers={backers} projectId={params.newprojectId} projectOwner={name} imageUrl={imageUrl} projectStory={about} />
     </section>
   );
 };
 
 const projectLinks = [
   { name: 'Campaign' },
-  { name: 'updates' },
-  { name: 'comments' },
+  { name: 'Updates' },
+  { name: 'Comments' },
 ];
 
-const UserDashboard = ({ imageUrl, projectOwner,projectId, projectStory,backers }) => (
+const UserDashboard = ({ imageUrl, projectOwner, projectId, projectStory, backers }) => (
   <div className='mt-9 mb-6'>
     <nav>
       <DashboardNavigation projectId={projectId} backers={backers} links={projectLinks} projectOwner={projectOwner} imageUrl="/newproject.png" projectStory={projectStory} />

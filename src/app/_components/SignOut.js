@@ -32,7 +32,7 @@ function SignOutButton() {
     className={`py-3 px-5 hover:bg-[#eff3f4] relative ${showModal ? 'blur-sm' : ''} transition duration-300
      hover:text-custom-black  flex items-center gap-4 font-semibold text-primary-200 w-full`}>
       <CiLogout className='h-5 w-5 ' />
-      <span>Sign out</span>
+      <span className="capitalize">Sign out</span>
     </button>
     {showModal &&  <LogoutModal  onCloseYes={handleCloseModal} onCloseNo={handleCloseModalNo} show={showModal}/>}
    
