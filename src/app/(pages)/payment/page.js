@@ -115,17 +115,17 @@ console.log(formFields);
           <div className='bg-custom-blue flex flex-col h-[450px] px-[30px] w-[28rem]' >
               <label className='text-[#e0eafc] text-[10px] uppercase tracking-wide font-medium mt-6'>E-mail</label>
               <input value={formFields.email} onChange={handleFormValue} 
-              type='text' name='email' required 
-              className=' rounded-[5px] text-[#e0eafc]  bg-transparent h-9 border border-[#cecece] focus:outline-none focus:bg-transparent  w-full mt-3' />
+              type='text' name='email' required readOnly
+              className=' rounded-[5px] text-custom-black text-sm  bg-transparent h-9 border border-[#cecece] focus:outline-none focus:bg-transparent  w-full mt-3' />
               <label className='text-[#e0eafc] text-[10px] uppercase tracking-wide font-medium mt-3'>Firstname:</label>
-              <input value={formFields.firstname} onChange={handleFormValue} type='text' name='firstname'
-               required className='rounded-[5px] text-[#e0eafc]  bg-transparent h-9 border border-[#cecece] focus:outline-none focus:bg-transparent  w-full mt-3' />
+              <input value={formFields.firstname} readOnly onChange={handleFormValue} type='text' name='firstname'
+               required className='rounded-[5px]text-custom-black text-sm bg-transparent h-9 border border-[#cecece] focus:outline-none focus:bg-transparent  w-full mt-3' />
               <label className='text-[#e0eafc] text-[10px] uppercase tracking-wide font-medium mt-3'>Lastname:</label>
               <input value={formFields.lastname} onChange={handleFormValue} type='text' name='lastname'
-               required className='rounded-[5px] text-[#e0eafc]  bg-transparent h-9 border border-[#cecece] focus:outline-none focus:bg-transparent  w-full mt-3' />
+               required className='rounded-[5px] text-custom-black text-sm  bg-transparent h-9 border border-[#cecece] focus:outline-none focus:bg-transparent  w-full mt-3' />
               <label className='text-[#e0eafc] text-[10px] uppercase tracking-wide font-medium mt-3'>Amount:</label>
               <input value={formFields.amount} onChange={handleFormValue} type='number' name='amount' required className='rounded-[5px] 
-              text-[#e0eafc] bg-transparent h-9 border border-[#cecece] focus:outline-none focus:bg-transparent  w-full mt-3' />
+              text-custom-black text-sm bg-transparent h-9 border border-[#cecece] focus:outline-none focus:bg-transparent  w-full mt-3' />
              <button disabled={loading} className={` ${loading ? "bg-[#7e7c7c]" : "bg-[#bfbfbf] hover:bg-[#dadada]"} text-custom-blue focus:outline-none rounded-sm w-full 
               uppercase border-0 tracking-wide text-[10px] font-semibold text-center mx-auto my-8 h-10 min-h-10`}
           onClick={makepayment}>
