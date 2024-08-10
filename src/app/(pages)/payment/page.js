@@ -96,7 +96,7 @@ console.log(formFields);
         setLoading(false)
         router.push(response.data?.data?.authorization_url);
         // toast.success(message);
-    
+        Cookies.set(projectId,"projectId")
         console.log(response.data?.data?.authorization_url);
       })
       .catch(function (error) {
