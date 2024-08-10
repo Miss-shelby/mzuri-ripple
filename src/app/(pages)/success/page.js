@@ -16,12 +16,13 @@ const CongratulatoryPage = () => {
   const {projectId} = useAuth()
 const token =  Cookies.get("token")
 const[projectData,setProjectData] = useState({})
-const [isLoading,setIsloading] = useState(true)
+const [isLoading,setIsloading] = useState(false)
 
 
 
   const fetchdata= async ()=>{
     if(!projectId) return;
+    setIsloading(true)
     try {
       const response = await fetch(`${GetProjectsApi}/project/${projectId}`, {
         method: "GET",
@@ -36,15 +37,15 @@ const [isLoading,setIsloading] = useState(true)
 
       if (response?.status === 200 || response?.status === 202  || response?.status === 201 ||  response.ok) {
         setProjectData(json.data)
-        
+        setIsloading(false)
         return;
       } else if (response?.status === 400 || response?.status === 401 ||  response?.status === 403 ||response?.status === 404 ) {
        console.log(response.error);
-       
+       setIsloading(false)
         return;
       } else {
         console.log(response.error);
-        
+        setIsloading(false)
         return;
       }
     } catch (error) {
