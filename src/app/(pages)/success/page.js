@@ -13,7 +13,9 @@ const colors = ['#ffeb3b', '#ff5722', '#4caf50', '#2196f3', '#e91e63'];
 const shapes = ['circle', 'square', 'triangle'];
 
 const CongratulatoryPage = () => {
-  const {projectId} = useAuth()
+  // const {projectId} = useAuth()
+  const projectId = Cookies.get("projectId")
+  // const projectId='66a0e6d46aa4773bb5462d91'
   console.log(projectId);
   
 const token =  Cookies.get("token")
