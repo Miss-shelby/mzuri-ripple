@@ -14,9 +14,11 @@ const shapes = ['circle', 'square', 'triangle'];
 
 const CongratulatoryPage = () => {
   const {projectId} = useAuth()
+  console.log(projectId);
+  
 const token =  Cookies.get("token")
 const[projectData,setProjectData] = useState({})
-const [isLoading,setIsloading] = useState(false)
+const [isLoading,setIsloading] = useState(true)
 
 
 
