@@ -10,7 +10,8 @@ import { IoIosArrowBack } from "react-icons/io";
 import ProjectIdSetter from '@/app/_components/shared/ProjectIdSetter';
 import { notFound } from 'next/navigation';
 
-const ProjectDetailPage = async ({ params }) => {
+const ProjectDetailPage = async ({ params}) => {
+
   let data;
   try {
     const response = await fetch(`${GetProjectsApi}/project/${params.newprojectId}`, { cache: 'no-store' });
@@ -18,17 +19,14 @@ const ProjectDetailPage = async ({ params }) => {
       data = await response.json();
     } else {
       notFound();
-      return;
     }
   } catch (error) {
     console.error("Error fetching project data:", error);
     notFound();
-    return;
   }
 
   if (!data || !data.data) {
     notFound();
-    return;
   }
 
   const backers = data.data.backers;
@@ -83,7 +81,8 @@ const ProjectDetailPage = async ({ params }) => {
             <p className='font-medium text-sm text-black-100'>days to go</p>
             <div className="card-actions justify-center mt-6">
               <button className="btn text-lg font-medium hover:bg-custom-green-100 h-10 min-h-10 bg-custom-green-200 text-white w-full">
-                <Link href="/payment">Back this project</Link>
+                {/* <Link href="/payment">Back this project</Link> */}
+              <Link href={`/payment?redirectTo=${encodeURIComponent('http://localhost:3000/dashboard/projects/66b23a35031781c5caeeb041')}`}>Proceed to Payment</Link>
               </button>
               <button className="btn text-lg font-medium h-10 min-h-10 bg-custom-blue mt-4 text-white w-full">Share</button>
             </div>
