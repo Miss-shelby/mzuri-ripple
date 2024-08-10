@@ -94,8 +94,8 @@ console.log(formFields);
       .then(function (response) {
         console.log(response, 'success response');
         setLoading(false)
-        // router.push(response.data?.data?.authorization_url);
-        router.push("/success")
+        router.push(response.data?.data?.authorization_url);
+        // router.push("/success")
         // toast.success(message);
         Cookies.set("projectId", projectId);
         console.log(response.data?.data?.authorization_url);
