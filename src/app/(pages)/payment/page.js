@@ -94,14 +94,15 @@ console.log(formFields);
       .then(function (response) {
         console.log(response, 'success response');
         setLoading(false)
-        router.push(response.data?.data?.authorization_url);
+        // router.push(response.data?.data?.authorization_url);
+        router.push("/success")
         // toast.success(message);
-        Cookies.set(projectId,"projectId")
+        Cookies.set("projectId", projectId);
         console.log(response.data?.data?.authorization_url);
       })
       .catch(function (error) {
         setLoading(false)
-        toast.error(error.response.data.detail || error.response.message || error.status )
+        toast.error(error?.response?.data?.detail || error?.response?.message || error?.status || error?.message )
         console.log(error, 'error response');
       });
     }
