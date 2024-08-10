@@ -8,7 +8,7 @@ const ProjectIdSetter = ({ projectId }) => {
   const { setProjectId } = useAuth();
   useEffect(() => {
     setProjectId(projectId);
-    Cookies.set(projectId,"projectId")
+    Cookies.set("projectId", projectId);
   }, [projectId, setProjectId]);
 
   return null;
