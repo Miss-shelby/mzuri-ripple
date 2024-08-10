@@ -16,7 +16,7 @@ const CongratulatoryPage = () => {
   // const {authUser,userProject,projectId}= useAuth()
   // const projectId = Cookies.get("projectId")
   // const projectId='66a0e6d46aa4773bb5462d91'
-  console.log(projectId,'project id');
+  
   
 // const token =  Cookies.get("token")
 // const[projectData,setProjectData] = useState({})
@@ -97,7 +97,7 @@ const CongratulatoryPage = () => {
     <div className='w-full shadow-2xl flex flex-col items-center pt-28 min-h-screen'>
     <div className="congrats-container">
       <h1>Thank You💖!</h1>
-      <p className='pt-4 text-sm text-custom-green-200'>  Project  has been succesfully backed </p>
+      <p className='pt-4 text-sm'>  You have succesfully backed this project </p>
       <p className='pt-8'><Link href="/">Back Home</Link></p>
       <div className="flowers-container"></div>
     </div>
