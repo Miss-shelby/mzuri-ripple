@@ -13,56 +13,56 @@ const colors = ['#ffeb3b', '#ff5722', '#4caf50', '#2196f3', '#e91e63'];
 const shapes = ['circle', 'square', 'triangle'];
 
 const CongratulatoryPage = () => {
-  const {authUser,userProject,projectId}= useAuth()
+  // const {authUser,userProject,projectId}= useAuth()
   // const projectId = Cookies.get("projectId")
   // const projectId='66a0e6d46aa4773bb5462d91'
   console.log(projectId,'project id');
   
-const token =  Cookies.get("token")
-const[projectData,setProjectData] = useState({})
-const [isLoading,setIsloading] = useState(true)
+// const token =  Cookies.get("token")
+// const[projectData,setProjectData] = useState({})
+// const [isLoading,setIsloading] = useState(true)
 
 
 
-  const fetchdata= async ()=>{
-    if(!projectId) return;
-    setIsloading(true)
-    try {
-      const response = await fetch(`${GetProjectsApi}/project/${projectId}`, {
-        method: "GET",
-        headers:{
-          accept:'application/json',
-          Authorization: `Bearer ${token}`
-        }
+  // const fetchdata= async ()=>{
+  //   if(!projectId) return;
+  //   setIsloading(true)
+  //   try {
+  //     const response = await fetch(`${GetProjectsApi}/project/${projectId}`, {
+  //       method: "GET",
+  //       headers:{
+  //         accept:'application/json',
+  //         Authorization: `Bearer ${token}`
+  //       }
         
-      });
+  //     });
 
-      const json = await response.json();
+  //     const json = await response.json();
 
-      if (response?.status === 200 || response?.status === 202  || response?.status === 201 ||  response.ok) {
-        setProjectData(json.data)
-        setIsloading(false)
-        return;
-      } else if (response?.status === 400 || response?.status === 401 ||  response?.status === 403 ||response?.status === 404 ) {
-       console.log(response.error);
-       setIsloading(false)
-        return;
-      } else {
-        console.log(response.error);
-        setIsloading(false)
-        return;
-      }
-    } catch (error) {
-      console.log(error);
+  //     if (response?.status === 200 || response?.status === 202  || response?.status === 201 ||  response.ok) {
+  //       setProjectData(json.data)
+  //       setIsloading(false)
+  //       return;
+  //     } else if (response?.status === 400 || response?.status === 401 ||  response?.status === 403 ||response?.status === 404 ) {
+  //      console.log(response.error);
+  //      setIsloading(false)
+  //       return;
+  //     } else {
+  //       console.log(response.error);
+  //       setIsloading(false)
+  //       return;
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
 
       
-    } finally {
-      setIsloading(false)
-    }
-  };
+  //   } finally {
+  //     setIsloading(false)
+  //   }
+  // };
   
   useEffect(() => {
-  fetchdata()
+  // fetchdata()
     const createFlower = () => {
       const flower = document.createElement('div');
       flower.className = `flower ${shapes[Math.floor(Math.random() * shapes.length)]}`;
@@ -92,19 +92,18 @@ const [isLoading,setIsloading] = useState(true)
   }, []);
 
   return  <>
-   {isLoading? <Spinner/> :
-  (
-
+  
+(
     <div className='w-full shadow-2xl flex flex-col items-center pt-28 min-h-screen'>
     <div className="congrats-container">
       <h1>Thank You💖!</h1>
-      <p className='pt-4 text-sm text-custom-green-200'> {projectData?.title} Project  by {projectData?.name}<br/> has been succesfully backed </p>
+      <p className='pt-4 text-sm text-custom-green-200'>  Project  has been succesfully backed </p>
       <p className='pt-8'><Link href="/">Back Home</Link></p>
       <div className="flowers-container"></div>
     </div>
     </div>
   )
-}
+
   </>
   
 };
