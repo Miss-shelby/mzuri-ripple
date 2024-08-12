@@ -9,6 +9,7 @@ import { GetProjectsApi } from "../Apis/api";
 import TextExpander from "../shared/TextExpander";
 import Spinner from "../spinner";
 import { calculateDaysLeft } from "../shared/DatesCreated/Left/Dates";
+import { toast } from "react-toastify";
 
 const bika = "/Bikah.png";
 const scooter ="/ElectricScooter.png";
@@ -16,42 +17,18 @@ const library ="/library.png"
 const social = '/social media.jpg'
 
 
-const All = () => {
+const All = ({allProjects,isLoading}) => {
  
-const [featuredProduct,setFeaturedProject] = useState([])
-const [isLoading,setIsLoading] = useState(true)
 
-
-  useEffect(()=>{
-   handleFetch()
-  },[])
-
-  const handleFetch = ()=>{
-    setIsLoading(true)
-    axios.get(`${GetProjectsApi}`,{
-    })
-   .then(function (response) {
-  if(response.status === 200){
-  setFeaturedProject(response.data.data)
-  setIsLoading(false)
-  }
-
-  })
- .catch(function (error) {
-  // handle error
-  console.log(error);
-  // setIsLoading(false)
-   });
-  }
-console.log(featuredProduct[21],'first project here');
+console.log(allProjects[21],'first project here');
 
   //getting days left 
-  const durationOne =  featuredProduct[21]?.duration?.slice(0,10);
-  const durationTwo =  featuredProduct[1]?.duration?.slice(0,10);
-  const durationThree =  featuredProduct[17]?.duration?.slice(0,10);
+  const durationOne =  allProjects[21]?.duration?.slice(0,10);
+  const durationTwo =  allProjects[1]?.duration?.slice(0,10);
+  const durationThree =  allProjects[17]?.duration?.slice(0,10);
 
-  const projectIdOne = featuredProduct[27]?.id
-  const projectIdThree = featuredProduct[24]?.id
+  const projectIdOne = allProjects[27]?.id
+  const projectIdThree = allProjects[24]?.id
 
  
   // Get today's date
@@ -69,20 +46,20 @@ const daysLeftThree = calculateDaysLeft(durationThree,formattedDate)
       (
         <div className="flex w-full ">
         <div className=" mr-[20px] w-full h-full ">
-        <ProjectCard img={bika} height={670} width={680} title={featuredProduct[21]?.title} owner={featuredProduct[21]?.name}
+        <ProjectCard img={bika} height={670} width={680} title={allProjects[21]?.title} owner={allProjects[21]?.name}
         
-        expander={<TextExpander collapsedNumber={200}>{featuredProduct[21]?.about}</TextExpander>}
-          startPrice={`${featuredProduct[21]?.amount.toLocaleString('en-US')}`} endPrice={`${featuredProduct[21]?.amount.toLocaleString('en-US')}`} backers="0 backers" days={`${daysLeftOne} days left`}/>
+        expander={<TextExpander collapsedNumber={200}>{allProjects[21]?.about}</TextExpander>}
+          startPrice={`${allProjects[21]?.amount.toLocaleString('en-US')}`} endPrice={`${allProjects[21]?.amount.toLocaleString('en-US')}`} backers="0 backers" days={`${daysLeftOne} days left`}/>
         </div>
           <div className="flex flex-col text-[sm] w-fit">
-            <ProjectCard  height={30} width={500}  title={featuredProduct[1]?.title} owner={featuredProduct[1]?.name}
-              expander={<TextExpander>{featuredProduct[1]?.about}</TextExpander>}
-              startPrice= {`${featuredProduct[1]?.amount.toLocaleString('en-US')}`} endPrice={`${featuredProduct[1]?.amount.toLocaleString('en-US')}`}
+            <ProjectCard  height={30} width={500}  title={allProjects[1]?.title} owner={allProjects[1]?.name}
+              expander={<TextExpander collapsedNumber={25}>{allProjects[1]?.about}</TextExpander>}
+              startPrice= {`${allProjects[1]?.amount.toLocaleString('en-US')}`} endPrice={`${allProjects[1]?.amount.toLocaleString('en-US')}`}
                backers="0 backers" days={`${daysLeftTwo} days left`} img={scooter}/>
               <div className="mt-3 w-full">
-                 <ProjectCard height={130} width={500} title={featuredProduct[17]?.title} owner={featuredProduct[17]?.name}
-                expander={<TextExpander>{featuredProduct[17]?.about}</TextExpander>}
-              startPrice={`${featuredProduct[17]?.amount.toLocaleString('en-US')}`}  endPrice={`${featuredProduct[17]?.amount.toLocaleString('en-US')}`} 
+                 <ProjectCard height={130} width={500} title={allProjects[17]?.title} owner={allProjects[17]?.name}
+                expander={<TextExpander>{allProjects[17]?.about}</TextExpander>}
+              startPrice={`${allProjects[17]?.amount.toLocaleString('en-US')}`}  endPrice={`${allProjects[17]?.amount.toLocaleString('en-US')}`} 
                backers="0 backers" days={`${daysLeftThree} day left`} img={library}/>
             
               </div>

@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { TbCurrencyNaira } from "react-icons/tb";
+import TextExpander from "./shared/TextExpander";
 export const ProjectCard = ({img,title,owner,description="",expander,startPrice,endPrice,backers,days,height,width,location,longDescription })=>{
 
     return (
@@ -23,9 +24,10 @@ export const ProjectCard = ({img,title,owner,description="",expander,startPrice,
            <p className="text-sm font-medium flex-grow-0">{location}</p>
         </div>
         <p className="text-black-100 font-[500] flex-grow-0">{owner}</p>
-        {description && description.length < 200? <p className="text-[13px] leading-[17.07px] font-normal flex-grow-0">{description}
+        {/* {description && description.length < 200? <p className="text-[13px] leading-[17.07px] font-normal flex-grow-0">{description}
         </p> : <p className="text-sm font-normal flex-grow-0 py-[2px]">
-        {longDescription }</p> }
+        {longDescription }</p> } */}
+        <p className="text-sm leading-[17.07px] font-normal ">{description}</p>
         {expander}
         <div className="flex w-full justify-between ">
           <p className="text-custom-green-100 text-xl font-medium flex-grow-0 flex items-center"><span className="inline-flex items-center"><TbCurrencyNaira /></span>{startPrice}</p>
@@ -43,9 +45,9 @@ export const ProjectCard = ({img,title,owner,description="",expander,startPrice,
     )
 }
 
-export const RecommendedProjectCard = ({img,img2,title,owner,description,startPrice,endPrice,backers,days,height,width,profilename,location,height2,width2})=>{
+export const RecommendedProjectCard = ({img,img2,title,owner,description,expander,startPrice,endPrice,backers,days,height,width,profilename,location,height2,width2})=>{
     return (
-      <div className="card card-compact  shadow-xl rounded-[3px]">
+      <div className="card card-compact  shadow-xl rounded-[3px] w-full">
       <figure className={`relative w-full h-auto`}>
         <Image
           src={img}
@@ -57,22 +59,23 @@ export const RecommendedProjectCard = ({img,img2,title,owner,description,startPr
   
         />
       </figure>
-      <div className="card-body w-full">
-        <h2 className="card-title font-bold text-lg">{title}</h2>
+      <div className="card-body ">
+        <h2 className="card-title font-bold text-lg capitalize">{title}</h2>
         <p className="text-black-100 font-[500] flex-grow-0">{owner}</p>
-        <p className="text-[13px] font-normal flex-grow-0">{description}</p>
-        <div className="flex w-full justify-between ">
+          {/* <p dangerouslySetInnerHTML={{ __html: description }} className="text-[13px] font-normal "></p> */}
+          <p className="text-sm leading-[17.07px] font-normal flex-grow-1 w-auto ">{description}</p> 
+        <div className="flex w-full justify-between mt-4">
           <p className="text-custom-green-100 text-xl font-medium flex-grow-0 flex items-center"><span className="inline-flex items-center"><TbCurrencyNaira /></span>{startPrice}</p>
           <p className="text-custom-green-100 text-xl font-medium flex-grow-0 flex items-center"><span className="inline-flex items-center"><TbCurrencyNaira /></span>{endPrice}</p>
         </div>
         <div className="gradient-border"></div>
         <div id="grad"></div>
-        <div className="flex text-custom-black  justify-between font-medium text-[0.7rem]">
-          <p className="flex-grow-0">{backers}</p>
-          <p className="flex-grow-0">{days}</p>
+        <div className="flex text-custom-black  justify-between items-center font-medium text-[0.7rem]">
+          <p className="flex-grow-0">{`${backers} backers`}</p>
+          <p className="flex-grow-0">{`${days} days left`}</p>
         </div>
         <hr className="my-6"/>
-        <div className="flex items-center ">
+        <div className="flex items-center w-full ">
         <figure className={`relative `}>
         <Image
           src={img2}

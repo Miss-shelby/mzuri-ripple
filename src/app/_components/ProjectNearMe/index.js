@@ -1,7 +1,11 @@
 import React from 'react'
 import { ProjectCard } from '../ProjectCard';
+import TextExpander from '../shared/TextExpander';
+import Spinner from '../spinner';
+import Link from 'next/link';
+import { MdOutlineNavigateNext } from 'react-icons/md';
 
-const ProjectNearMe = () => {
+const ProjectNearMe = ({allProjects,isLoading}) => {
     const ProjectsNear = [
         {
           image: "/clean2.png",
@@ -64,20 +68,32 @@ const ProjectNearMe = () => {
            
           },
       ];
+      const moreProjects = allProjects.slice(0,6)
+      console.log(moreProjects,'more projects');
+      
   return (
     <div>
-      <h4 className='text-black-100 font-bold text-2xl mt-20 ' >Projects Near You</h4>
-      <div className='grid grid-cols-3 gap-4 mt-6 mb-[122px] w-full'>
-      {ProjectsNear.map((project)=>{
+      <h4 className='text-black-100 font-bold text-2xl mt-20 ' >More Projects</h4>
+      {isLoading?(<Spinner/>) :(
+      <div className='grid grid-cols-3 gap-4 mt-6  w-full'>
+      {moreProjects.map((project)=>{
         return (
-            <ProjectCard key={project.title} title={project.title} 
-            description={project.description} 
-            startPrice={project.startPrice} endPrice={project.endPrice} location={project.location}
-             img={project.image} height={186} width={389}/>
+            <ProjectCard key={project?.title} title={project?.title} 
+            description={
+              <TextExpander collapsedNumber={50}>
+                {project?.about}
+              </TextExpander>
+            }
+            startPrice={project?.amount} endPrice={project?.amount} location={project?.address}
+             img="/kids.png" height={186} width={389}/>
         )
       })}
       </div>
-
+      )}
+      <div className="flex text-right items-center justify-end mt-4 mb-[122px] ">
+      <p className=" text-black-100 font-medium capitalize text-lg"><Link href='/explore'>See more projects</Link> </p>
+        <p className=""><MdOutlineNavigateNext /></p>
+      </div>
     </div>
   )
 }

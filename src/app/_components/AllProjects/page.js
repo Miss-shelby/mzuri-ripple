@@ -2,7 +2,7 @@
 import React from 'react'
 import ProjectNavigation from './Navigation'
 
-const AllProjects = () => {
+const AllProjects = ({allProjects,isLoading}) => {
   const projectLinks = [
     {
       name: 'All',
@@ -30,7 +30,7 @@ const AllProjects = () => {
   ];
   return (
     <div>
-        <ProjectNavigation links={projectLinks} />
+        <ProjectNavigation allProjects={allProjects} isLoading={isLoading} links={projectLinks} />
         </div>
   )
 }

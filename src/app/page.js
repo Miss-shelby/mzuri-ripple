@@ -1,11 +1,43 @@
+"use client"
 import Image from "next/image";
 import AllProjects from "./_components/AllProjects/page";
 import RecommendedProjects from "./_components/RecommendedProjects";
 import ProjectNearMe from "./_components/ProjectNearMe";
 import { TbCurrencyNaira } from "react-icons/tb";
+import { Suspense, useEffect, useState } from "react";
+import axios from "axios";
+import { GetProjectsApi } from "./_components/Apis/api";
 const line = "/Line 3.png";
 const search = "/bi_search.png";
 export default function Home() {
+  const [allProjects,setAllProjects] = useState([])
+  const [isLoading,setIsLoading] = useState(true)
+  
+    const handleFetch = ()=>{
+      setIsLoading(true)
+      axios.get(`${GetProjectsApi}`,{
+      })
+     .then(function (response) {
+    if(response.status === 200){
+      setAllProjects(response.data.data)
+      console.log(allProjects);
+      
+    setIsLoading(false)
+    }
+  
+    })
+   .catch(function (error) {
+    // handle error
+    console.log(error);
+    toast.error("Failed to load projects")
+    setIsLoading(false)
+     });
+    }
+    useEffect(()=>{
+      handleFetch()
+     },[])
+
+
   return (
     <main className="pt-[4rem] w-full max-w-[1920px] mx-auto   px-[10rem] bg-white">
       <div className="flex flex-col lg:flex-row  justify-between w-full items-center">
@@ -57,9 +89,11 @@ export default function Home() {
           <p className="md:font-medium text-xs md:text-sm lg:text-lg">Project Backing</p>
         </div>
       </div>
-      <AllProjects />
-      <RecommendedProjects />
-      <div className="flex items-center justify-between">
+      
+      <AllProjects allProjects={allProjects} isLoading={isLoading} />
+      <RecommendedProjects  allProjects={allProjects}  isLoading={isLoading} />
+
+      <div className="flex items-center justify-between mt-5">
         <div>
           <h5 className="text-black-100 text-4xl font-[700] pt-20">
             Don’t miss new wonderful Projects
@@ -82,7 +116,7 @@ export default function Home() {
             <Image src="/mail.gif" alt="animation" height={300} width={300}/>
           </div>
       </div>
-      <ProjectNearMe />
+      <ProjectNearMe allProjects={allProjects} isLoading={isLoading} />
     </main>
   );
 }
