@@ -7,3 +7,4 @@ export const GetProjectsApi= `https://ripple-project-1.onrender.com/api/v1/proje
 export const updateProjectAbout = `https://ripple-project-1.onrender.com/api/v1/projects/project`
 export const getCategory ='https://ripple-project-1.onrender.com/api/v1/projects/filter'
 export const getUserProjects =`https://ripple-project-1.onrender.com/api/v1/projects/user/project`
+export const getFeaturedProjects =`https://ripple-project-1.onrender.com/api/v1/featured-projects/`

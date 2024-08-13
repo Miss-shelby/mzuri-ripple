@@ -5,55 +5,10 @@ import { calculateDaysLeft } from '../shared/DatesCreated/Left/Dates';
 import TextExpander from '../shared/TextExpander';
 
 const RecommendedProjects = ({allProjects,isLoading}) => {
-    const RecommendedProject = [
-        {
-          image: "/doctor.png",
-          title: "Help Asian Woman",
-          owner: "By Province No. 1",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales. ",
-          startPrice: " 1,00,000",
-          endPrice: " 1,00,00,000",
-          backers: "250 backers ",
-          days: "36 days left",
-          profileName:"Shan chi",
-          location:"Jumla, Nepal",
-          image2:"/avatar.png"
-        },
-        {
-            image: "/clean.png",
-          title: "Clean Bagmati",
-          owner: "By Kismat Shah",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales.  ",
-          startPrice: " 1,00,000",
-          endPrice: " 10,00,000",
-          backers: "250 backers ",
-          days: "36 days left",
-          profileName:"Minister of Kathmandu",
-          location:"Kathmandu, Nepal",
-          image2:"/womanMinister.png"
-        },
-        {
-        title: "Build Dog Shelter",
-        image: "/Dog.png",
-          owner: "By Humla’s Resident",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales. ",
-          startPrice: " 10,000",
-          endPrice: " 1,00,000",
-          backers: "250 backers ",
-          days: "36 days left",
-          profileName:"Sharshlov Amatya",
-          location:"Kathmandu, Nepal",
-          image2:"/sharshlov.png"
-        },
-      ];
+    
 
       const newProjects = allProjects.slice(-3)
-      console.log(newProjects,'latest projects');
       
-
        // Get today's date
   const today = new Date();
   const formattedDate = today.toISOString().slice(0, 10); 

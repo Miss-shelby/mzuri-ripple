@@ -5,6 +5,7 @@ import { GoTag } from "react-icons/go";
 import { BsFillGeoFill } from "react-icons/bs";
 
 import Link from "next/link";
+import { MdOutlineArrowBackIosNew } from "react-icons/md";
 import {
   calculateDaysLeft,
   DateCreated,
@@ -56,8 +57,9 @@ const ProjectDetailPage = async ({ params }) => {
   return (
     <section className=" mt-[68px] mb-5">
       <ProjectIdSetter projectId={params.projectId} />
-      <p className="font-bold text-2xl mb-8 pl-[10rem]">{title}</p>
+      <p className="pl-[10rem] cursor-pointer"><Link href="/explore"><MdOutlineArrowBackIosNew /></Link><span className="block font-bold text-2xl mb-8 ">{title} </span></p>
       <div className="flex w-full max-w-[1920px] mx-auto px-[10rem]">
+      
         <div>
           <div className="relative w-[800px] h-[500px]">
             <Image

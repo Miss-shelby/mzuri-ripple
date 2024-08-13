@@ -1,16 +1,40 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { PiChartLineUp } from 'react-icons/pi'
 import { LuDollarSign } from "react-icons/lu";
 import { TbCurrencyNaira } from "react-icons/tb";
+import { FaImage } from 'react-icons/fa';
 const ProfileCard = ({projectOwner,backers}) => {
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [preview, setPreview] = useState('/profileAvatar.png');
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedFile(file);
+
+      // Create a preview URL
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result); // Set the preview URL
+      };
+      reader.readAsDataURL(file); // Convert file to data URL
+    }
+  };
   return (
     <div>
          <div className="card w-[400px] mt-20 h-fit p-6 shadow-2xl ml-6">
                 <div className="card-body relative mt-10 flex flex-col items-center gap-0 border-custom-brown border ">
-                  <div className='absolute z-10 -top-10 h-fit w-fit'>
+                <input type="file"   id="file-upload" name="selectedFile"
+                  className="hidden file-input file-input-ghost w-full mt-6 h-20 " onChange={ handleFileChange} />
+                  <label  htmlFor="file-upload"
+                    className='cursor-pointer flex items-center justify-center  absolute z-10 -top-10 h-fit w-fit'>
+                      <div className='relative rounded-full  h-auto w-auto aspect-square'>
+                      <Image src={preview} objectFit="cover" className='rounded-full'   height={75} width={75}  alt='profile image'/>
+                      </div>
+                  </label>
+                  {/* <div className='absolute z-10 -top-10 h-fit w-fit'>
                     <Image src='/profileAvatar.png' height={75} width={75} alt='profile image'/>
-                  </div>
+                  </div> */}
                   <h4 className='font-semibold text-black-100 text-2xl pt-6'>{projectOwner}</h4>
                     <p className='font-medium text-black-100 pt-4'>Project Founder</p>
                 </div>

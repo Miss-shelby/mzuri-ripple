@@ -69,7 +69,8 @@ const ProjectNearMe = ({allProjects,isLoading}) => {
           },
       ];
       const moreProjects = allProjects.slice(0,6)
-      console.log(moreProjects,'more projects');
+     
+     
       
   return (
     <div>
@@ -78,7 +79,7 @@ const ProjectNearMe = ({allProjects,isLoading}) => {
       <div className='grid grid-cols-3 gap-4 mt-6  w-full'>
       {moreProjects.map((project)=>{
         return (
-            <ProjectCard key={project?.title} title={project?.title} 
+            <ProjectCard key={project?.id} title={project?.title} 
             description={
               <TextExpander collapsedNumber={50}>
                 {project?.about}

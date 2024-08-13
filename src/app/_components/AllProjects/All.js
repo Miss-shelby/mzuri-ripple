@@ -5,7 +5,7 @@ import { MdOutlineNavigateNext } from "react-icons/md";
 import axios from "axios";
 import { ProjectCard } from "../ProjectCard";
 import Link from "next/link";
-import { GetProjectsApi } from "../Apis/api";
+import { getFeaturedProjects, GetProjectsApi } from "../Apis/api";
 import TextExpander from "../shared/TextExpander";
 import Spinner from "../spinner";
 import { calculateDaysLeft } from "../shared/DatesCreated/Left/Dates";
@@ -16,51 +16,80 @@ const scooter ="/ElectricScooter.png";
 const library ="/library.png"
 const social = '/social media.jpg'
 
-
-const All = ({allProjects,isLoading}) => {
+const All = () => {
  
 
-console.log(allProjects[21],'first project here');
+  const [featuredProjects,setFeaturedProjects] = useState([])
+  const [isLoading,setIsLoading] = useState(true)
+  
+    const handleFetch = ()=>{
+      setIsLoading(true)
+      axios.get(`${getFeaturedProjects}`,{
+      })
+     .then(function (response) {
+    if(response.status === 200){
+      setFeaturedProjects(response.data.data)
+      
+    setIsLoading(false)
+    }
+  
+    })
+   .catch(function (error) {
+    // handle error
+    console.log(error);
+    toast.error("Failed to load projects")
+    setIsLoading(false)
+     });
+    }
+    useEffect(()=>{
+      handleFetch()
+     },[])
 
+  
   //getting days left 
-  const durationOne =  allProjects[21]?.duration?.slice(0,10);
-  const durationTwo =  allProjects[1]?.duration?.slice(0,10);
-  const durationThree =  allProjects[17]?.duration?.slice(0,10);
+  const durationOne =featuredProjects[2]?.duration;
+  const durationTwo =  featuredProjects[1]?.duration;
+  const durationThree =  featuredProjects[0]?.duration;
 
-  const projectIdOne = allProjects[27]?.id
-  const projectIdThree = allProjects[24]?.id
+
 
  
   // Get today's date
   const today = new Date();
   const formattedDate = today.toISOString().slice(0, 10); 
+
+  
+  
 const daysLeftOne = calculateDaysLeft(durationOne,formattedDate )
 const daysLeftTwo = calculateDaysLeft( durationTwo,formattedDate)
 const daysLeftThree = calculateDaysLeft(durationThree,formattedDate)
 
+
+
  const baseurl =`https://ripple-project-1.onrender.com/api/v1/projects/image_or_video`
   return (
     <div className="w-full">
-      <h4 className="font-bold text-xl my-8">Featured Projects</h4>
+      <h4 className="font-bold text-xl my-8">Featured Projects:</h4>
       {isLoading?<Spinner/> : 
       (
         <div className="flex w-full ">
         <div className=" mr-[20px] w-full h-full ">
-        <ProjectCard img={bika} height={670} width={680} title={allProjects[21]?.title} owner={allProjects[21]?.name}
+        <ProjectCard img={bika} height={670} width={680} title={featuredProjects[2]?.title} owner={featuredProjects[2]?.name}
         
-        expander={<TextExpander collapsedNumber={200}>{allProjects[21]?.about}</TextExpander>}
-          startPrice={`${allProjects[21]?.amount.toLocaleString('en-US')}`} endPrice={`${allProjects[21]?.amount.toLocaleString('en-US')}`} backers="0 backers" days={`${daysLeftOne} days left`}/>
+        expander={<TextExpander collapsedNumber={135}>{featuredProjects[2]?.about}</TextExpander>}
+          startPrice={`${featuredProjects[2]?.amount.toLocaleString('en-US')}`} endPrice={`${featuredProjects[2]?.amount.toLocaleString('en-US')}`} 
+          backers="2 backers" days={`${calculateDaysLeft(featuredProjects[2]?.duration,formattedDate)} days left`}/>
         </div>
           <div className="flex flex-col text-[sm] w-fit">
-            <ProjectCard  height={30} width={500}  title={allProjects[1]?.title} owner={allProjects[1]?.name}
-              expander={<TextExpander collapsedNumber={25}>{allProjects[1]?.about}</TextExpander>}
-              startPrice= {`${allProjects[1]?.amount.toLocaleString('en-US')}`} endPrice={`${allProjects[1]?.amount.toLocaleString('en-US')}`}
-               backers="0 backers" days={`${daysLeftTwo} days left`} img={scooter}/>
+            <ProjectCard  height={30} width={500}  title={featuredProjects[1]?.title} owner={featuredProjects[1]?.name}
+              expander={<TextExpander collapsedNumber={25}>{featuredProjects[1]?.about}</TextExpander>}
+              startPrice= {`${featuredProjects[1]?.amount.toLocaleString('en-US')}`} endPrice={`${featuredProjects[1]?.amount.toLocaleString('en-US')}`}
+               backers="2 backers" days={`${daysLeftTwo} days left`} img={scooter}/>
               <div className="mt-3 w-full">
-                 <ProjectCard height={130} width={500} title={allProjects[17]?.title} owner={allProjects[17]?.name}
-                expander={<TextExpander>{allProjects[17]?.about}</TextExpander>}
-              startPrice={`${allProjects[17]?.amount.toLocaleString('en-US')}`}  endPrice={`${allProjects[17]?.amount.toLocaleString('en-US')}`} 
-               backers="0 backers" days={`${daysLeftThree} day left`} img={library}/>
+                 <ProjectCard height={130} width={500} title={featuredProjects[0]?.title} owner={featuredProjects[0]?.name}
+                expander={<TextExpander>{featuredProjects[0]?.about}</TextExpander>}
+              startPrice={`${featuredProjects[0]?.amount.toLocaleString('en-US')}`}  endPrice={`${featuredProjects[0]?.amount.toLocaleString('en-US')}`} 
+               backers="2 backers" days={`${daysLeftThree} day left`} img={library}/>
             
               </div>
           </div>
