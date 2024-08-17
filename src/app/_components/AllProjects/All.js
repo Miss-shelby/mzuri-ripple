@@ -79,7 +79,7 @@ const daysLeftThree = calculateDaysLeft(durationThree,formattedDate)
         <div className=" mr-[20px] w-full h-full ">
         <ProjectCard img={bika} height={670} width={680} title={featuredProjects[2]?.title} owner={featuredProjects[2]?.name}
         
-        expander={<TextExpander collapsedNumber={135}>{featuredProjects[2]?.about}</TextExpander>}
+        expander={<TextExpander collapsedNumber={110}>{featuredProjects[2]?.about}</TextExpander>}
           startPrice={`${featuredProjects[2]?.amount.toLocaleString('en-US')}`} endPrice={`${featuredProjects[2]?.amount.toLocaleString('en-US')}`} 
           backers="2 backers" days={`${calculateDaysLeft(featuredProjects[2]?.duration,formattedDate)} days left`}/>
         </div>

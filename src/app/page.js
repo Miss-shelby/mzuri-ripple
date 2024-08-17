@@ -9,6 +9,7 @@ import axios from "axios";
 import { GetProjectsApi } from "./_components/Apis/api";
 import FilterProjects from "./_components/Filter";
 import { toast } from "react-toastify";
+import ProjectFigures from "./_components/ProjectFigures/ProjectFigures";
 const line = "/Line 3.png";
 
 export default function Home() {
@@ -60,30 +61,7 @@ export default function Home() {
             <Image src="/animation1.gif" alt="animation" height={377} width={600}/>
           </div>
       </div>
-      <p className="text-center font-medium capitalize text-lg  pt-10 pb-7">
-        Raised this month
-      </p>
-      <div className="bg-[#F5F5F5] flex flex-col md:flex-row justify-between px-4 md:px-[3rem] w-full py-4 mb-[4rem]">
-        <div className="flex flex-col items-center justify-center text-black-100">
-          <p className="text-sm md:text-[20px] lg:text-[28px] md:font-[600] ">50</p>
-          <p className="md:font-medium text-xs md:text-sm lg:text-lg">Projects</p>
-        </div>
-        <div className="inline-block border-l border-1 h-15 border-[#525252] ml-2">
-          {" "}
-        </div>
-        <div className="flex flex-col items-center justify-center text-black-100">
-          <p className="text-sm md:text-[20px] lg:text-[28px] md:font-[600]  flex items center"><span className="inline-flex items-center"><TbCurrencyNaira /></span> 1,00,00,000</p>
-          <p className="md:font-medium text-xs capitalize md:text-sm lg:text-lg">Towards Creative projects</p>
-        </div>
-        <div className="inline-block border-l border-1 h-15 border-[#525252] ml-2">
-          {" "}
-        </div>
-        <div className="flex flex-col items-center justify-center">
-          <p className="text-sm md:text-[20px] lg:text-[28px] md:font-[600] ">15,000</p>
-          <p className="md:font-medium text-xs md:text-sm lg:text-lg">Project Backing</p>
-        </div>
-      </div>
-      
+      <ProjectFigures/>
       <AllProjects allProjects={allProjects} isLoading={isLoading} error={error}/>
       <RecommendedProjects error={error}  allProjects={allProjects}  isLoading={isLoading} />
 

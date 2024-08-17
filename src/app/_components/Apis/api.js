@@ -8,3 +8,5 @@ export const updateProjectAbout = `https://ripple-project-1.onrender.com/api/v1/
 export const getCategory ='https://ripple-project-1.onrender.com/api/v1/projects/filter'
 export const getUserProjects =`https://ripple-project-1.onrender.com/api/v1/projects/user/project`
 export const getFeaturedProjects =`https://ripple-project-1.onrender.com/api/v1/featured-projects/`
+export const numberOfProjects =`  https://ripple-project-1.onrender.com/api/v1/projects/number-of-porjects`
+export const projectBackings =`  https://ripple-project-1.onrender.com/api/v1/projects/backings`
