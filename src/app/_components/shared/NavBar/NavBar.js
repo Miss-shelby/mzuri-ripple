@@ -10,7 +10,7 @@ const NavBar = () => {
   return (
     <div className="flex justify-between sticky z-40 top-0 items-center w-full  py-[2rem]  max-w-[1920px] mx-auto  px-[10rem] bg-white">
       <div className="flex items-center">
-        <p className="text-[18px]">Discover <span className="text-[#BFBFBF] px-[12px] ">|</span> </p>
+        <p className="text-[18px] cursor-pointer "><Link href="/explore">Discover</Link> <span className="text-[#BFBFBF] px-[12px] ">|</span> </p>
         <p className="flex items-center">
             <span className="inline-flex items-center"> <IoIosAdd className="h-5 w-5" /></span> <Link href="/project"> Start a New Project </Link></p>
       </div>

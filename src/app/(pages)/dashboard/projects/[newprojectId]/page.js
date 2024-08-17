@@ -56,7 +56,7 @@ const ProjectDetailPage = async ({ params}) => {
           <div className='relative w-[600px] h-[400px]'>
             <Image src='/newproject.png' alt='Project picture' className='w-full h-full object-cover' fill priority />
           </div>
-          <p className='text-black-100 mt-6 font-medium text-lg'>{name} is organizing this fundraiser to benefit the society</p>
+          <p className='text-black-100 mt-6 font-medium text-lg capitalize'>{name} is organizing this fundraiser to benefit the society</p>
           <div className='flex mt-6 items-center text-black-100 text-lg font-medium'>
             <p className='border-black-100 h-8 pr-4 border-r-2'>Created {createdDate}</p>
             <p className='flex items-center px-4 border-black-100 h-8 border-r-2'><GoTag /><span className='inline-flex pl-4'>Personal Use</span></p>
@@ -82,7 +82,7 @@ const ProjectDetailPage = async ({ params}) => {
             <div className="card-actions justify-center mt-6">
               <button className="btn text-lg font-medium hover:bg-custom-green-100 h-10 min-h-10 bg-custom-green-200 text-white w-full">
                 {/* <Link href="/payment">Back this project</Link> */}
-              <Link href={`/payment`}>Proceed to Payment</Link>
+              <Link href={`/payment`}>Back this project</Link>
               </button>
               <button className="btn text-lg font-medium h-10 min-h-10 bg-custom-blue mt-4 text-white w-full">Share</button>
             </div>

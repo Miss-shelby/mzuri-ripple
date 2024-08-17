@@ -4,7 +4,7 @@ import Spinner from '../spinner';
 import { calculateDaysLeft } from '../shared/DatesCreated/Left/Dates';
 import TextExpander from '../shared/TextExpander';
 
-const RecommendedProjects = ({allProjects,isLoading}) => {
+const RecommendedProjects = ({allProjects,isLoading,error}) => {
     
 
       const newProjects = allProjects.slice(-3)
@@ -18,7 +18,7 @@ const RecommendedProjects = ({allProjects,isLoading}) => {
     <div>
         <h4 className='text-black-100 font-bold text-2xl mt-[6rem] mb-7'>Latest Projects</h4>
         {isLoading? 
-        (<Spinner/>)
+        (<Spinner/>) : error?<p className='text-red-500 capitalize font-medium mt-4'>Failed to load latest projects😓 </p> 
          : 
         (
         <div className='flex w-full space-x-4'>

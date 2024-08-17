@@ -6,6 +6,7 @@ import axios from 'axios';
 import { GetProjectsApi } from '@/app/_components/Apis/api';
 import Spinner from '@/app/_components/spinner';
 import TextExpander from '@/app/_components/shared/TextExpander';
+import { toast } from 'react-toastify';
 
 const ExplorePage = () => {
   const initialProjectsList = 12;
@@ -13,6 +14,7 @@ const ExplorePage = () => {
   const [displayProjects,setDisplayProjects] = useState(initialProjectsList)
   const [allProject,setAllProject] = useState([])
   const [isLoading,setIsLoading] = useState(true)
+  const [error,setError] = useState('')
 
     const loadMore =()=>{
       setDisplayProjects(prev => prev + incrementProjectsList);
@@ -26,6 +28,8 @@ const ExplorePage = () => {
      
        const handleFetch = ()=>{
          setIsLoading(true)
+         
+         
          axios.get(`${GetProjectsApi}`,{
          })
         .then(function (response) {
@@ -41,7 +45,9 @@ const ExplorePage = () => {
       .catch(function (error) {
        // handle error
        console.log(error);
-       // setIsLoading(false)
+       toast.error(error)
+       setError(error)
+       setIsLoading(false)
         });
        }
    
@@ -51,7 +57,10 @@ const ExplorePage = () => {
     <div className='w-full max-w-[1920px] mx-auto min-h-screen  px-[10rem] bg-white'>
       <h4 className='text-black-100 font-bold text-2xl mt-10 ' >Explore</h4>
       
-     {isLoading?<Spinner/> : (
+     {isLoading?<Spinner/> : 
+      error? 
+      <p className='text-red-500 capitalize font-medium mt-4'>Failed to load featured projects😓 </p> 
+      :  (
       <div>
        <div className='grid grid-cols-3 gap-4 mt-6  w-full'>
        {allProject.slice(0,displayProjects).map((project)=>{

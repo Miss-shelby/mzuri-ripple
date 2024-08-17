@@ -22,9 +22,8 @@ const GetStarted = () => {
           <div className="flex flex-col items-center justify-center pt-[6.4rem] text-black-100 ">
             <p className="font-medium text-3xl">How RIPPLE Works</p>
             <p className="pt-6 font-medium text-xl">
-              Ripple is the best place to fundraise, whether you are an
-              individual, group,
-              <span className="block text-center "> or organization.</span>
+              Ripple helps under represented founders in Africa to fund raise..
+              {/* <span className="block text-center "> or organization.</span> */}
             </p>
           </div>
           <div className="w-full flex justify-center">
@@ -43,7 +42,7 @@ const GetStarted = () => {
                 <li>Set your fundraiser goal</li>
                 <li>Tell your story</li>
                 <li>Add a picture or video</li>
-                <li className="text-custom-blue cursor-pointer">Watch a video tutorial</li>
+                {/* <li className="text-custom-blue cursor-pointer">Watch a video tutorial</li> */}
               </ul>
             </div>
             <div>
@@ -52,7 +51,7 @@ const GetStarted = () => {
                 <li>Send emails</li>
                 <li>Send text messages</li>
                 <li>Share on social media</li>
-                <li className="text-custom-blue cursor-pointer">Watch a video tutorial</li>
+                {/* <li className="text-custom-blue cursor-pointer">Watch a video tutorial</li> */}
               </ul>
             </div>
             <div>

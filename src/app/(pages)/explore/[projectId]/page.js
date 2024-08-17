@@ -23,11 +23,11 @@ const ProjectDetailPage = async ({ params }) => {
     notFound();
   }
   const data = await response.json();
-  console.log(data?.data, "user details");
+
   // console.log(data?.data?.backers);
 
   const backers = data?.data?.backers;
-  console.log(backers, "backers here");
+
 
   const {
     name,
@@ -57,7 +57,8 @@ const ProjectDetailPage = async ({ params }) => {
   return (
     <section className=" mt-[68px] mb-5">
       <ProjectIdSetter projectId={params.projectId} />
-      <p className="pl-[10rem] cursor-pointer"><Link href="/explore"><MdOutlineArrowBackIosNew /></Link><span className="block font-bold text-2xl mb-8 ">{title} </span></p>
+      <p className="pl-[10rem] mb-4 cursor-pointer flex items-center capitalize"><Link href="/explore">
+      <MdOutlineArrowBackIosNew /></Link><span className="inline-flex font-bold text-2xl ml-2 capiltalize">{title} </span></p>
       <div className="flex w-full max-w-[1920px] mx-auto px-[10rem]">
       
         <div>

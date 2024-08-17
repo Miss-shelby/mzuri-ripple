@@ -22,7 +22,6 @@ const ProtectedRoute = ({ children }) => {
 
   useEffect(()=>{
     setLoading(true)
-        
     axios.get(`${ProfileApi}`,{
           headers:{
             accept:'application/json',
@@ -30,17 +29,13 @@ const ProtectedRoute = ({ children }) => {
           }
         })
        .then(function (response) {
-        console.log("== response ==", response)
         setAuthUser(response.data.data)
       })
      .catch(function (error) {
-      console.log("== error ==", error)
       // handle error
       if(error.response && error.response.status === 403){
         setLoading(false)
         Cookies.remove("token")
-
-        console.log(pathname)
       
         if(pathname === '/payment'){
          router?.push(`/login?path=/payment`)
@@ -49,7 +44,7 @@ const ProtectedRoute = ({ children }) => {
          router?.push('/login')
         }
       }
-      console.log(error?.response?.status,'error from protected route');
+      // console.log(error?.response?.status,'error from protected route');
       setAuthUser(null)
       })
        .finally(() => {

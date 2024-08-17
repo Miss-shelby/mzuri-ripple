@@ -19,8 +19,7 @@ const PaymentPage =  () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter(); 
   const token = Cookies.get("token")
-  console.log(authUser,userProject);
-  console.log(projectId,'id from global context');
+
   
   const [formFields,setFormFields] = useState({
     email:authUser?.email || '',

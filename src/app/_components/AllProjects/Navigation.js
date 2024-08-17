@@ -8,7 +8,7 @@ import Music from './Music'
 import Food$Craft from './Food'
 import Games from './Game'
 
-const ProjectNavigation = ({ links,isLoading,allProjects}) => {
+const ProjectNavigation = ({ links,isLoading,allProjects,error}) => {
   const [section,setSection] = useState("All")
   return (
     <>
@@ -20,7 +20,7 @@ const ProjectNavigation = ({ links,isLoading,allProjects}) => {
         })}
     </div>
     <div>
-      {section === "All" && <All allProjects={allProjects} isLoading={isLoading}/>}
+      {section === "All" && <All allProjects={allProjects} error={error} isLoading={isLoading}/>}
       {section === "Art &Illustration" && <Arts/>}
       {section === "Design &Tech" && <Design/>}
       {section === "Flim" && <Film/>}

@@ -9,7 +9,11 @@ import { AuthProvider } from "./_components/Providers/Providers";
 // const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Mzuri Ripple",
+  // title: "Mzuri Ripple",
+  title:{
+    template:"%s / Ripple ",
+    default :'Ripple'
+  },
   description: "Explore range of ideas and kickstart your project",
 };
 

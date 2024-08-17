@@ -13,11 +13,11 @@ import Cookies from 'js-cookie'
 import { useAuth } from '@/app/_components/Providers/Providers'
 import { useSearchParams } from 'next/navigation'
 
-
 const LoginPage =  () => {
 
-  const searchParams = useSearchParams()
 
+
+  const searchParams = useSearchParams()
   const pathname = searchParams.get('path')
 
   const [loading, setLoading] = useState(false);

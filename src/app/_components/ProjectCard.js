@@ -87,8 +87,8 @@ export const RecommendedProjectCard = ({img,img2,title,owner,description,expande
         />
       </figure>
       <div className="ml-[24px]  text-black-100">
-        <h4 className=" text-lg font-medium">{profilename}</h4>
-        <p>{location}</p>
+        <h4 className=" text-lg font-medium capitalize">{profilename}</h4>
+        <p className="capitalize">{location}</p>
       </div>
         </div>
       </div>

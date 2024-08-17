@@ -9,7 +9,7 @@ const Page = () => {
   return (
     <div className='pt-4 text-custom-black'>
 
-    <h2 className="font-semibold text-2xl text-accent-400 mb-7"> Welcome,{authUser?.full_name} </h2>
+    <h2 className="font-semibold text-2xl text-accent-400 mb-7 capitalize"> Welcome,  {authUser?.full_name} </h2>
     </div>
   )
 }

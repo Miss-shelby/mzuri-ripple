@@ -68,7 +68,7 @@ console.log(projects);
                       />
                     </figure>
                     <div className="card-body">
-                      <h2 className="card-title">{project.title}</h2>
+                      <h2 className="card-title capitalize">{project.title}</h2>
                       <p className="text-white">Created {DateCreated(project.created.slice(0,10),formattedDate)}</p>
                       <div className="card-actions justify-end">
                         <button className="btn border-0 text-lg hover:bg-custom-blue text-center font-medium h-10 min-h-10 bg-custom-blue mt-4 text-white">

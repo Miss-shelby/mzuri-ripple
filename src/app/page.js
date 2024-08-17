@@ -7,12 +7,14 @@ import { TbCurrencyNaira } from "react-icons/tb";
 import { Suspense, useEffect, useState } from "react";
 import axios from "axios";
 import { GetProjectsApi } from "./_components/Apis/api";
+import FilterProjects from "./_components/Filter";
+import { toast } from "react-toastify";
 const line = "/Line 3.png";
-const search = "/bi_search.png";
+
 export default function Home() {
   const [allProjects,setAllProjects] = useState([])
   const [isLoading,setIsLoading] = useState(true)
-  
+  const[error,setError] = useState('')
     const handleFetch = ()=>{
       setIsLoading(true)
       axios.get(`${GetProjectsApi}`,{
@@ -29,7 +31,8 @@ export default function Home() {
    .catch(function (error) {
     // handle error
     console.log(error);
-    toast.error("Failed to load projects")
+    setError(error)
+    // toast.error("Failed to load projects")
     setIsLoading(false)
      });
     }
@@ -51,35 +54,26 @@ export default function Home() {
               </p>
               <p className="text-sm "> Back it and believe it.</p>
             </div>
-            <div className="mt-[32px] flex items-center">
-              <input
-                placeholder="Search Projects"
-                type="text"
-                className="shadow-xl bg-[#F1F1F1] text-[#9D9D9D] w-[25rem] pl-4 py-2 rounded-[3px]"
-              />
-              <button className="btn btn-square bg-[#0069D9] ml-[20px] w-9 h-9 min-h-9 rounded-[4px]">
-                <Image src={search} height={15} width={15} alt="search icon" />
-              </button>
-            </div>
+           <FilterProjects allProjects={allProjects}/>
           </div>
           <div className="relative ">
             <Image src="/animation1.gif" alt="animation" height={377} width={600}/>
           </div>
       </div>
-      <p className="text-center font-medium text-lg  pt-10 pb-7">
-        Within The Last Day
+      <p className="text-center font-medium capitalize text-lg  pt-10 pb-7">
+        Raised this month
       </p>
       <div className="bg-[#F5F5F5] flex flex-col md:flex-row justify-between px-4 md:px-[3rem] w-full py-4 mb-[4rem]">
         <div className="flex flex-col items-center justify-center text-black-100">
           <p className="text-sm md:text-[20px] lg:text-[28px] md:font-[600] ">50</p>
-          <p className="md:font-medium text-xs md:text-sm lg:text-lg">Projects Funded</p>
+          <p className="md:font-medium text-xs md:text-sm lg:text-lg">Projects</p>
         </div>
         <div className="inline-block border-l border-1 h-15 border-[#525252] ml-2">
           {" "}
         </div>
         <div className="flex flex-col items-center justify-center text-black-100">
           <p className="text-sm md:text-[20px] lg:text-[28px] md:font-[600]  flex items center"><span className="inline-flex items-center"><TbCurrencyNaira /></span> 1,00,00,000</p>
-          <p className="md:font-medium text-xs md:text-sm lg:text-lg">Towards Creative Work</p>
+          <p className="md:font-medium text-xs capitalize md:text-sm lg:text-lg">Towards Creative projects</p>
         </div>
         <div className="inline-block border-l border-1 h-15 border-[#525252] ml-2">
           {" "}
@@ -90,8 +84,8 @@ export default function Home() {
         </div>
       </div>
       
-      <AllProjects allProjects={allProjects} isLoading={isLoading} />
-      <RecommendedProjects  allProjects={allProjects}  isLoading={isLoading} />
+      <AllProjects allProjects={allProjects} isLoading={isLoading} error={error}/>
+      <RecommendedProjects error={error}  allProjects={allProjects}  isLoading={isLoading} />
 
       <div className="flex items-center justify-between mt-5">
         <div>
@@ -107,8 +101,8 @@ export default function Home() {
               type="text"
               className="shadow-xl bg-[#F1F1F1] text-[#9D9D9D] w-[38rem] pl-4 py-2 rounded-[3px]"
             />
-            <button className="btn text-white  bg-custom-blue px-10 h-10 min-h-10  ml-[20px] rounded-[5px]">
-              suscribe
+            <button className="btn text-white hover:text-custom-blue capitalize  bg-custom-blue px-10 h-10 min-h-10  ml-[20px] rounded-[5px]">
+              subscribe
             </button>
         </div>
         </div>
@@ -116,7 +110,7 @@ export default function Home() {
             <Image src="/mail.gif" alt="animation" height={300} width={300}/>
           </div>
       </div>
-      <ProjectNearMe allProjects={allProjects} isLoading={isLoading} />
+      <ProjectNearMe error={error} allProjects={allProjects} isLoading={isLoading} />
     </main>
   );
 }

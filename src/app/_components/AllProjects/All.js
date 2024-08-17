@@ -21,6 +21,7 @@ const All = () => {
 
   const [featuredProjects,setFeaturedProjects] = useState([])
   const [isLoading,setIsLoading] = useState(true)
+  const[error,setError] = useState('')
   
     const handleFetch = ()=>{
       setIsLoading(true)
@@ -38,6 +39,7 @@ const All = () => {
     // handle error
     console.log(error);
     toast.error("Failed to load projects")
+    setError(error)
     setIsLoading(false)
      });
     }
@@ -71,6 +73,7 @@ const daysLeftThree = calculateDaysLeft(durationThree,formattedDate)
     <div className="w-full">
       <h4 className="font-bold text-xl my-8">Featured Projects:</h4>
       {isLoading?<Spinner/> : 
+      error? <p className='text-red-500 capitalize font-medium mt-4'>Failed to load featured projects😓 </p>  :
       (
         <div className="flex w-full ">
         <div className=" mr-[20px] w-full h-full ">

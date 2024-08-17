@@ -17,7 +17,7 @@ const DashboardNavigation = ({ links,imageUrl,projectOwner,projectStory,backers,
             <div className="flex justify-center pt-5 ">
               {links.map((link)=>{
                   return <li key={link.name}
-                  className={`cursor-pointer list-none text-lg font-medium mr-10   ${section === link.name? "p-0 border-b-4 border-black " : ""}`}
+                  className={`cursor-pointer capitalize list-none text-lg font-medium mr-10   ${section === link.name? "p-0 border-b-4 border-black " : ""}`}
                     onClick={()=> setSection(link.name)}>{link.name}</li>
               })}
             </div>

@@ -5,7 +5,7 @@ import Spinner from '../spinner';
 import Link from 'next/link';
 import { MdOutlineNavigateNext } from 'react-icons/md';
 
-const ProjectNearMe = ({allProjects,isLoading}) => {
+const ProjectNearMe = ({allProjects,isLoading,error}) => {
     const ProjectsNear = [
         {
           image: "/clean2.png",
@@ -75,7 +75,7 @@ const ProjectNearMe = ({allProjects,isLoading}) => {
   return (
     <div>
       <h4 className='text-black-100 font-bold text-2xl mt-20 ' >More Projects</h4>
-      {isLoading?(<Spinner/>) :(
+      {isLoading?(<Spinner/>) : error?<p className='text-red-500 capitalize font-medium mt-4'>Failed to load more projects😓 </p> :(
       <div className='grid grid-cols-3 gap-4 mt-6  w-full'>
       {moreProjects.map((project)=>{
         return (

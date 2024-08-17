@@ -35,7 +35,7 @@ const ProfileCard = ({projectOwner,backers}) => {
                   {/* <div className='absolute z-10 -top-10 h-fit w-fit'>
                     <Image src='/profileAvatar.png' height={75} width={75} alt='profile image'/>
                   </div> */}
-                  <h4 className='font-semibold text-black-100 text-2xl pt-6'>{projectOwner}</h4>
+                  <h4 className='font-semibold text-black-100 text-2xl pt-6 capitalize'>{projectOwner}</h4>
                     <p className='font-medium text-black-100 pt-4'>Project Founder</p>
                 </div>
                 <div className="card-body  w-full flex flex-col mt-6 pl-6 gap-0 border-custom-brown border ">
@@ -46,7 +46,7 @@ const ProfileCard = ({projectOwner,backers}) => {
                   {backers?.length > 0? backers.map((backer)=>{
                     return ( <div key={backer.id} className='flex items-center pt-6'>
                     <span className='mr-6'><TbCurrencyNaira /></span>
-                    <p className="text-lg font-medium  mb-4 text-black-100 ">{backer?.backer_name}<span className='block text-sm font-normal'>
+                    <p className="text-lg font-medium  mb-4 text-black-100 capitalize">{backer?.backer_name}<span className='block text-sm font-normal'>
                       {backer.amount.toLocaleString('en-US')}</span></p>
                     <div className='border-black-100 border-b'></div>
                    </div>)
