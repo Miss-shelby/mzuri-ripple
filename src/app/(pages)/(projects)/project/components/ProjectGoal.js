@@ -30,7 +30,7 @@ const ProjectGoal = ({handleNext,handlePrevious,formValues,handleInputChange})=>
             name="amount"
             value={formValues.amount}
             onChange={handleInputChange}
-            placeholder='# Nr'
+            placeholder='#'
             className='custom-placeholder input h-9 input-bordered input-custom-brown w-full mt-3'
           />
         </label>

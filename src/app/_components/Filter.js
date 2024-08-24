@@ -16,13 +16,8 @@ const FilterProjects = ({allProjects}) => {
 
     const handleSearchInput =(e)=>{
       const params = new URLSearchParams(searchParams)
-      
-    
-      
         const value = e.target.value?.toLowerCase();
         setSearchInput(value);
-
-
         if (value === '') {
           params.delete('query');
             setFilteredProjects([]);
@@ -37,10 +32,6 @@ const FilterProjects = ({allProjects}) => {
           }
     }
 
-
-    
-    
-    
   return (
     <div>
     <div className="mt-[32px] flex items-center">

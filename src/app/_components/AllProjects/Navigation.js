@@ -23,7 +23,7 @@ const ProjectNavigation = ({ links,isLoading,allProjects,error}) => {
       {section === "All" && <All allProjects={allProjects} error={error} isLoading={isLoading}/>}
       {section === "Art &Illustration" && <Arts/>}
       {section === "Design &Tech" && <Design/>}
-      {section === "Flim" && <Film/>}
+      {section === "Film" && <Film/>}
       {section === "Music" && <Music/>}
       {section === "Food & Craft" && <Food$Craft/>}
       {section === "Game" && <Games/>}

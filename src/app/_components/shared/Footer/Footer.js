@@ -93,10 +93,10 @@ const Footer = () => {
       </div>
       <div className='col-span-2'>
       <FooterSection title="Films" links={otherLinks}/>
-      <p className='text-[12px] pt-[2rem]'>2021. All right reserved </p>
+      <p className='text-[12px] pt-[2rem]'>2024. All right reserved </p>
       </div>
        <FooterSection title="About" links={aboutLinks}/>
-       <FooterSection title="info" links={infoLinks}/>
+       <FooterSection title="Info" links={infoLinks}/>
        <div className='flex flex-col w-full  '>
             <p className='font-semibold text-sm mb-4 '>Langugae & Currency</p>
             <select className='w-[12rem] py-1'>

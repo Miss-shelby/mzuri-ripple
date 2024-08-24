@@ -13,6 +13,7 @@ import ProjectFigures from "./_components/ProjectFigures/ProjectFigures";
 const line = "/Line 3.png";
 
 export default function Home() {
+ 
   const [allProjects,setAllProjects] = useState([])
   const [isLoading,setIsLoading] = useState(true)
   const[error,setError] = useState('')
@@ -24,8 +25,7 @@ export default function Home() {
     if(response.status === 200){
       setAllProjects(response.data.data)
       console.log(allProjects);
-      
-    setIsLoading(false)
+      setIsLoading(false)
     }
   
     })
@@ -33,13 +33,16 @@ export default function Home() {
     // handle error
     console.log(error);
     setError(error)
-    // toast.error("Failed to load projects")
+   
     setIsLoading(false)
      });
     }
     useEffect(()=>{
       handleFetch()
+    
+      
      },[])
+
 
 
   return (
@@ -61,7 +64,7 @@ export default function Home() {
             <Image src="/animation1.gif" alt="animation" height={377} width={600}/>
           </div>
       </div>
-      <ProjectFigures/>
+        <Suspense><ProjectFigures/></Suspense>
       <AllProjects allProjects={allProjects} isLoading={isLoading} error={error}/>
       <RecommendedProjects error={error}  allProjects={allProjects}  isLoading={isLoading} />
 

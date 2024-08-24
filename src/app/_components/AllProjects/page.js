@@ -16,7 +16,7 @@ const AllProjects = ({allProjects,isLoading,error}) => {
       name: 'Art &Illustration', 
     },
     {
-      name: 'Flim', 
+      name: 'Film', 
     },
     {
       name: 'Music', 

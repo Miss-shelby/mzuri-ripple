@@ -38,7 +38,6 @@ const All = () => {
    .catch(function (error) {
     // handle error
     console.log(error);
-    toast.error("Failed to load projects")
     setError(error)
     setIsLoading(false)
      });

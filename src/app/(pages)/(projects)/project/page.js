@@ -151,7 +151,7 @@ const submitForm = async (e)=>{
       
       setUserProject(json?.data)
       const sucessMessage = json?.message;
-      toast.success(sucessMessage || "project created successful");
+      toast.success("project created successful");
       setLoading(false);
       router?.push('/dashboard')
       return;
@@ -185,7 +185,7 @@ const submitForm = async (e)=>{
         <Image src="/newproject.png" alt='cowry image' height={600} width={540} />
           </div>
           <form className={`${tabBgColors[activeTab]} ml-[8rem] flex flex-col px-[30px] w-[26rem]`}>
-            <ul className="steps pt-6">
+            <ul className="steps pt-3">
             {tabs.map((tab,index)=>{
             return ( <li key={tab} className={`step ${step-1 >= index ?' step-primary':'' }`}></li>)
           })}

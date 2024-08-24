@@ -25,7 +25,7 @@ const Food$Craft =() => {
           setLoading(false)
         }
       }catch(error){
-        console.log(error);
+        // console.log(error);
       }
     }
     fetchCategory()
