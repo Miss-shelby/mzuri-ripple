@@ -1,10 +1,10 @@
 import Image from "next/image"
 import { TbCurrencyNaira } from "react-icons/tb";
 import TextExpander from "./shared/TextExpander";
-export const ProjectCard = ({img,title,owner,description="",expander,startPrice,endPrice,backers,days,height,width,location,longDescription })=>{
+export const ProjectCard = ({img,title,owner,cardHeight, description="",expander,startPrice,endPrice,backers,days,height,width,location,longDescription })=>{
 
     return (
-      <div className="card card-compact  shadow-xl rounded-[3px]">
+      <div className={`card ${cardHeight===true? 'h-full' : ''} card-compact  shadow-xl rounded-[3px]`}>
       <div className="relative w-full h-auto" >
         <Image
           src={img}

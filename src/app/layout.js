@@ -28,11 +28,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${montserrat.className} min-h-screen w-full bg-white` } >
         <div className="min-h-screen bg-white">
-          <NavBar/>
        <AuthProvider>
+          <NavBar/>
         {children}
        </AuthProvider>
-       
         </div>
         <Footer/>
         <ToastContainer position="top-right"

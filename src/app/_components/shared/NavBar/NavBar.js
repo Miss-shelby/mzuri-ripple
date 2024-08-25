@@ -4,9 +4,12 @@ import { usePathname } from "next/navigation";
 import React from "react";
 import { BsSearch } from "react-icons/bs";
 import { IoIosAdd } from "react-icons/io";
+import { useAuth } from "../../Providers/Providers";
 const NavBar = () => {
   const pathname = usePathname()
+  const {authUser} = useAuth()
 
+  
   return (
     <div className="flex justify-between sticky z-40 top-0 items-center w-full  py-[2rem]  max-w-[1920px] mx-auto  px-[10rem] bg-white">
       <div className="flex items-center">
@@ -16,10 +19,10 @@ const NavBar = () => {
       </div>
       <h2 className="text-[25px] font-bold cursor-pointer uppercase"><Link href="/">Ripple</Link></h2>
       <div className="flex items-center">
-        {/* <BsSearch className="h-4 w-4" /> */}
+      
         <p className="text-[18px] px-[2rem] cursor-pointer"><Link href="/dashboard">Dashboard</Link></p>
-        <p className="text-[18px] px-[2rem] cursor-pointer"><Link href="/login">Sign in</Link></p>
-       {/* <Button>{ pathname ==='/'? <Link href="/getstarted">How it works</Link>  : pathname.slice(1)}</Button> */}
+        {authUser === null && <p className="text-[18px] px-[2rem] cursor-pointer"><Link href="/login">Sign in</Link></p>}
+      
        {
         <Button>
         {pathname === '/login' && <Link href="/register">Register</Link>}

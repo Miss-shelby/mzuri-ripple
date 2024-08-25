@@ -75,8 +75,8 @@ const daysLeftThree = calculateDaysLeft(durationThree,formattedDate)
       error? <p className='text-red-500 capitalize font-medium mt-4'>Failed to load featured projects😓 </p>  :
       (
         <div className="flex w-full ">
-        <div className=" mr-[20px] w-full h-full ">
-        <ProjectCard img={bika} height={670} width={680} title={featuredProjects[2]?.title} owner={featuredProjects[2]?.name}
+        <div className=" mr-[20px] w-full  ">
+        <ProjectCard img={bika} height={670} width={680} cardHeight={true} title={featuredProjects[2]?.title} owner={featuredProjects[2]?.name}
         
         expander={<TextExpander collapsedNumber={110}>{featuredProjects[2]?.about}</TextExpander>}
           startPrice={`${featuredProjects[2]?.amount.toLocaleString('en-US')}`} endPrice={`${featuredProjects[2]?.amount.toLocaleString('en-US')}`} 
