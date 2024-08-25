@@ -8,11 +8,11 @@ export const ProjectCard = ({img,title,owner,description="",expander,startPrice,
       <div className="relative w-full h-auto" >
         <Image
           src={img}
-          quality={100}
          height={height}
          width={width}
         layout="responsive"
         objectFit="cover"
+        loading="eager"
           alt="project_Image"
           className=" w-full h-auto"
   
