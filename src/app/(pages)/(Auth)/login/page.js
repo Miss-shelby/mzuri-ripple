@@ -12,83 +12,10 @@ import axios from 'axios'
 import Cookies from 'js-cookie'
 import { useAuth } from '@/app/_components/Providers/Providers'
 import { useSearchParams } from 'next/navigation'
+import { useLogin } from '@/app/_components/hook/custom/useLogin'
 
 const LoginPage =  () => {
-
-
-
-  const searchParams = useSearchParams()
-  const pathname = searchParams.get('path')
-
-  const [loading, setLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const {userProject } = useAuth()
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-  const router = useRouter(); 
-  const formData = new FormData();
-
-  const onSubmitHandler= async (values)=>{
-    formData.append("username", values.email);
-    formData.append("password", values.password);
-    if (loading ) return;
-    setLoading(true)
-  await axios
-      .post(`${LoginApi}`, formData, { headers: {'Content-Type': 'multipart/form-data' }})
-      .then(function (response) {
-        console.log(response, "response from db");
-        const token = response.data.access_token;
-        Cookies.set("token",token, { path: "/" })
-        console.log(token,'token from login page');
-        toast.success('Login succesfull')
-
-        if(pathname === '/payment'){
-          router?.push('/payment')
-        } 
-        else {
-          router?.push('/dashboard')
-        }        
-      })
-      .catch(function (error) {
-        if (error?.response) {
-          const { status, data } = error.response;
-  
-          if (status === 400) {
-            toast.error(data.detail);
-            console.log(error,'400 error');
-          } else if (status === 500) {
-            toast.error('Server error. Please try again later.');
-            console.log(error,'500');
-          } else if (status === 401 || status === 403 || status === 404) {
-            toast.error(`Error: ${status}`);
-            console.log(error,'status ');
-          } else {
-            toast.error('An unexpected error occurred');
-            console.log(error,'unexpected error');
-          }
-        } else {
-          toast.error('Network error. Please check your connection.');
-          console.log(error,'netwok errror');
-        }
-      })
-   
-       
-      
-      .finally(function(){
-        setLoading(false)
-      })
-
-} 
-
-  const defaultValues ={
-    email:'',
-    password:''
-  }
-
- 
-
+  const {defaultValues,onSubmitHandler,loading,showPassword,togglePasswordVisibility} = useLogin()
   return (
     <div className='flex justify-center items-center pb-[67px] pt-[62px]'>
         <div>

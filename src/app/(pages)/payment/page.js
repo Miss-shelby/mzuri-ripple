@@ -2,47 +2,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { useAuth } from '@/app/_components/Providers/Providers';
-import { useRouter } from 'next/navigation'
-import { usePaystackPayment } from 'react-paystack';
-import {PaystackButton} from 'react-paystack';
-import { toast } from 'react-toastify';
-import axios from 'axios';
-import Cookies from 'js-cookie';
+
 import ProtectedRoute from '@/app/_components/Protected/Protected';
-import Spinner from '@/app/_components/spinner';
-
-
+import { usePayment } from '@/app/_components/hook/custom/usePayment';
 const PaymentPage =  () => {
-
-  const {authUser,userProject,projectId}= useAuth()
-  const [loading, setLoading] = useState(false);
-  const router = useRouter(); 
-  const token = Cookies.get("token")
-
-  
-  const [formFields,setFormFields] = useState({
-    email:authUser?.email || '',
-    firstname: authUser?.full_name || '',
-    lastname: '',
-    amount: ''
-  })
-console.log(formFields);
-
-  const handleFormValue=(e)=>{
-    setFormFields({
-      ...formFields,
-      [e.target.name]:e.target.value,
-    })
-  }
-  const resetFormFields = () => {
-    setFormFields({
-      email: '',
-      firstname: '',
-      lastname: '',
-      amount: ''
-    });
-  };
   // const componentProps = {
   //   email: formFields.email,
   //   amount: formFields.amount * 100,
@@ -71,42 +34,8 @@ console.log(formFields);
   //     // router?.push('/')
   //   }
   // };
-  const makepayment = () => {
-    if (token){
-      setLoading(true)
-      axios.post(
-        `https://ripple-project-1.onrender.com/api/v1/payment/initialize-payment/`,
-        {
-          first_name: formFields.firstname,
-          last_name: formFields.lastname,
-          email: formFields.email,
-          amount: formFields.amount,
-          project_id: projectId,
-        },
-        {
-          headers: {
-            accept: 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
-      .then(function (response) {
-        console.log(response, 'success response');
-        setLoading(false)
-        router.push(response.data?.data?.authorization_url);
-        // router.push("/success")
-        // toast.success(message);
-        Cookies.set("projectId", projectId);
-        console.log(response.data?.data?.authorization_url);
-      })
-      .catch(function (error) {
-        setLoading(false)
-        toast.error(error?.response?.data?.detail || error?.response?.message || error?.status || error?.message )
-        console.log(error, 'error response');
-      });
-    }
-  };
-  
+ 
+  const {loading,handleFormValue,makepayment,formFields} = usePayment()
   
   return (
     <div className='flex justify-center items-center mb-[67px] w-[735px] h-[430px] bg-white shadow-custom  mx-auto mt-10'>
