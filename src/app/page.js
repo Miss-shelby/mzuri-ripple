@@ -103,6 +103,7 @@ import { Suspense, useEffect, useState, lazy } from "react";
 import axios from "axios";
 import { GetProjectsApi } from "./_components/Apis/api";
 import { toast } from "react-toastify";
+import { useFetchProjects } from "./_components/hook/custom/useFetchProjects";
 
 // Lazily load components
 const AllProjects = lazy(() => import("./_components/AllProjects/page"));
@@ -114,25 +115,7 @@ const ProjectFigures = lazy(() => import("./_components/ProjectFigures/ProjectFi
 const line = "/Line 3.png";
 
 export default function Home() {
-  const [allProjects, setAllProjects] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState('');
-
-  const handleFetch = () => {
-    setIsLoading(true);
-    axios.get(`${GetProjectsApi}`)
-      .then(function (response) {
-        if (response.status === 200) {
-          setAllProjects(response.data.data);
-          setIsLoading(false);
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-        setError(error);
-        setIsLoading(false);
-      });
-  }
+  const {allProjects,isLoading,error,handleFetch} = useFetchProjects()
 
   useEffect(() => {
     handleFetch();

@@ -6,28 +6,15 @@ import { getCategory } from '../Apis/api';
 import Spinner from '../spinner';
 import TextExpander from '../shared/TextExpander';
 import { calculateDaysLeft } from '../shared/DatesCreated/Left/Dates';
+import { useFetchProjectCategory } from '../hook/custom/useFetchProjectCategory';
 
 // images here
 const ss= "/story.png";
 
 const Music =() => {
-  const [musics,setMusics] = useState([])
-  const [loading,setLoading] = useState(false)
+  const projectCategoryId = '669da0360eb0c5acbe1ee8f4'
+const {loading,projectCategory,fetchCategory} = useFetchProjectCategory({projectCategoryId})
   useEffect(()=>{
-    const fetchCategory   = async ()=>{
-      setLoading(true)
-      try{
-        const response = await fetch(`${getCategory}/category?category=669da0360eb0c5acbe1ee8f4`)
-        const data = await response.json()
-        if(response.status=== 200){
-          console.log(data);
-          setMusics(data.data)
-          setLoading(false)
-        }
-      }catch(error){
-        // console.log(error);
-      }
-    }
     fetchCategory()
   },[])
 
@@ -40,7 +27,7 @@ const Music =() => {
       (
       <div className="flex ">
         <div className=" grid grid-cols-3 gap-4 mt-8  w-full ">
-          {musics.map((music)=>{
+          {projectCategory.map((music)=>{
             return (
               <ProjectCard key={music?.id} img={ss} height={186} width={389} title={music?.title} owner={`By ${music?.name}`}
                expander={<TextExpander collapsedNumber={34}>{music?.about}</TextExpander>}

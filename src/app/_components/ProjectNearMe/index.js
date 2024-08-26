@@ -6,68 +6,6 @@ import Link from 'next/link';
 import { MdOutlineNavigateNext } from 'react-icons/md';
 
 const ProjectNearMe = ({allProjects,isLoading,error}) => {
-    const ProjectsNear = [
-        {
-          image: "/clean2.png",
-          title: "Clean Bagmati",
-          location: "Kathmandu",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales. ",
-          startPrice: " 1,00,000",
-          endPrice: " 1,00,00,000",
-         
-        },
-        {
-            image: "/accident.png",
-          title: "Accident Victim",
-          location: "Kathmandu",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales.  ",
-          startPrice: " 1,00,000",
-          endPrice: " 10,00,000",
-         
-        },
-        {
-          title: "Build a Shelter",
-          image: "/shelter.png",
-          location: "Kathmandu",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales. ",
-          startPrice: " 10,000",
-          endPrice: " 1,00,000",
-          
-        },
-        {
-            title: "Eathquake Victim",
-            image: "/EarthQuake.png",
-            location: "Gorkha",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales. ",
-            startPrice: " 10,000",
-            endPrice: " 1,00,000",
-           
-          },
-          {
-            title: "Help Kids Study",
-            image: "/kids.png",
-            location: "Pokhara",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales. ",
-            startPrice: " 10,000",
-            endPrice: "1,00,000",
-           
-          },
-          {
-            title: "Save Rhino",
-            image: "/rhino.png",
-            location: "Chitwan",
-            description:
-              "Lorem ipsum dolor sit amet,consectetur adipiscing elit. Risus, lobortis ac nunc ut malesuada aliquet nulla sodales.  ",
-            startPrice: " 10,000",
-            endPrice: " 1,00,000",
-           
-          },
-      ];
       const moreProjects = allProjects.slice(0,6)
      
      

@@ -2,32 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { ProjectCard } from '../ProjectCard'
 import { MdOutlineNavigateNext } from "react-icons/md";
 import Link from 'next/link';
-import { getCategory } from '../Apis/api';
 import Spinner from '../spinner';
 import TextExpander from '../shared/TextExpander';
 import { calculateDaysLeft } from '../shared/DatesCreated/Left/Dates';
+import { useFetchProjectCategory } from '../hook/custom/useFetchProjectCategory';
 
 // images here
 const ss= "/kids.png";
 
 const Food$Craft =() => {
-  const [foodProjects,setFoodProjects] = useState([])
-  const [loading,setLoading] = useState(false)
+ const projectCategoryId = '669da0530eb0c5acbe1ee8f6'
+ const {loading,projectCategory,fetchCategory} = useFetchProjectCategory({projectCategoryId})
+
   useEffect(()=>{
-    const fetchCategory   = async ()=>{
-      setLoading(true)
-      try{
-        const response = await fetch(`${getCategory}/category?category=669da0530eb0c5acbe1ee8f6`)
-        const data = await response.json()
-        if(response.status=== 200){
-          console.log(data);
-          setFoodProjects(data.data)
-          setLoading(false)
-        }
-      }catch(error){
-        // console.log(error);
-      }
-    }
     fetchCategory()
   },[])
 
@@ -41,7 +28,7 @@ const Food$Craft =() => {
       (
       <div className="flex ">
         <div className=" grid grid-cols-3 gap-4 mt-8  w-full ">
-          {foodProjects.map((food)=>{
+          {projectCategory.map((food)=>{
             return (
               <ProjectCard key={food?.id} img={ss} height={186} width={389} title={food?.title} owner={`By ${food?.name}`}
                expander={<TextExpander collapsedNumber={34}>{food?.about}</TextExpander>}

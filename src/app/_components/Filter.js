@@ -13,18 +13,18 @@ const FilterProjects = ({allProjects}) => {
     const router = useRouter()
     const pathname = usePathname()
 
-
     const handleSearchInput =(e)=>{
       const params = new URLSearchParams(searchParams)
         const value = e.target.value?.toLowerCase();
         setSearchInput(value);
+     
         if (value === '') {
-          params.delete('query');
+          // params.delete('query');
             setFilteredProjects([]);
           } else {
-            params.set("query",value)
-            console.log(params,'url');
-            router.push(`${pathname}?${params.toString()}`)
+            // params.set("query",value)
+           
+            // router.push(`${pathname}?${params.toString()}`)
             const filtered = allProjects.filter((project) =>
               project?.title.toLowerCase().startsWith(value)
             );

@@ -7,15 +7,14 @@ import { GetProjectsApi } from '@/app/_components/Apis/api';
 import Spinner from '@/app/_components/spinner';
 import TextExpander from '@/app/_components/shared/TextExpander';
 import { toast } from 'react-toastify';
+import { useFetchProjects } from '@/app/_components/hook/custom/useFetchProjects';
 
 const ExplorePage = () => {
   const initialProjectsList = 12;
   const incrementProjectsList = 6
   const [displayProjects,setDisplayProjects] = useState(initialProjectsList)
-  const [allProject,setAllProject] = useState([])
-  const [isLoading,setIsLoading] = useState(true)
-  const [error,setError] = useState('')
 
+    const {allProjects,isLoading,error,handleFetch} = useFetchProjects()
     const loadMore =()=>{
       setDisplayProjects(prev => prev + incrementProjectsList);
     }
@@ -26,31 +25,6 @@ const ExplorePage = () => {
         handleFetch()
        },[])
      
-       const handleFetch = ()=>{
-         setIsLoading(true)
-         
-         
-         axios.get(`${GetProjectsApi}`,{
-         })
-        .then(function (response) {
-       // handle success
-       console.log(response, 'response from home page ');
-       console.log(response.status);
-       if(response.status === 200){
-       setAllProject(response.data.data)
-       setIsLoading(false)
-       }
-     
-       })
-      .catch(function (error) {
-       // handle error
-       console.log(error);
-       toast.error(error)
-       setError(error)
-       setIsLoading(false)
-        });
-       }
-   
       
   return (
     
@@ -63,9 +37,10 @@ const ExplorePage = () => {
       :  (
       <div>
        <div className='grid grid-cols-3 gap-4 mt-6  w-full'>
-       {allProject.slice(0,displayProjects).map((project)=>{
+       {allProjects.slice(0,displayProjects).map((project)=>{
          return (
-          <Link href={`/explore/${project.id}`} key={project.id} >
+          <Link onClick={()=>console.log('testing')}
+           href={`/explore/${project.id}`} key={project.id} >
              <ProjectCard title={project.title} 
              expander={<TextExpander collapsedNumber={20}>{project?.about}</TextExpander>}
              startPrice={project.amount} endPrice={project.amount} location={project.state}
@@ -75,7 +50,7 @@ const ExplorePage = () => {
        })}
        </div>
        <div className='flex justify-center mt-[53px]'>
-        {displayProjects < allProject.length ?(<button onClick={loadMore} className='font-medium mb-16 px-[30px] rounded-[6px] py-2 text-lg bg-custom-blue text-center text-white'>
+        {displayProjects < allProjects.length ?(<button onClick={loadMore} className='font-medium mb-16 px-[30px] rounded-[6px] py-2 text-lg bg-custom-blue text-center text-white'>
           Load More</button>) :<button onClick={loadLess} className='font-medium mb-16 px-[30px] rounded-[6px] py-2 text-lg bg-custom-blue text-center text-white'>
           Load less</button>}
     

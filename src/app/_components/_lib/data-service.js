@@ -6,7 +6,6 @@ export async function getProjectLength() {
         const res = await fetch(`${numberOfProjects}`);
         if (res.ok) {
             const data = await res.json();
-            console.log(data);
             return { data,error:null };
             
         } else {
@@ -23,8 +22,6 @@ export async function getProjectBacking() {
         const res = await fetch(`${projectBackings}`);
         if (res.ok) {
             const data = await res.json();
-            console.log(data);
-            
             return { data,error:null };
         } else { //handles https errors like 404,401
             const error = await res.json();

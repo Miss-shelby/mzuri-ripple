@@ -6,28 +6,16 @@ import { getCategory } from '../Apis/api';
 import Spinner from '../spinner';
 import TextExpander from '../shared/TextExpander';
 import { calculateDaysLeft } from '../shared/DatesCreated/Left/Dates';
+import { useFetchProjectCategory } from '../hook/custom/useFetchProjectCategory';
 
 // images here
 const ss= "/story.png";
 
 const Arts =() => {
-  const [arts,setArts] = useState([])
-  const [loading,setLoading] = useState(false)
+    const projectCategoryId = '669d9ff40eb0c5acbe1ee8f0'
+const {loading,projectCategory,fetchCategory} = useFetchProjectCategory({projectCategoryId})
   useEffect(()=>{
-    const fetchCategory   = async ()=>{
-      setLoading(true)
-      try{
-        const response = await fetch(`${getCategory}/category?category=669d9ff40eb0c5acbe1ee8f0`)
-        const data = await response.json()
-        if(response.status=== 200){
-          console.log(data);
-          setArts(data.data)
-          setLoading(false)
-        }
-      }catch(error){
-        // console.log(error);
-      }
-    }
+  
     fetchCategory()
   },[])
 
@@ -47,7 +35,7 @@ const Arts =() => {
       (
       <div className="flex ">
         <div className=" grid grid-cols-3 gap-4 mt-8  w-full ">
-          {arts.map((art)=>{
+          {projectCategory.map((art)=>{
             return (
               <ProjectCard key={art?.id} img={ss} height={186} width={389} title={art?.title} owner={`By ${art?.name}`}
                expander={<TextExpander collapsedNumber={34}>{art?.about}</TextExpander>}
