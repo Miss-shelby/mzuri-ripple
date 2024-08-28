@@ -5,11 +5,12 @@ import { GoTag } from 'react-icons/go';
 import { BsFillGeoFill } from 'react-icons/bs';
 import Link from 'next/link';
 import { calculateDaysLeft, DateCreated } from '@/app/_components/shared/DatesCreated/Left/Dates';
-import DashboardNavigation from '@/app/_components/projectsComponent/dashboardLinks';
 import { IoIosArrowBack } from "react-icons/io";
 import ProjectIdSetter from '@/app/_components/shared/ProjectIdSetter';
 import { notFound } from 'next/navigation';
+import dynamic from 'next/dynamic';
 
+const  DashboardNavigation = dynamic(()=>import('@/app/_components/projectsComponent/dashboardLinks'))
 const ProjectDetailPage = async ({ params}) => {
 
   let data;
@@ -21,7 +22,6 @@ const ProjectDetailPage = async ({ params}) => {
       notFound();
     }
   } catch (error) {
-    console.error("Error fetching project data:", error);
     notFound();
   }
 
