@@ -75,8 +75,7 @@ console.log(projects);
                           <Link href={`/dashboard/projects/${project.id}`}>View</Link></button>
                       </div>
                     </div>
-                  </div>
-                 
+                  </div>   
                 </Link>
               );
             })}

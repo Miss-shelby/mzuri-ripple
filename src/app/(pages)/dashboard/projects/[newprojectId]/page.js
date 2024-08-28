@@ -15,7 +15,8 @@ const ProjectDetailPage = async ({ params}) => {
 
   let data;
   try {
-    const response = await fetch(`${GetProjectsApi}/project/${params.newprojectId}`, { cache: 'no-store' });
+    const response = await fetch(`${GetProjectsApi}/project/${params.newprojectId}`,{next: { revalidate: 60 }},
+    );
     if (response.ok) {
       data = await response.json();
     } else {
