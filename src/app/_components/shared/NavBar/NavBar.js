@@ -21,7 +21,7 @@ const NavBar = () => {
       <div className="flex items-center">
       
         <p className="text-[18px] px-[2rem] cursor-pointer"><Link href="/dashboard">Dashboard</Link></p>
-        {authUser === null && <p className="text-[18px] px-[2rem] cursor-pointer"><Link href="/login">Sign in</Link></p>}
+        {authUser === null && pathname !== '/login' && pathname !== '/register'  && <p className="text-[18px] px-[2rem] cursor-pointer"><Link href="/login">Sign in</Link></p>}
       
        {
         <Button>
