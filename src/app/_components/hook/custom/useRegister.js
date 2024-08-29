@@ -65,7 +65,7 @@ const useRegister = () => {
     password: "",
     fullname: "",
     dob: "",
-    phoneNumber: "",
+    phoneNumber: "+234",
     address: "",
   };
 

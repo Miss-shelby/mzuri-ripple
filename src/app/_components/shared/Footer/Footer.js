@@ -83,7 +83,7 @@ const Footer = () => {
         {label:"Cookie Policy",href:"#"},
     ];
   return (
-   <section className='w-full pt-10 flex justify-center bg-[#F4F4F4] max-w-[1920px]  mx-auto   px-[10rem]'>
+   <section className='w-full pt-10 flex justify-center bg-[#F4F4F4] max-w-[1920px] pb-8  mx-auto   px-[10rem]'>
     <div className='grid lg:grid-cols-6 md:grid-cols-2   w-full'>
       <div>
       <FooterSection title="Projects" links={projectLinks}/>

@@ -143,6 +143,7 @@ input{
   display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
+  z-index: 10;
   }
 
   @keyframes rotation {

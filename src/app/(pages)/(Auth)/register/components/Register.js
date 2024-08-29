@@ -19,18 +19,19 @@ import { FiEyeOff } from "react-icons/fi";
             
               <p className="text-red-500">{errors.email}</p>
               </label>
-              <div className="relative"> </div>
+              <div className="relative"> 
               <label className='text-black-100 font-medium block w-full mt-5'>
                 Password
               <input  type={showPassword ? 'text' : 'password'} name='password' 
               value={values.password} onChange={handleChange}
                className='input focus:none h-9 input-bordered input-custom-brown w-full mt-3' />
-              <button type='button' onClick={togglePasswordVisibility} className='absolute right-[25%] top-[66%] transform -translate-y-1/2 text-gray-600'>
+              <button type='button' onClick={togglePasswordVisibility}
+               className='absolute right-4 top-[3.3rem] transform -translate-y-1/2 text-gray-600'>
                  {showPassword ?  <FiEye /> : <FiEyeOff /> }
                 </button>
               <p className="text-red-500 mt-2">{errors.password}</p>
               </label>
-             
+              </div>
               <div className='flex justify-center w-full'>
                 <button className='btn bg-custom-blue hover:bg-custom-blue
                  text-white w-[10.5rem] mx-auto text-lg font-medium text-center mt-6 h-10 min-h-10' onClick={handleNext}>Next</button>
