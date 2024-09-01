@@ -105,13 +105,21 @@ const useRegister = () => {
             "Date of birth cannot be in the future",
             (value) => !value || new Date(value) <= new Date()
           ),
+        // phoneNumber: yup
+        //   .string()
+        //   .required("Phone number is required")
+        //   .matches(
+        //     /^\+\d{7,64}$/,
+        //     "Phone number must be in the form +2348103567322 and between 7 to 64 characters long"
+        //   ),
         phoneNumber: yup
-          .string()
-          .required("Phone number is required")
-          .matches(
-            /^\+\d{7,64}$/,
-            "Phone number must be in the form +2348103567322 and between 7 to 64 characters long"
-          ),
+        .string()
+        .required("Phone number is required")
+        .matches(
+          /^\+234\d{10}$/,
+          "Phone number must start with +234 followed by 10 digits (e.g., +2347065461341)"
+        )
+        .length(14, "Phone number must be exactly 14 characters long (including +234 and 10 digits)"),
         address: yup
           .string()
           .required("Address is required")

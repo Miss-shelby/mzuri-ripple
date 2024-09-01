@@ -1,3 +1,5 @@
+import PhoneNumberInput, { ValidatePhoneNumberInput } from "@/app/_components/phoneNumber/PhoneNumberInput";
+
 const PersonalInfo = ({
   submitForm,
   handlePrevious,
@@ -6,6 +8,9 @@ const PersonalInfo = ({
   handleChange,
   errors,
 }) => {
+
+  
+  
   return (
     <>
       <div>
@@ -19,7 +24,7 @@ const PersonalInfo = ({
             name="fullname"
             onChange={handleChange}
             value={values.fullname}
-            className="input h-9 input-bordered input-custom-brown w-full mt-3"
+            className="input h-9 input-bordered input-custom-brown w-full mt-3 focus:outline-none"
           />
           <p className="text-red-500">{errors.fullname}</p>
         </label>
@@ -30,7 +35,7 @@ const PersonalInfo = ({
             name="dob"
             onChange={handleChange}
             value={values.dob}
-            className="input h-9 input-bordered input-custom-brown w-full mt-3"
+            className="input h-9 input-bordered input-custom-brown w-full mt-3 focus:outline-none"
           />
           <p className="text-red-500">{errors.dob}</p>
         </label>
@@ -40,11 +45,14 @@ const PersonalInfo = ({
             type="tell"
             name="phoneNumber"
             onChange={handleChange}
+            placeholder="+234xxxxxxx"
             value={values.phoneNumber}
-            className="input h-9 input-bordered input-custom-brown w-full mt-3"
+            className="input h-9 input-bordered input-custom-brown w-full mt-3 focus:outline-none "
           />
           <p className="text-red-500">{errors.phoneNumber}</p>
         </label>
+        {/* <PhoneNumberInput/> */}
+        {/* <ValidatePhoneNumberInput/> */}
         <label className="text-black-100 font-medium  mt-6 w-full block">
           Address
           <input
@@ -52,7 +60,7 @@ const PersonalInfo = ({
             name="address"
             onChange={handleChange}
             value={values.address}
-            className="input h-9 input-bordered input-custom-brown w-full mt-3"
+            className="input h-9 input-bordered input-custom-brown w-full mt-3 focus:outline-none"
           />
           <p className="text-red-500">{errors.address}</p>
         </label>

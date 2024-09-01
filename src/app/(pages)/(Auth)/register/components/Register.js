@@ -15,7 +15,7 @@ import { FiEyeOff } from "react-icons/fi";
               <h2 className='pt-4 font-bold text-2xl text-center'>Register Your  <span className='font-medium'>E-mail</span></h2>
               <label className='text-black-100 font-medium block w-full mt-5'>
                 E-mail
-              <input type='text' name='email' onChange={handleChange} value={values.email} className='input focus:none h-9 input-bordered input-custom-brown w-full mt-3' />
+              <input type='text' name='email' onChange={handleChange} value={values.email} className='input focus:outline-none h-9 input-bordered input-custom-brown w-full mt-3' />
             
               <p className="text-red-500">{errors.email}</p>
               </label>
@@ -24,7 +24,7 @@ import { FiEyeOff } from "react-icons/fi";
                 Password
               <input  type={showPassword ? 'text' : 'password'} name='password' 
               value={values.password} onChange={handleChange}
-               className='input focus:none h-9 input-bordered input-custom-brown w-full mt-3' />
+               className='input focus:none h-9 input-bordered input-custom-brown w-full mt-3 focus:outline-none' />
               <button type='button' onClick={togglePasswordVisibility}
                className='absolute right-4 top-[3.3rem] transform -translate-y-1/2 text-gray-600'>
                  {showPassword ?  <FiEye /> : <FiEyeOff /> }
