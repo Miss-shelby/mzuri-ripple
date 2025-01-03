@@ -36,13 +36,13 @@ const daysLeftThree = calculateDaysLeft(durationThree,formattedDate)
       <h4 className="font-bold text-xl my-8">Design & Tech Projects</h4>
       {loading?<Spinner/> :
       (
-      <div className="flex ">
-        <div className=" mr-[24px] w-full ">
+      <div className="grid lg:grid-cols-2 grid-cols-1 w-full ">
+        <div className=" row-span-2 ">
         <ProjectCard cardHeight={true} img={printer} height={450} width={746} title={projectCategory[0]?.title} owner={`By ${projectCategory[0]?.name}`}
          expander={<TextExpander collapsedNumber={134}>{projectCategory[0]?.about}</TextExpander>}
           startPrice={projectCategory[0]?.amount.toLocaleString('en-US')} endPrice={projectCategory[0]?.amount.toLocaleString('en-US')} backers="0 backers"days={`${daysLeftOne} days left`}/>
         </div>
-          <div className="flex flex-col">
+          <div className="lg:my-0 my-4">
             <ProjectCard  height={130} width={500}  title={projectCategory[1]?.title} owner={`By ${projectCategory[1]?.name}`}
              expander={<TextExpander collapsedNumber={25}>{projectCategory[1]?.about}</TextExpander>}
               startPrice={projectCategory[1]?.amount.toLocaleString('en-US')} endPrice={projectCategory[1]?.amount.toLocaleString('en-US')} backers="0 backers" days={`${daysLeftTwo} days left`}img={scooter}/>

@@ -54,12 +54,12 @@ const ProjectDetailPage = async ({ params }) => {
   return (
     <section className=" mt-[68px] mb-5">
       <ProjectIdSetter projectId={params.projectId} />
-      <p className="pl-[10rem] mb-4 cursor-pointer flex items-center capitalize"><Link href="/explore">
+      <p className="lg:pl-[10rem] pl-4 mb-4 cursor-pointer flex items-center capitalize"><Link href="/explore">
       <MdOutlineArrowBackIosNew /></Link><span className="inline-flex font-bold text-2xl ml-2 capiltalize">{title} </span></p>
-      <div className="flex w-full max-w-[1920px] mx-auto px-[10rem]">
+      <div className="flex lg:flex-row flex-col  w-full max-w-[1920px] mx-auto lg:px-[10rem] px-4 ">
       
         <div>
-          <div className="relative w-[800px] h-[500px]">
+          <div className="relative w-[400px] h-[250px]  lg:w-[800px] lg:h-[500px]">
             <Image
               src="/newproject.png"
               alt="Project picture"

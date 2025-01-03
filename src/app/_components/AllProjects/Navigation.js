@@ -7,15 +7,17 @@ import Film from './Film'
 import Music from './Music'
 import Food$Craft from './Food'
 import Games from './Game'
+import MenuPagination from './PaginationMenu'
 
 const ProjectNavigation = ({ links,isLoading,allProjects,error}) => {
   const [section,setSection] = useState("All")
   return (
     <>
-    <div className=' flex text-sm mt-[103px]'>
+    <MenuPagination/>
+    <div className=' flex text-sm mt-[103px] '>
         {links.map((link)=>{
             return <li key={link.name}
-             className={`cursor-pointer list-none text-lg font-medium mr-6 ${section === link.name? "  border-b-2 border-[#0069D9] " : ""}`}
+             className={`cursor-pointer list-none lg:text-lg md:text-base text-sm font-medium mr-6 ${section === link.name? "  border-b-2 border-[#0069D9] " : ""}`}
               onClick={()=> setSection(link.name)}>{link.name}</li>
         })}
     </div>

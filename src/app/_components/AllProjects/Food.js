@@ -27,7 +27,7 @@ const Food$Craft =() => {
       {loading?<Spinner/> :
       (
       <div className="flex ">
-        <div className=" grid grid-cols-3 gap-4 mt-8  w-full ">
+        <div className=" grid lg:grid-cols-3 grid-cols-1 gap-4 mt-8  w-full ">
           {projectCategory.map((food)=>{
             return (
               <ProjectCard key={food?.id} img={ss} height={186} width={389} title={food?.title} owner={`By ${food?.name}`}

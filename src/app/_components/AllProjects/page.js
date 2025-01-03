@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import ProjectNavigation from './Navigation'
+import MenuPagination from './PaginationMenu';
 
 const AllProjects = ({allProjects,isLoading,error}) => {
   const projectLinks = [
@@ -30,7 +31,8 @@ const AllProjects = ({allProjects,isLoading,error}) => {
   ];
   return (
     <div>
-        <ProjectNavigation allProjects={allProjects} error={error} isLoading={isLoading} links={projectLinks} />
+        <MenuPagination allProjects={allProjects} error={error} isLoading={isLoading} links={projectLinks} />
+       
         </div>
   )
 }

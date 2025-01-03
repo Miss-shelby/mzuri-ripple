@@ -21,7 +21,7 @@ const RecommendedProjects = ({allProjects,isLoading,error}) => {
         (<Spinner/>) : error?<p className='text-red-500 capitalize font-medium mt-4'>Failed to load latest projects😓 </p> 
          : 
         (
-        <div className='flex w-full space-x-4'>
+        <div className='grid lg:grid-cols-3 grid-cols-1 w-full gap-4'>
             {newProjects.map((project)=>{
                 return (<RecommendedProjectCard   title={project?.title} height={100} width={100}
                     img='/Dog.png' startPrice={project?.amount} endPrice={project?.amount}

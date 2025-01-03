@@ -17,7 +17,7 @@ const Campaign = ({ imageUrl, projectOwner, projectStory }) => {
       </div>
       <div>
       </div>
-      <div className={`relative h-[272px] w-[800px]`}>
+      <div className={`relative w-[400px] h-[120px] lg:h-[272px] lg:w-[800px]`}>
         <Image src={imageUrl} className="h-full w-full object-cover" fill alt="story image" />
       </div>
       <div className="text-black-100 font-normal pt-8 leading-[19.5px] text-[15px]">

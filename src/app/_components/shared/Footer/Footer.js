@@ -20,7 +20,7 @@ return (
 const FooterSection = ({title,links})=>{
     return (
         <div >
-            <p className='font-semibold  mb-4'>{title}</p>
+            <p className='font-semibold  lg:mb-4'>{title}</p>
             {links.map((link,index)=>{
                 return (
 
@@ -46,7 +46,7 @@ const SocialMediaLinks =({href,icon,srText})=>{
 //social media icons
 const SocialMediaIcons=()=>{
     return (
-        <div className='flex pt-[4rem] justify-end  w-[12rem]'>
+        <div className='flex pt-[4rem] lg:justify-end justify-center  lg:w-[12rem]'>
             <SocialMediaLinks href="#" srText="skype" icon={<Image src={skype} alt='skype-icon' height={15} width={15} />}/>
           <SocialMediaLinks href="#" srText="facebook"  icon={<Image src={facebook} className='mx-2' alt='facebook-icon' height={15} width={15} />}/>
           <SocialMediaLinks href="#" srText="linkedin" icon={<Image src={linkedin} alt='linkedin-icon' height={15} width={15} />}/>
@@ -83,7 +83,7 @@ const Footer = () => {
         {label:"Cookie Policy",href:"#"},
     ];
   return (
-   <section className='w-full pt-10 flex justify-center bg-[#F4F4F4] max-w-[1920px] pb-8  mx-auto   px-[10rem]'>
+   <section className='w-full pt-10 flex justify-center bg-[#F4F4F4] max-w-[1920px] pb-8  mx-auto px-5   lg:px-[10rem]'>
     <div className='grid lg:grid-cols-6 md:grid-cols-2   w-full'>
       <div>
       <FooterSection title="Projects" links={projectLinks}/>
@@ -91,18 +91,18 @@ const Footer = () => {
         <Image alt='logo' width={80} height={80} quality={100} src={logo}/>
       </div>
       </div>
-      <div className='col-span-2'>
+      <div className='lg:col-span-2'>
       <FooterSection title="Films" links={otherLinks}/>
-      <p className='text-[12px] pt-[2rem]'>2024. All right reserved </p>
+      <p className='text-[12px] pt-2 lg:pt-[2rem]'>2024. All right reserved </p>
       </div>
        <FooterSection title="About" links={aboutLinks}/>
        <FooterSection title="Info" links={infoLinks}/>
        <div className='flex flex-col w-full  '>
             <p className='font-semibold text-sm mb-4 '>Langugae & Currency</p>
-            <select className='w-[12rem] py-1'>
+            <select className='lg:w-[12rem] w-full py-1'>
                 <option>English</option>
             </select>
-            <select className='w-[12rem] my-4 py-1'>
+            <select className='lg:w-[12rem] my-4 w-full  py-1'>
                 <option>Dollar(usd)</option>
             </select>
         <SocialMediaIcons/>

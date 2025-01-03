@@ -27,7 +27,7 @@ const Games =() => {
       {loading?<Spinner/> :
       (
       <div className="flex ">
-        <div className=" grid grid-cols-3 gap-4 mt-8  w-full ">
+        <div className=" grid lg:grid-cols-3 grid-cols-1 gap-4 mt-8  w-full ">
           {projectCategory.map((game)=>{
             return (
               <ProjectCard key={game?.id} img={ss} height={186} width={389} title={game?.title} owner={`By ${game?.name}`}

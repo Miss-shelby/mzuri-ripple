@@ -28,15 +28,15 @@ const ExplorePage = () => {
       
   return (
     
-    <div className='w-full max-w-[1920px] mx-auto min-h-screen  px-[10rem] bg-white'>
-      <h4 className='text-black-100 font-bold text-2xl mt-10 ' >Explore</h4>
+    <div className='w-full max-w-[1920px] mx-auto min-h-screen px-4   lg:px-[10rem] bg-white'>
+      <h4 className='text-black-100 text-center font-bold text-2xl mt-10 ' >Explore</h4>
       
      {isLoading?<Spinner/> : 
       error? 
       <p className='text-red-500 capitalize font-medium mt-4'>Failed to load featured projects😓 </p> 
       :  (
       <div>
-       <div className='grid grid-cols-3 gap-4 mt-6  w-full'>
+       <div className='grid lg:grid-cols-3 grid-cols-1  gap-4 mt-6  w-full'>
        {allProjects.slice(0,displayProjects).map((project)=>{
          return (
           <Link onClick={()=>console.log('testing')}

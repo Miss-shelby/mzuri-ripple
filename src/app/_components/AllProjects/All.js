@@ -74,27 +74,27 @@ const daysLeftThree = calculateDaysLeft(durationThree,formattedDate)
       {isLoading?<Spinner/> : 
       error? <p className='text-red-500 capitalize font-medium mt-4'>Failed to load featured projects😓 </p>  :
       (
-        <div className="flex w-full ">
-        <div className=" mr-[20px] w-full  ">
-        <ProjectCard img={bika} height={670} width={680} cardHeight={true} title={featuredProjects[2]?.title} owner={featuredProjects[2]?.name}
-        
-        expander={<TextExpander collapsedNumber={110}>{featuredProjects[2]?.about}</TextExpander>}
-          startPrice={`${featuredProjects[2]?.amount.toLocaleString('en-US')}`} endPrice={`${featuredProjects[2]?.amount.toLocaleString('en-US')}`} 
-          backers="2 backers" days={`${calculateDaysLeft(featuredProjects[2]?.duration,formattedDate)} days left`}/>
+        <div className="grid lg:grid-cols-2 grid-cols-1 w-full ">
+        <div className="row-span-2">
+            <ProjectCard img={bika} height={670} width={680} cardHeight={true} 
+            title={featuredProjects[2]?.title} owner={featuredProjects[2]?.name}
+            expander={<TextExpander collapsedNumber={110}>{featuredProjects[2]?.about}</TextExpander>}
+              startPrice={`${featuredProjects[2]?.amount.toLocaleString('en-US')}`} endPrice={`${featuredProjects[2]?.amount.toLocaleString('en-US')}`} 
+              backers="2 backers" days={`${calculateDaysLeft(featuredProjects[2]?.duration,formattedDate)} days left`}/>
         </div>
-          <div className="flex flex-col text-[sm] w-fit">
-            <ProjectCard  height={30} width={500}  title={featuredProjects[1]?.title} owner={featuredProjects[1]?.name}
-              expander={<TextExpander collapsedNumber={25}>{featuredProjects[1]?.about}</TextExpander>}
-              startPrice= {`${featuredProjects[1]?.amount.toLocaleString('en-US')}`} endPrice={`${featuredProjects[1]?.amount.toLocaleString('en-US')}`}
-               backers="2 backers" days={`${daysLeftTwo} days left`} img={scooter}/>
-              <div className="mt-3 w-full">
-                 <ProjectCard height={130} width={500} title={featuredProjects[0]?.title} owner={featuredProjects[0]?.name}
-                expander={<TextExpander>{featuredProjects[0]?.about}</TextExpander>}
-              startPrice={`${featuredProjects[0]?.amount.toLocaleString('en-US')}`}  endPrice={`${featuredProjects[0]?.amount.toLocaleString('en-US')}`} 
-               backers="2 backers" days={`${daysLeftThree} day left`} img={library}/>
-            
-              </div>
-          </div>
+       <div className="lg:my-0 my-4">
+              <ProjectCard  height={30} width={500}  title={featuredProjects[1]?.title} owner={featuredProjects[1]?.name}
+                expander={<TextExpander collapsedNumber={25}>{featuredProjects[1]?.about}</TextExpander>}
+                startPrice= {`${featuredProjects[1]?.amount.toLocaleString('en-US')}`} endPrice={`${featuredProjects[1]?.amount.toLocaleString('en-US')}`}
+                backers="2 backers" days={`${daysLeftTwo} days left`} img={scooter}/>
+              
+                  <ProjectCard height={130} width={500} title={featuredProjects[0]?.title} owner={featuredProjects[0]?.name}
+                  expander={<TextExpander>{featuredProjects[0]?.about}</TextExpander>}
+                startPrice={`${featuredProjects[0]?.amount.toLocaleString('en-US')}`}  endPrice={`${featuredProjects[0]?.amount.toLocaleString('en-US')}`} 
+                backers="2 backers" days={`${daysLeftThree} day left`} img={library}/>
+              
+        </div>
+         
       </div> 
       )
       }

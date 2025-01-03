@@ -32,8 +32,8 @@ const RegisterPage = () => {
 
 
   return (
-    <div className="flex justify-center items-center pb-[67px] pt-16">
-      <div>
+    <div className="flex flex-col lg:flex-row justify-center items-center pb-[67px] pt-16">
+      <div className="px-5">
         <Image src="/register.png" alt="cowry image" height={500} width={440} />
       </div>
       <Formik
@@ -43,7 +43,7 @@ const RegisterPage = () => {
       >
         {({ values, handleChange, submitForm, errors }) => {
           return (
-            <Form className="bg-custom-green flex flex-col px-[30px] w-[26rem] h-[650px]">
+            <Form className="bg-custom-green flex flex-col w-full px-[30px] lg:w-[26rem] lg:h-[650px]">
               <ul className="steps pt-14">
                 {tabs.map((tab, index) => {
                   return (

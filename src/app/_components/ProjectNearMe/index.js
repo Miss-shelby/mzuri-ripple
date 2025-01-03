@@ -14,7 +14,7 @@ const ProjectNearMe = ({allProjects,isLoading,error}) => {
     <div>
       <h4 className='text-black-100 font-bold text-2xl mt-20 ' >More Projects</h4>
       {isLoading?(<Spinner/>) : error?<p className='text-red-500 capitalize font-medium mt-4'>Failed to load more projects😓 </p> :(
-      <div className='grid grid-cols-3 gap-4 mt-6  w-full'>
+      <div className='grid lg:grid-cols-3 grid-cols-1 gap-4 mt-6  w-full'>
       {moreProjects.map((project)=>{
         return (
             <ProjectCard key={project?.id} title={project?.title} 

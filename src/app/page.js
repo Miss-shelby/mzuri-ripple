@@ -22,22 +22,20 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="pt-[4rem] w-full max-w-[1920px] mx-auto px-[10rem] bg-white">
-      <div className="flex flex-col lg:flex-row justify-between w-full items-center">
+    <main className="pt-[4rem] w-full lg:max-w-[1920px] mx-auto px-5 lg:px-[10rem] bg-white">
+      <div className="flex flex-col justify-center  lg:flex-row lg:justify-between w-full items-center ">
         <div>
-          <div>
-            <p className="text-4xl xl:text-6xl lg:text-4xl text-black-100 leading-[4rem] font-medium">
-              Discover The Best and Brightest Projects
-            </p>
-            <p className="font-normal pt-[32px]">
-              Support creative workers and see the buildup of the project with each update.
-            </p>
-            <p className="text-sm">Back it and believe it.</p>
-          </div>
+          <p className="text-2xl xl:text-6xl lg:text-4xl text-black-100 lg:leading-[4rem] font-medium">
+            Discover The Best and Brightest Projects
+          </p>
+          <p className="font-normal pt-2 lg:pt-[32px]">
+            Support creative workers and see the buildup of the project with each update.
+          </p>
+          <p className="text-sm">Back it and believe it.</p>
+        </div>
           <Suspense fallback={<div>Loading filter projects...</div>}>
             <FilterProjects allProjects={allProjects} />
           </Suspense>
-        </div>
         <div className="relative">
         <video autoPlay loop muted playsInline>
         <source src="/convertedgif.mp4" type="video/mp4" />
@@ -56,21 +54,21 @@ export default function Home() {
       <Suspense fallback={<div>Loading recommended projects...</div>}>
         <RecommendedProjects error={error} allProjects={allProjects} isLoading={isLoading} />
       </Suspense>
-      <div className="flex items-center justify-between mt-5">
-        <div>
-          <h5 className="text-black-100 text-4xl font-[700] pt-20">
+      <div className="flex flex-col lg:flex-row items-center justify-between mt-5 w-full">
+        <div className="w-full">
+          <h5 className="text-black-100 lg:text-4xl text-2xl  font-[700] pt-20">
             Don’t miss new wonderful Projects
           </h5>
-          <p className="text-black-100 font-medium text-2xl pt-6">
+          <p className="text-black-100 font-medium lg:text-2xl text-xl pt-6">
             Sign up for new projects and updates
           </p>
-          <div className="mt-[44px] flex items-center">
+          <div className="mt-[44px] flex flex-wrap items-center">
             <input
               placeholder="Enter Your E-mail"
               type="text"
-              className="shadow-xl bg-[#F1F1F1] text-[#9D9D9D] w-[38rem] pl-4 py-2 rounded-[3px]"
+              className="shadow-xl w-full  bg-[#F1F1F1] text-[#9D9D9D] lg:w-[38rem] pl-4 py-2 rounded-[3px]"
             />
-            <button className="btn text-white hover:text-custom-blue capitalize bg-custom-blue px-10 h-10 min-h-10 ml-[20px] rounded-[5px]">
+            <button className="btn text-white w-full mt-2 lg:mt-0 lg:w-fit hover:text-custom-blue capitalize bg-custom-blue px-10 h-10 min-h-10 lg:ml-[20px] rounded-[5px]">
               Subscribe
             </button>
           </div>
