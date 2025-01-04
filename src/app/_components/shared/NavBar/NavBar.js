@@ -53,17 +53,17 @@ const NavBar = () => {
             }`}>
             <ul className="text-[#072635] text-sm flex flex-col  mt-14 cursor-pointer font-extrabold font-manrope">
               
-            <p className="flex  items-center">
+            <p className="flex  items-center" onClick={handleNav}>
             <span className="inline-flex items-center"> <IoIosAdd className="h-5 w-5" /></span> <Link href="/project">
              Start a New Project </Link></p>
-              <button className="bg-[#0069D9] hover:bg-[#0069D9] my-5 rounded-[6px] text-white h-[2rem] min-h-2">
+              <button onClick={handleNav} className="bg-[#0069D9] hover:bg-[#0069D9] my-5 rounded-[6px] text-white h-[2rem] min-h-2">
               <Link href="/login"> Sign In</Link></button>
-              <li className="  text-base cursor-pointer">
+              <li onClick={handleNav} className="  text-base cursor-pointer">
                 <Link href="/dashboard">Dashboard</Link></li>
             </ul>
               <div className="flex flex-col  mt-20 ">
-              <button className=" btn bg-[#0069D9] hover:bg-[#0069D9] text-left rounded-[6px] text-white h-[2rem]
-                 min-h-2"> How it works</button>
+              <button onClick={handleNav} className=" btn bg-[#0069D9] hover:bg-[#0069D9] text-left rounded-[6px] text-white h-[2rem]
+                 min-h-2"> <Link href='/getstarted'>How it works</Link></button>
           </div>
       </div>
     </>
