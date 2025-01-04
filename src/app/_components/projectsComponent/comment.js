@@ -26,17 +26,17 @@ const Comments = () => {
 const Card = ({ title, location, children }) => {
   const pathname = usePathname()
   return (
-    <div className={`card ${pathname.includes("dashboard/projects")?"w-[500px]":"w-[760px]"} mt-8 h-fit shadow-xl`}>
+    <div className={`card ${pathname.includes("dashboard/projects")?"lg:w-[500px]":"lg:w-[760px]"} mt-8 h-fit shadow-xl`}>
       <div className="flex border-b border-black-100 pb-6 px-6 pt-4">
         <div className="h-fit w-fit mr-4">
           <Image src='/profileAvatar.png' height={45} width={45} alt='profile image'/>
         </div>
         <div>
-          <h4 className="text-lg font-medium">{title}</h4>
+          <h4 className="lg:text-lg text-sm  font-medium">{title}</h4>
           <p>{location}</p>
         </div>
       </div>
-        <p className="pl-6 py-6">Hope you do well in your project and complete the work swiftly.</p>
+        <p className="pl-6 py-6 text-sm lg:text-base ">Hope you do well in your project and complete the work swiftly.</p>
       {children}
     </div>
   );

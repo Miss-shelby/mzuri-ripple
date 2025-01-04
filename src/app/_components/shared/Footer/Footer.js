@@ -92,8 +92,8 @@ const Footer = () => {
       </div>
       </div>
       <div className='lg:col-span-2'>
-      <FooterSection title="Films" links={otherLinks}/>
-      <p className='text-[12px] pt-2 lg:pt-[2rem]'>2024. All right reserved </p>
+        <FooterSection title="Films" links={otherLinks}/>
+        <p className='text-[12px] pt-2 lg:pt-[2rem]'>2024. All right reserved </p>
       </div>
        <FooterSection title="About" links={aboutLinks}/>
        <FooterSection title="Info" links={infoLinks}/>

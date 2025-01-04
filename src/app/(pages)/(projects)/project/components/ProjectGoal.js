@@ -49,7 +49,7 @@ const ProjectGoal = ({handleNext,handlePrevious,formValues,handleInputChange})=>
             <input type="checkbox" id="checkbox3" onChange={handleCheckboxChange} /> I can verify the legitimacy of the project.
           </p>
         </div>
-        <div className='flex mb-9'>
+        <div className='flex flex-wrap mb-9'>
           <button
             className='btn bg-custom-red hover:bg-custom-blue text-white w-[10.5rem] text-lg font-medium text-center mx-auto mt-6 h-10 min-h-10'
             onClick={handlePrevious}

@@ -32,7 +32,7 @@ const ProjectSetUp = ({handlePrevious,formValues,handleInputChange,submitForm,lo
            </label>
            {formValues.selectedFile && <span className="ml-2">{formValues.selectedFile.name}</span>}
            </div>
-              <div className='flex mb-9'>
+              <div className='flex flex-wrap mb-9'>
                 <button className='btn bg-custom-red hover:bg-custom-red text-white w-[10.5rem] text-lg font-medium 
               text-center mx-auto mt-6 h-10 min-h-10'onClick={handlePrevious}>Back</button>
   

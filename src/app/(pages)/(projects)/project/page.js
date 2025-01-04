@@ -180,11 +180,11 @@ const submitForm = async (e)=>{
  
     return (
       
-      <div className='flex  items-center  max-w-[1920px] mx-auto px-[10rem]'>
+      <div className='flex flex-col lg:flex-row   items-center  max-w-[1920px] mx-auto lg:px-[10rem] px-5  mt-10'>
           <div>
         <Image src="/newproject.png" alt='cowry image' height={600} width={540} />
           </div>
-          <form className={`${tabBgColors[activeTab]} ml-[8rem] flex flex-col px-[30px] w-[26rem]`}>
+          <form className={`${tabBgColors[activeTab]} lg:ml-[8rem] my-4 lg:my-0  flex flex-col lg:px-[30px] px-[15px] lg:w-[26rem]`}>
             <ul className="steps pt-3">
             {tabs.map((tab,index)=>{
             return ( <li key={tab} className={`step ${step-1 >= index ?' step-primary':'' }`}></li>)

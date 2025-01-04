@@ -13,22 +13,24 @@ const DashboardNavigation = ({ links,imageUrl,projectOwner,projectStory,backers,
     return (
       <>
       <div className={`flex text-sm justify-center    h-auto border-1  border-t  border-b ` } >
-        <div className={`flex w-full    max-w-[1920px] mx-auto ${pathname.includes("dashboard/projects")? " px-[2rem]": "lg:px-[10rem]"}  `}>
+        <div className={`flex flex-col lg:flex-row w-full 
+             max-w-[1920px] mx-auto ${pathname.includes("dashboard/projects")? " lg:px-[2rem] px-3": "lg:px-[10rem] px-4"}  `}>
             <div className="flex justify-center pt-5  ">
               {links.map((link)=>{
                   return <li key={link.name}
-                  className={`cursor-pointer capitalize list-none text-lg font-medium mr-10   ${section === link.name? "p-0 border-b-4 border-black " : ""}`}
+                  className={`cursor-pointer capitalize list-none lg:text-lg text-xs  font-medium lg:mr-10 mr-3   ${section === link.name? "p-0 border-b-4 border-black " : ""}`}
                     onClick={()=> setSection(link.name)}>{link.name}</li>
               })}
             </div>
             <div className={`py-4 ${pathname.includes("dashboard/projects")? " lg:ml-[15rem]": "lg:ml-[30rem]"} `}>
-            <button className="btn text-lg font-medium h-10 min-h-10 bg-custom-green-200 text-white hover:bg-custom-green-100 w-full">
+            <button className="btn lg:text-lg text-sm font-medium h-10 min-h-10 bg-custom-green-200 text-white
+             hover:bg-custom-green-100 w-full border-none">
               <Link href="/payment">Back this project</Link> </button>
             </div>
         </div>
       </div>
-      <div className={`flex flex-col lg:flex-row justify-between bg-orange-600  w-full 
-         max-w-[1920px] mx-auto  ${pathname.includes("dashboard/projects")?" px-[2rem]": "lg:px-[10rem]"}  `}>
+      <div className={`flex flex-col lg:flex-row justify-between  w-full 
+         max-w-[1920px] mx-auto  ${pathname.includes("dashboard/projects")?" lg:px-[2rem] px-0": "lg:px-[10rem] px-6"}  `}>
         <div>
               {section === "campaign"&& <Campaign  projectOwner={projectOwner} imageUrl ={imageUrl } projectStory={projectStory} />}
                 {section === "Campaign" && <CampaignAuth projectOwner={projectOwner} projectId={projectId} imageUrl ={imageUrl } projectStory={projectStory} />}

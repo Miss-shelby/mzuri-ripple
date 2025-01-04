@@ -7,6 +7,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosAdd } from "react-icons/io";
 import { useAuth } from "../../Providers/Providers";
 import { IoClose } from "react-icons/io5";
+import { useRouter } from "next/router";
 const NavBar = () => {
   const [nav, setNav] = useState(false);
   const pathname = usePathname()
@@ -16,12 +17,14 @@ const NavBar = () => {
     setNav(!nav);
     
   };
+ 
 
+  
   return (
     <>
-    <div className="flex justify-between fixed z-50  top-0 bg-white items-center w-full px-3  h-[32px]  max-w-[1920px] mx-auto  lg:px-[10rem] ">
+    <div className="flex justify-between fixed z-50  top-0 bg-white items-center w-full px-3 py-6 max-w-[1920px] mx-auto  lg:px-[10rem] ">
       <div className="flex items-center">
-        <p className="xl:text-[18px] lg:text-base cursor-pointer "><Link href="/explore">Discover</Link> <span className="text-[#BFBFBF] px-[12px]  ">|</span> </p>
+        <p className="xl:text-[18px] lg:text-base cursor-pointer "><Link href="/">Discover</Link> <span className="text-[#BFBFBF] px-[12px]  ">|</span> </p>
         <p className="hidden lg:flex  items-center">
             <span className="inline-flex items-center"> <IoIosAdd className="h-5 w-5" /></span> <Link href="/project"> Start a New Project </Link></p>
       </div>
@@ -41,7 +44,6 @@ const NavBar = () => {
         {pathname == '/register' && <Link href="/login"> Login</Link>}
         {pathname !== '/login' && pathname !== '/explore' && pathname !== '/register' && (<Link href="/getstarted">How it works</Link> )}
       </Button>
-      
        }
        
       </div>
@@ -50,11 +52,12 @@ const NavBar = () => {
               !nav ? "h-0" : "h-full"
             }`}>
             <ul className="text-[#072635] text-sm flex flex-col  mt-14 cursor-pointer font-extrabold font-manrope">
+              
             <p className="flex  items-center">
             <span className="inline-flex items-center"> <IoIosAdd className="h-5 w-5" /></span> <Link href="/project">
              Start a New Project </Link></p>
               <button className="bg-[#0069D9] hover:bg-[#0069D9] my-5 rounded-[6px] text-white h-[2rem] min-h-2">
-              Sign In</button>
+              <Link href="/login"> Sign In</Link></button>
               <li className="  text-base cursor-pointer">
                 <Link href="/dashboard">Dashboard</Link></li>
             </ul>

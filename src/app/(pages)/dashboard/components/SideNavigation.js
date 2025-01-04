@@ -25,7 +25,11 @@ const navLinks = [
   },
 ];
 
-function SideNavigation() {
+function SideNavigation({closeSidebar}) {
+
+  const hideBar=()=>{
+    closeSidebar()
+  }
   //for active link
   const pathname = usePathname()
  
@@ -35,7 +39,7 @@ function SideNavigation() {
     <nav className=' bg-[#fcfefe] shadow-lg pt-6'>
       <ul className='flex flex-col gap-2 h-full text-lg text-custom-black'>
         {navLinks.map((link) => (
-          <li key={link.name}>
+          <li key={link.name} onClick={hideBar}>
             <Link
               className={`py-3 pl-4 hover:bg-[#eff3f4] hover:text-primary-100
                  transition-colors flex items-center
