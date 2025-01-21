@@ -51,7 +51,7 @@ const GetStarted = () => {
     <section >
       <div className=" max-w-[1920px] mx-auto px-5 w-full   lg:px-[10rem] bg-white ">
 
-          <div className="flex flex-col items-center justify-center pt-[6.4rem] text-black-100 ">
+          <div className="flex flex-col items-center justify-center mt-[2rem] sm:pt-[6.4rem] text-black-100 ">
             <p className="font-medium lg:text-3xl text-2xl">How RIPPLE Works</p>
             <p className="pt-6 font-medium text-xl">
               Ripple helps under represented founders in Africa to fund raise..

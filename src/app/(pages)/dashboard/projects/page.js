@@ -46,21 +46,21 @@ const UserProjects = () => {
 
 console.log(projects);
   return (
-        <div className="pt-4 text-custom-black flex flex-col items-center justify-center w-full ">
+        <div className="pt-4 text-custom-black flex flex-col items-center  justify-center w-full ">
       <h2 className="mb-6 text-lg font-medium capitalize">my projects</h2>
       {loading ? (
         <Spinner />
       ) : (
         <div>
           {projects.length > 0? (
-          <div className="grid lg:grid-cols-2 md:grid-cols-2   grid-cols-1 items-center justify-center gap-x-10 gap-y-6   w-full">
+          <div className="grid gap-6 lg:grid-cols-2   grid-cols-1 items-center justify-center    w-full">
             {projects.map((project) => {
               return (
                 <Link
                   href={`/dashboard/projects/${project.id}`}
                   key={project.id}
                 >
-                  <div className="card bg-base-100 image-full lg:w-96 rounded-lg  shadow-xl ">
+                  <div className="card bg-base-100 image-full  rounded-lg  shadow-xl ">
                     <figure>
                       <Image fill
                         src="/story.png"

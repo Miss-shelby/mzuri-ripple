@@ -36,7 +36,7 @@ function SideNavigation({closeSidebar}) {
 
   
   return (
-    <nav className=' bg-[#fcfefe] shadow-lg pt-6'>
+    <nav className='  shadow-lg pt-6 bg-[#fcfefe] fixed w-full inset-0 pb-4 z-50 mt-[6rem] sm:mt-0'>
       <ul className='flex flex-col gap-2 h-full text-lg text-custom-black'>
         {navLinks.map((link) => (
           <li key={link.name} onClick={hideBar}>
@@ -54,7 +54,12 @@ function SideNavigation({closeSidebar}) {
 
         <li className='mt-auto'>
           <SignOutButton />
-        
+          <button 
+          className='md:hidden ml-4  p-2 bg-red-500 text-white rounded-md mt-2'
+          onClick={closeSidebar} 
+        >
+          Close
+        </button>
         </li>
       </ul>
     </nav>

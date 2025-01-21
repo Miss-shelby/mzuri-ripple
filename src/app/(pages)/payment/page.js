@@ -38,35 +38,44 @@ const PaymentPage =  () => {
   const {loading,handleFormValue,makepayment,formFields} = usePayment()
   
   return (
-    <div className='flex justify-center items-center mb-[67px] w-[735px] h-[430px] bg-white shadow-custom  mx-auto mt-10'>
-        <div className='h-[450px] w-[28rem] relative'>
-          <Image src="/payment.avif" alt='cowry image'  fill objectFit='cover' />
+    <div className=''>
+      <div className='flex flex-col sm:flex-row gap-6  justify-center items-center min-h-screen h-full
+        bg-white mx-auto mt-[4rem] px-[1rem] '>
+         <div className="relative w-full mt-[2rem] h-[300px] sm:h-[450px] max-w-sm shadow-custom">
+          <Image
+            src="/payment.avif"
+            alt="cowry image"
+            fill
+            objectFit="cover"
+          />
         </div>
-          <div className='bg-custom-blue flex flex-col h-[450px] px-[30px] w-[28rem]' >
-              <label className='text-[#e0eafc] text-[10px] uppercase tracking-wide font-medium mt-6'>E-mail</label>
-              <input value={formFields.email} onChange={handleFormValue} 
-              type='text' name='email' required readOnly
-              className=' rounded-[5px] text-custom-black text-sm  bg-transparent h-9 border border-[#cecece] focus:outline-none focus:bg-transparent  w-full mt-3' />
-              <label className='text-[#e0eafc] text-[10px] uppercase tracking-wide font-medium mt-3'>Firstname:</label>
-              <input value={formFields.firstname} readOnly onChange={handleFormValue} type='text' name='firstname'
-               required className='rounded-[5px]text-custom-black text-sm bg-transparent h-9 border border-[#cecece] focus:outline-none focus:bg-transparent  w-full mt-3' />
-              <label className='text-[#e0eafc] text-[10px] uppercase tracking-wide font-medium mt-3'>Lastname:</label>
-              <input value={formFields.lastname} onChange={handleFormValue} type='text' name='lastname'
-               required className='rounded-[5px] text-custom-black text-sm  bg-transparent h-9 border border-[#cecece] focus:outline-none focus:bg-transparent  w-full mt-3' />
-              <label className='text-[#e0eafc] text-[10px] uppercase tracking-wide font-medium mt-3'>Amount:</label>
-              <input value={formFields.amount} onChange={handleFormValue} type='number' name='amount' required className='rounded-[5px] 
-              text-custom-black text-sm bg-transparent h-9 border border-[#cecece] focus:outline-none focus:bg-transparent  w-full mt-3' />
-             <button disabled={loading} className={` ${loading ? "bg-[#7e7c7c]" : "bg-[#bfbfbf] hover:bg-[#dadada]"} text-custom-blue focus:outline-none rounded-sm w-full 
-              uppercase border-0 tracking-wide text-[10px] font-semibold text-center mx-auto my-8 h-10 min-h-10`}
-          onClick={makepayment}>
-          {loading ? <span className="Btnloader"></span> : 'Pay'}
-        </button>
-{/* 
-            <PaystackButton text='pay'
-             className='hover:bg-[#dadada] bg-[#bfbfbf] text-custom-blue focus:outline-none rounded-sm w-full 
-             uppercase border-0 tracking-wide  text-[10px] font-semibold text-center mx-auto my-8 h-10 min-h-10'  {...componentProps}/> */}
-          </div>
-         
+            <div className='bg-custom-blue shadow-custom flex flex-col mt-3 sm:mt-0 w-full px-[10px] sm:h-[450px] sm:px-[30px] sm:w-[28rem]' >
+                <label className='text-[#e0eafc] text-[10px] uppercase tracking-wide font-medium mt-6'>E-mail</label>
+                <input value={formFields.email} onChange={handleFormValue} 
+                type='text' name='email' required readOnly
+                className=' rounded-[5px] text-custom-black text-sm  bg-transparent h-9 border border-[#cecece] focus:outline-none focus:bg-transparent  w-full mt-3' />
+                <label className='text-[#e0eafc] text-[10px] uppercase tracking-wide font-medium mt-3'>Firstname:</label>
+                <input value={formFields.firstname} readOnly onChange={handleFormValue} type='text' name='firstname'
+                required className='rounded-[5px]text-custom-black text-sm bg-transparent h-9 border border-[#cecece] focus:outline-none focus:bg-transparent  w-full mt-3' />
+                <label className='text-[#e0eafc] text-[10px] uppercase tracking-wide font-medium mt-3'>Lastname:</label>
+                <input value={formFields.lastname} onChange={handleFormValue} type='text' name='lastname'
+                required className='rounded-[5px] text-custom-black text-sm  bg-transparent h-9 border border-[#cecece] focus:outline-none focus:bg-transparent  w-full mt-3' />
+                <label className='text-[#e0eafc] text-[10px] uppercase tracking-wide font-medium mt-3'>Amount:</label>
+                <input value={formFields.amount} onChange={handleFormValue} type='number' name='amount' required className='rounded-[5px] 
+                text-custom-black text-sm bg-transparent h-9 border border-[#cecece] focus:outline-none focus:bg-transparent  w-full mt-3' />
+              <button disabled={loading} className={` ${loading ? "bg-[#7e7c7c]" : "bg-[#bfbfbf] hover:bg-[#dadada]"} text-custom-blue focus:outline-none rounded-sm w-full 
+                uppercase border-0 tracking-wide text-[10px] font-semibold text-center mx-auto my-8 h-10 min-h-10`}
+            onClick={makepayment}>
+            {loading ? <span className="Btnloader"></span> : 'Pay'}
+          </button>
+  {/* 
+              <PaystackButton text='pay'
+              className='hover:bg-[#dadada] bg-[#bfbfbf] text-custom-blue focus:outline-none rounded-sm w-full 
+              uppercase border-0 tracking-wide  text-[10px] font-semibold text-center mx-auto my-8 h-10 min-h-10'  {...componentProps}/> */}
+            </div>
+          
+      </div>
+
     </div>
   )
 }

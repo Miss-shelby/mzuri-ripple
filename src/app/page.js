@@ -22,7 +22,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="pt-[4rem] w-full lg:max-w-[1920px] mx-auto px-5 lg:px-[10rem] bg-white">
+    <main className="mt-[6rem] w-full lg:max-w-[1920px] mx-auto px-5 lg:px-[10rem] bg-white">
       <div className="flex flex-col justify-center  lg:flex-row lg:justify-between w-full items-center ">
         <div>
           <p className="text-2xl xl:text-6xl lg:text-4xl text-black-100 lg:leading-[4rem] font-medium">

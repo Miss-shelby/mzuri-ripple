@@ -7,6 +7,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosAdd } from "react-icons/io";
 import { useAuth } from "../../Providers/Providers";
 import { IoClose } from "react-icons/io5";
+import { RiDashboardFill } from "react-icons/ri";
 import { useRouter } from "next/router";
 const NavBar = () => {
   const [nav, setNav] = useState(false);
@@ -22,7 +23,8 @@ const NavBar = () => {
   
   return (
     <>
-    <div className="flex justify-between fixed z-50  top-0 bg-white items-center w-full px-3 py-6 max-w-[1920px] mx-auto  lg:px-[10rem] ">
+    <div className="flex justify-between fixed z-50  top-0  items-center
+     w-full px-3 py-6  max-w-[1920px] h-[80px] bg-white  mx-auto  lg:px-[10rem]  ">
       <div className="flex items-center">
         <p className="xl:text-[18px] lg:text-base cursor-pointer "><Link href="/">Discover</Link> <span className="text-[#BFBFBF] px-[12px]  ">|</span> </p>
         <p className="hidden lg:flex  items-center">
@@ -34,7 +36,9 @@ const NavBar = () => {
       <div className="lg:hidden cursor-pointer relative" onClick={handleNav}>
         {nav ? <IoClose /> :  <RxHamburgerMenu />}
       </div>     
-        <p className=" hidden lg:block xl:text-[18px] lg:text-base xl:px-[2rem] lg:px-[1rem] cursor-pointer"><Link href="/dashboard">Dashboard</Link></p>
+        <p className=" hidden  xl:text-[18px] lg:flex items-center lg:text-base xl:px-[2rem] lg:px-[1rem] cursor-pointer">
+        {/* <span className="pr-2"><RiDashboardFill /></span> */}
+          <Link href="/dashboard">Dashboard</Link> </p>
         {authUser === null && pathname !== '/login' && pathname !== '/register'  && <p className="hidden lg:block xl:text-[18px] lg:text-base xl:px-[2rem] lg:px-[1rem] cursor-pointer"><Link href="/login">Sign in</Link></p>}
       
        {
@@ -48,10 +52,10 @@ const NavBar = () => {
        
       </div>
     </div>
-    <div className={`fixed z-40 w-full bg-white overflow-hidden flex flex-col px-3   lg:hidden   origin-top duration-700 ${
+    <div className={`fixed z-[45] w-full bg-green-500 overflow-hidden flex flex-col px-3   lg:hidden   origin-top duration-700 ${
               !nav ? "h-0" : "h-full"
             }`}>
-            <ul className="text-[#072635] text-sm flex flex-col  mt-14 cursor-pointer font-extrabold font-manrope">
+            <ul className="text-[#072635] text-sm flex flex-col  pt-16  cursor-pointer font-extrabold font-manrope">
               
             <p className="flex  items-center" onClick={handleNav}>
             <span className="inline-flex items-center"> <IoIosAdd className="h-5 w-5" /></span> <Link href="/project">

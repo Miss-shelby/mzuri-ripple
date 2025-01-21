@@ -32,7 +32,7 @@ const RegisterPage = () => {
 
 
   return (
-    <div className="flex flex-col lg:flex-row justify-center items-center pb-[67px] pt-16">
+    <div className="flex flex-col lg:flex-row justify-center items-center pb-[67px] pt-16 mt-[2rem]">
       <div className="px-5">
         <Image src="/register.png" alt="cowry image" height={500} width={440} />
       </div>

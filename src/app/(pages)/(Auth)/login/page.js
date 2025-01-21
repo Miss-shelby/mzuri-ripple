@@ -17,7 +17,7 @@ import { useLogin } from '@/app/_components/hook/custom/useLogin'
 const LoginPage =  () => {
   const {defaultValues,onSubmitHandler,loading,showPassword,togglePasswordVisibility} = useLogin()
   return (
-    <div className='flex flex-col lg:flex-row justify-center items-center pb-[67px] pt-[62px]'>
+    <div className='flex flex-col lg:flex-row justify-center items-center pb-[67px] sm:pt-[62px] mt-[2rem]'>
         <div className='px-5'>
           <Image src="/cowry.png" alt='cowry image' height={500} width={440} />
         </div>
