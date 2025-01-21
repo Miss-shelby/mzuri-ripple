@@ -52,7 +52,7 @@ const NavBar = () => {
        
       </div>
     </div>
-    <div className={`fixed z-[45] w-full bg-green-500 overflow-hidden flex flex-col px-3   lg:hidden   origin-top duration-700 ${
+    <div className={`fixed z-[45] w-full bg-white overflow-hidden flex flex-col px-3   lg:hidden   origin-top duration-700 ${
               !nav ? "h-0" : "h-full"
             }`}>
             <ul className="text-[#072635] text-sm flex flex-col  pt-16  cursor-pointer font-extrabold font-manrope">
