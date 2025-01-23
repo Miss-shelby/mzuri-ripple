@@ -6,15 +6,15 @@ const Updates = ({projectOwner})=>{
    
     
     return (
-        <div className=" mt-12 ">
-            <div className="flex flex-wrap  items-center w-full mb-6 ">
+        <div className=" mt-20 ">
+            <div className="flex flex-wrap  items-center w-full mb-4 ">
                 <p className="lg:text-2xl text-lg md:text-xl  text-black-100 font-semibold">Updates on the Project</p>
                 {
               pathname.includes("dashboard/projects") && ( <button className=" btn lg:ml-16 rounded-[6px] text-sm
                 font-medium h-10 min-h-10 bg-custom-blue mt-4 text-white px-4 hover:bg-transparent hover:text-custom-blue">Add Update</button>)
             }
             </div>
-            <div className={`card ${pathname.includes("dashboard/projects")? "lg:w-[500px]" :"lg:w-[760px]"} mt-4 h-fit  shadow-2xl` }>
+            <div className={`card ${pathname.includes("dashboard/projects")? "l" :""} mt-4 h-fit mb-10 shadow-2xl` }>
                 <div className="card-body relative p-0 mt-4 flex flex-col px-6  gap-0  ">
                  <p className="font-semibold lg:text-lg text-sm ">Update 2 :<span className="font-medium">Buying New RTX 3080 Ti</span></p>
                 </div>
@@ -40,7 +40,7 @@ const Updates = ({projectOwner})=>{
                 <button class="bg-gradient-to-b from-transparent to-gray-700 text-black-100 py-2 px-4 rounded">See More</button>
             </div>
 
-            <div className={`card ${pathname.includes("dashboard/projects")? "lg:w-[500px]" :"lg:w-[760px]"} mt-4 h-fit  shadow-2xl` }>
+            <div className={`card ${pathname.includes("dashboard/projects")? "" :""}  h-fit  shadow-2xl` }>
                 <div className="card-body relative p-0 mt-4 flex flex-col px-6  gap-0  ">
                  <p className="font-semibold lg:text-lg text-sm ">Update 1 :<span className="font-medium"> Buying New 32GB RAM</span></p>
                 </div>

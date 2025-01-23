@@ -19,6 +19,8 @@ const ProjectDetailPage = async ({ params }) => {
     `${GetProjectsApi}/project/${params.projectId}`,
     { cache: "no-store" }
   );
+  console.log(response,'backers response ');
+  
   if (!response.ok) {
     notFound();
   }
@@ -26,6 +28,8 @@ const ProjectDetailPage = async ({ params }) => {
 
 
   const backers = data?.data?.backers;
+  console.log(backers,'project backers ');
+  
   const {
     name,
     address,
@@ -56,7 +60,7 @@ const ProjectDetailPage = async ({ params }) => {
       <ProjectIdSetter projectId={params.projectId} />
       <p className=" mb-4 cursor-pointer flex items-center capitalize"><Link href="/explore">
       <MdOutlineArrowBackIosNew /></Link><span className="inline-flex font-bold text-2xl ml-2 capiltalize">{title} </span></p>
-      <div className="flex lg:flex-row flex-col  w-full  ">
+      <div className="flex lg:flex-row justify-between flex-col  w-full  ">
       
         <div>
           <div className="relative  h-[250px]   lg:h-[500px]">

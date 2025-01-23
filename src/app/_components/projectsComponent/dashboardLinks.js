@@ -23,7 +23,7 @@ const DashboardNavigation = ({ links,imageUrl,projectOwner,projectStory,backers,
               })}
             </div>
             <div className={`py-4 ${pathname.includes("dashboard/projects")? " ": ""} `}>
-            <button className="btn lg:text-lg text-sm font-medium h-10 min-h-10 bg-custom-green-200 text-white
+            <button className="btn lg:text-lg text-xs  font-medium h-10 min-h-10 bg-custom-green-200 text-white
              hover:bg-custom-green-100 w-full border-none">
               <Link href="/payment">Back this project</Link> </button>
             </div>

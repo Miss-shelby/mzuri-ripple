@@ -5,7 +5,7 @@ const Comments = () => {
  
   return (
     <div>
-      <h4 className="font-semibold">Comments</h4>
+      <h4 className="font-semibold mt-20">Comments</h4>
       <Card title='Hero Maharzan' location="Pokhara, Nepal">
         <button className="bg-gradient-to-b from-transparent to-gray-700 text-black-100 py-2 px-4 rounded">
           See More
@@ -26,7 +26,7 @@ const Comments = () => {
 const Card = ({ title, location, children }) => {
   const pathname = usePathname()
   return (
-    <div className={`card ${pathname.includes("dashboard/projects")?"lg:w-[500px]":"lg:w-[760px]"} mt-8 h-fit shadow-xl`}>
+    <div className={`card ${pathname.includes("dashboard/projects")?"":""}  mb-10 h-fit shadow-xl`}>
       <div className="flex border-b border-black-100 pb-6 px-6 pt-4">
         <div className="h-fit w-fit mr-4">
           <Image src='/profileAvatar.png' height={45} width={45} alt='profile image'/>

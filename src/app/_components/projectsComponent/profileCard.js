@@ -20,6 +20,8 @@ const ProfileCard = ({projectOwner,backers}) => {
       reader.readAsDataURL(file); // Convert file to data URL
     }
   };
+  console.log(backers,'backers ');
+  
   return (
     <div>
          <div className="card  w-full mt-20 h-fit lg:p-6 p-3 shadow-2xl lg:ml-6">
