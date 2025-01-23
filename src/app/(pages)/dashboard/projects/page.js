@@ -44,7 +44,7 @@ const UserProjects = () => {
   const today = new Date();
   const formattedDate = today.toISOString().slice(0, 10); 
 
-console.log(projects);
+
   return (
         <div className="pt-4 text-custom-black flex flex-col items-center  justify-center w-full ">
       <h2 className="mb-6 text-lg font-medium capitalize">my projects</h2>

@@ -45,7 +45,7 @@ const ProjectDetailPage = async ({ params }) => {
   const daysLeft = calculateDaysLeft(projectDuration, formattedDate);
 
   return (
-    <section className='mb-5 '>
+    <section className='mb-5 w-full '>
       <ProjectIdSetter projectId={params.newprojectId} />
       <Link href="/dashboard/projects">
         <p className='flex items-center cursor-pointer'>
@@ -53,8 +53,8 @@ const ProjectDetailPage = async ({ params }) => {
         </p>
       </Link>
       <p className='font-bold lg:text-2xl md:text-xl text-lg  lg:mb-8 mb-4 lg:pl-[3rem] mt-[20px] capitalize'>{title}</p>
-      <div className='flex flex-col lg:flex-row w-full max-w-[1920px]  mx-auto lg:px-[2rem] '>
-        <div className="w-full lg:w-[600px]">
+      <div className='flex flex-col lg:flex-row w-full max-w-[1920px]  mx-auto  '>
+        <div className="w-full  ">
           <div className='relative w-full h-[300px] sm:h-[400px]'>
             <Image src='/newproject.png' alt='Project picture' className='w-full h-full object-cover' fill priority />
           </div>
@@ -67,7 +67,7 @@ const ProjectDetailPage = async ({ params }) => {
         </div>
 
         {/* Project Detail Card */}
-        <div className="w-full lg:w-[300px] mt-6 lg:mt-0 lg:ml-12 card shadow-2xl">
+        <div className="w-full sm:w-[300px] lg:w-full mt-6 lg:mt-0 lg:ml-12 card shadow-2xl">
           <div className="card-body gap-0 px-4 py-6">
             <div className="gradient-border"></div>
             <div id="grad"></div>
@@ -108,7 +108,8 @@ const projectLinks = [
 const UserDashboard = ({ imageUrl, projectOwner, projectId, projectStory, backers }) => (
   <div className='mt-9 mb-6'>
     <nav>
-      <DashboardNavigation projectId={projectId} backers={backers} links={projectLinks} projectOwner={projectOwner} imageUrl="/newproject.png" projectStory={projectStory} />
+      <DashboardNavigation projectId={projectId} backers={backers} 
+      links={projectLinks} projectOwner={projectOwner} imageUrl="/newproject.png" projectStory={projectStory} />
     </nav>
   </div>
 );

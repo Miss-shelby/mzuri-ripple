@@ -22,7 +22,7 @@ const ProfileCard = ({projectOwner,backers}) => {
   };
   return (
     <div>
-         <div className="card lg:w-[400px] w-full mt-20 h-fit lg:p-6 p-3 shadow-2xl lg:ml-6">
+         <div className="card  w-full mt-20 h-fit lg:p-6 p-3 shadow-2xl lg:ml-6">
                 <div className="card-body relative mt-10 flex flex-col items-center gap-0 border-custom-brown border ">
                 <input type="file"   id="file-upload" name="selectedFile"
                   className="hidden file-input file-input-ghost w-full mt-6 h-20 " onChange={ handleFileChange} />

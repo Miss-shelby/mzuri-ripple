@@ -9,6 +9,7 @@ const RecommendedProjects = ({allProjects,isLoading,error}) => {
 
       const newProjects = allProjects.slice(-3)
       
+      
        // Get today's date
   const today = new Date();
   const formattedDate = today.toISOString().slice(0, 10); 
@@ -24,7 +25,8 @@ const RecommendedProjects = ({allProjects,isLoading,error}) => {
         <div className='grid lg:grid-cols-3 grid-cols-1 w-full gap-4'>
             {newProjects.map((project)=>{
                 return (<RecommendedProjectCard   title={project?.title} height={100} width={100}
-                    img='/Dog.png' startPrice={project?.amount} endPrice={project?.amount}
+                    img='/Dog.png' startPrice={project?.amount.toLocaleString('en-US')} endPrice={project?.amount.toLocaleString('en-US')}
+                    
                     // description={project?.about}
                     description={
                       <TextExpander collapsedNumber={50}>

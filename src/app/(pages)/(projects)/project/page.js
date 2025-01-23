@@ -180,7 +180,7 @@ const submitForm = async (e)=>{
  
     return (
       
-      <div className='flex flex-col lg:flex-row   items-center  max-w-[1920px] mx-auto lg:px-[10rem] px-5  mt-10'>
+      <div className='flex flex-col lg:flex-row   items-center  max-w-[1920px] mx-auto lg:px-[10rem] px-5  mt-16'>
           <div>
         <Image src="/newproject.png" alt='cowry image' height={600} width={540} />
           </div>

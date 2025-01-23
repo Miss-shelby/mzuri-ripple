@@ -9,6 +9,8 @@ const useFetchProjectCategory = ({projectCategoryId}) => {
         setLoading(true)
         try{
           const response = await fetch(`${getCategory}/category?category=${projectCategoryId}`)
+          console.log(response?.data,'design response ');
+          
           const data = await response.json()
           if(response.status=== 200){
             setProjectCategory(data.data)

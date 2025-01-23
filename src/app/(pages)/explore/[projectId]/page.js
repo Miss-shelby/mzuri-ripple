@@ -52,14 +52,14 @@ const ProjectDetailPage = async ({ params }) => {
   const daysLeft = calculateDaysLeft(projectduration, formattedDate);
   //add loading here
   return (
-    <section className=" mt-[68px] mb-5">
+    <section className=" mt-20 mb-5 max-w-[1920px] lg:px-[10rem] px-4">
       <ProjectIdSetter projectId={params.projectId} />
-      <p className="lg:pl-[10rem] pl-4 mb-4 cursor-pointer flex items-center capitalize"><Link href="/explore">
+      <p className=" mb-4 cursor-pointer flex items-center capitalize"><Link href="/explore">
       <MdOutlineArrowBackIosNew /></Link><span className="inline-flex font-bold text-2xl ml-2 capiltalize">{title} </span></p>
-      <div className="flex lg:flex-row flex-col  w-full max-w-[1920px] mx-auto lg:px-[10rem] px-4 ">
+      <div className="flex lg:flex-row flex-col  w-full  ">
       
         <div>
-          <div className="relative w-[400px] h-[250px]  lg:w-[800px] lg:h-[500px]">
+          <div className="relative  h-[250px]   lg:h-[500px]">
             <Image
               src="/newproject.png"
               alt="Project picture"
@@ -71,7 +71,7 @@ const ProjectDetailPage = async ({ params }) => {
           <p className="text-black-100 mt-6 font-medium text-lg">
             {name} is organizing this fundraiser to benefit the society
           </p>
-          <div className="flex mt-6 items-center text-black-100 text-lg font-medium">
+          <div className="flex flex-wrap mt-6 items-center text-black-100 text-lg font-medium">
             <p className="border-black-100 h-8 pr-4 border-r-2">
               Created {createdDate}{" "}
             </p>
@@ -85,7 +85,7 @@ const ProjectDetailPage = async ({ params }) => {
             </p>
           </div>
         </div>
-        <div className="card w-[420px] h-fit shadow-2xl ml-6 ">
+        <div className="card mt-6 lg:mt-0 h-fit shadow-2xl ml-6 ">
           <div className="card-body gap-0 px-4 py-6">
             <div className="gradient-border"></div>
             <div id="grad"></div>

@@ -109,7 +109,7 @@ const CampaignAuth = ({ imageUrl, projectOwner, projectStory,projectId}) => {
       <div className="flex justify-between  w-full mb-6 items-center">
         <p className="lg:text-2xl md:text-xl text-lg  text-black-100 font-semibold">Story </p>
         {authUser && (
-          <button onClick={toggleEditor} className="lg:ml-[20rem] btn rounded-[6px] text-sm  lg:text-lg font-medium
+          <button onClick={toggleEditor} className=" btn rounded-[6px] text-sm  lg:text-lg font-medium
            lg:h-10 lg:min-h-10 min-h-5 h-5 
            bg-custom-blue lg:mt-4 text-white lg:px-16  border-none hover:bg-transparent hover:text-custom-blue">
             {showEditor ? 'Exit' : 'Edit'}
@@ -119,7 +119,7 @@ const CampaignAuth = ({ imageUrl, projectOwner, projectStory,projectId}) => {
       <div>
         {showEditor && <RichTextEditor initialContent={projectStory} onDone={handleUpdateStory} />}
       </div>
-      <div className="relative  h-[100px] lg:h-[272px] lg:w-[550px]">
+      <div className="relative  h-[100px] lg:h-[272px] ">
         <Image src={imageUrl} className="h-full w-full object-cover" fill alt="story image" />
       </div>
       <div className="text-black-100 font-normal pt-8 leading-[19.5px] lg:text-[15px] text-[13px]">

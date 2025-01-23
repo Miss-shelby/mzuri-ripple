@@ -29,7 +29,7 @@ const ExplorePage = () => {
   return (
     
     <div className='w-full max-w-[1920px] mx-auto min-h-screen px-4   lg:px-[10rem] bg-white'>
-      <h4 className='text-black-100 text-center font-bold text-2xl mt-10 ' >Explore</h4>
+      <h4 className='text-black-100 text-center font-bold text-2xl mt-20 ' >Explore</h4>
       
      {isLoading?<Spinner/> : 
       error? 
